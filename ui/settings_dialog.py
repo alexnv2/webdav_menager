@@ -4,13 +4,12 @@
 import logging
 import os
 import traceback
-from typing import Dict, Any
 
+from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import (QDialog, QVBoxLayout, QTabWidget, QWidget,
                              QFormLayout, QCheckBox, QSpinBox, QLineEdit,
                              QPushButton, QComboBox, QFileDialog, QGroupBox,
                              QHBoxLayout, QMessageBox, QLabel)
-from PyQt5.QtCore import Qt, pyqtSignal
 
 from core.config import ConfigManager
 
@@ -34,7 +33,7 @@ class SettingsDialog(QDialog):
 
         print("DEBUG: Setting window title and size")  # Отладка
         self.setWindowTitle("Настройки")
-        self.resize(600, 600)
+        self.resize(600, 650)
 
         print("DEBUG: Calling _setup_ui")  # Отладка
         self._setup_ui()
@@ -471,7 +470,8 @@ class SettingsDialog(QDialog):
                 QMessageBox.warning(
                     self,
                     "Мастер-ключ не создан",
-                    "Мастер-ключ еще не создан. Он будет создан при первом входе в приложение."
+                    "Мастер-ключ еще не создан. Он будет создан при первом "
+                    "входе в приложение."
                 )
                 return
 
@@ -504,7 +504,8 @@ class SettingsDialog(QDialog):
             QMessageBox.warning(
                 self,
                 "Мастер-ключ не найден",
-                "Мастер-ключ еще не создан. Он будет создан при первом входе в приложение."
+                "Мастер-ключ еще не создан. Он будет создан при первом входе "
+                "в приложение."
             )
             return
 
@@ -546,7 +547,8 @@ class SettingsDialog(QDialog):
                     self,
                     "Ключ восстановлен",
                     "Мастер-ключ успешно восстановлен.\n"
-                    "Приложение будет закрыто. Запустите его снова и войдите с новым паролем."
+                    "Приложение будет закрыто. Запустите его снова и войдите "
+                    "с новым паролем."
                 )
                 # Закрываем приложение после восстановления
                 if self.parent():

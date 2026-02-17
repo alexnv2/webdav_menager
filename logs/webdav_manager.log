@@ -3296,3 +3296,228 @@ webdav3.exceptions.RemoteResourceNotFound: Remote resource: /%D0%9F%D1%80%D0%BE%
 2026-02-17 18:57:06,741 - core.client - INFO - All operations cancelled
 2026-02-17 19:48:39,817 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
 2026-02-17 19:48:44,069 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-17 20:21:12,414 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:21:29,608 - ui.login_dialog - INFO - Login successful
+2026-02-17 20:21:29,619 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-17 20:21:29,632 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:21:29,639 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-17 20:21:29,642 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-17 20:21:29,646 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-17 20:21:29,648 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-17 20:21:29,652 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-17 20:21:29,658 - main - WARNING - Icon not found: lock.png
+2026-02-17 20:21:29,733 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:21:30,838 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-17 20:21:30,844 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:21:30,899 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:21:30,899 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:21:30,998 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:21:31,800 - core.client - INFO - Received 6 items from /
+2026-02-17 20:21:31,801 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:21:31,801 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:21:31,801 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:21:31,982 - core.client - INFO - Received 6 items from /
+2026-02-17 20:21:31,982 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:21:41,181 - core.encryption - INFO - Encryptor initialized with key: default (ID: 0dc993ab)
+2026-02-17 20:21:41,181 - core.encryption - INFO - System: Windows, Storage type: SSD
+2026-02-17 20:21:41,187 - services.secure_transfer - INFO - Secure transfer service initialized with temp dir: C:\Users\grayg\AppData\Local\Temp\webdav_secure_pyqxqkg9
+2026-02-17 20:21:41,187 - services.secure_transfer - INFO - Active key: default (ID: 0dc993ab)
+2026-02-17 20:22:04,244 - ui.main_window - INFO - Opening accounts dialog
+2026-02-17 20:22:09,400 - ui.main_window - INFO - Opening settings dialog
+2026-02-17 20:22:31,465 - services.secure_transfer - INFO - Temporary directory cleaned up: C:\Users\grayg\AppData\Local\Temp\webdav_secure_pyqxqkg9
+2026-02-17 20:22:31,467 - core.client - INFO - All operations cancelled
+2026-02-17 20:27:34,197 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:27:42,553 - ui.login_dialog - INFO - Login successful
+2026-02-17 20:27:42,564 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-17 20:27:42,567 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:27:42,574 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-17 20:27:42,577 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-17 20:27:42,581 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-17 20:27:42,583 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-17 20:27:42,587 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-17 20:27:42,594 - main - WARNING - Icon not found: lock.png
+2026-02-17 20:27:42,624 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:27:43,631 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-17 20:27:43,635 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:27:43,685 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:27:43,686 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:27:43,772 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:27:44,575 - core.client - INFO - Received 6 items from /
+2026-02-17 20:27:44,575 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:27:44,575 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:27:44,576 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:27:44,685 - core.client - INFO - Received 6 items from /
+2026-02-17 20:27:44,721 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:27:46,580 - core.encryption - INFO - Encryptor initialized with key: default (ID: 0dc993ab)
+2026-02-17 20:27:46,580 - core.encryption - INFO - System: Windows, Storage type: SSD
+2026-02-17 20:27:46,584 - services.secure_transfer - INFO - Secure transfer service initialized with temp dir: C:\Users\grayg\AppData\Local\Temp\webdav_secure_l7jwi7oq
+2026-02-17 20:27:46,584 - services.secure_transfer - INFO - Active key: default (ID: 0dc993ab)
+2026-02-17 20:27:49,642 - ui.main_window - INFO - Opening settings dialog
+2026-02-17 20:28:12,542 - services.secure_transfer - INFO - Temporary directory cleaned up: C:\Users\grayg\AppData\Local\Temp\webdav_secure_l7jwi7oq
+2026-02-17 20:28:12,543 - core.client - INFO - All operations cancelled
+2026-02-17 20:37:08,047 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:37:22,401 - ui.login_dialog - INFO - Login successful
+2026-02-17 20:37:22,410 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-17 20:37:22,415 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:37:22,422 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-17 20:37:22,426 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-17 20:37:22,430 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-17 20:37:22,433 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-17 20:37:22,436 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-17 20:37:22,439 - main - WARNING - Icon not found: lock.png
+2026-02-17 20:37:22,463 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:37:23,775 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-17 20:37:23,778 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:37:23,828 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:37:23,828 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:37:23,905 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:37:25,584 - core.client - INFO - Received 6 items from /
+2026-02-17 20:37:25,585 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:37:25,585 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:37:25,585 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:37:40,863 - core.encryption - INFO - Encryptor initialized with key: default (ID: 0dc993ab)
+2026-02-17 20:37:40,863 - core.encryption - INFO - System: Windows, Storage type: SSD
+2026-02-17 20:37:40,868 - services.secure_transfer - INFO - Secure transfer service initialized with temp dir: C:\Users\grayg\AppData\Local\Temp\webdav_secure_3gnnkfko
+2026-02-17 20:37:40,868 - services.secure_transfer - INFO - Active key: default (ID: 0dc993ab)
+2026-02-17 20:37:43,927 - services.secure_transfer - INFO - Temporary directory cleaned up: C:\Users\grayg\AppData\Local\Temp\webdav_secure_3gnnkfko
+2026-02-17 20:37:45,932 - core.client - INFO - All operations cancelled
+2026-02-17 20:39:55,505 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:40:07,711 - ui.login_dialog - INFO - Login successful
+2026-02-17 20:40:07,719 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-17 20:40:07,748 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:40:07,761 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-17 20:40:07,766 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-17 20:40:07,770 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-17 20:40:07,776 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-17 20:40:07,781 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-17 20:40:07,789 - main - WARNING - Icon not found: lock.png
+2026-02-17 20:40:07,820 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:40:08,824 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-17 20:40:08,828 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:40:08,884 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:40:08,885 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:40:08,977 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:40:10,068 - core.client - INFO - Received 6 items from /
+2026-02-17 20:40:10,070 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:40:10,070 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:40:10,217 - core.client - INFO - Received 6 items from /
+2026-02-17 20:40:29,131 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:40:29,132 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:40:39,745 - core.encryption - INFO - Encryptor initialized with key: default (ID: 0dc993ab)
+2026-02-17 20:40:39,745 - core.encryption - INFO - System: Windows, Storage type: SSD
+2026-02-17 20:41:41,028 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:41:51,893 - ui.login_dialog - INFO - Login successful
+2026-02-17 20:41:51,904 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-17 20:41:51,907 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:41:51,913 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-17 20:41:51,917 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-17 20:41:51,921 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-17 20:41:51,923 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-17 20:41:51,927 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-17 20:41:51,932 - main - WARNING - Icon not found: lock.png
+2026-02-17 20:41:51,963 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:41:52,982 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-17 20:41:52,985 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:41:53,036 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:41:53,036 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:41:53,120 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:41:53,975 - core.client - INFO - Received 6 items from /
+2026-02-17 20:41:53,976 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:41:53,976 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:41:53,976 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:41:54,244 - core.client - INFO - Received 6 items from /
+2026-02-17 20:41:54,245 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:41:59,479 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:42:07,525 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:42:12,223 - ui.main_window - INFO - Opening settings dialog
+2026-02-17 20:42:17,992 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-17 20:42:17,995 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:42:19,077 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-17 20:42:19,079 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:42:22,845 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:42:27,202 - ui.main_window - INFO - Opening settings dialog
+2026-02-17 20:42:31,103 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-17 20:42:31,106 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:42:31,999 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-17 20:42:32,001 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:42:37,516 - core.client - INFO - All operations cancelled
+2026-02-17 20:54:48,580 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:54:56,780 - ui.login_dialog - INFO - Login successful
+2026-02-17 20:54:56,790 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-17 20:54:56,797 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:54:56,805 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-17 20:54:56,808 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-17 20:54:56,812 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-17 20:54:56,814 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-17 20:54:56,817 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-17 20:54:56,820 - main - WARNING - Icon not found: lock.png
+2026-02-17 20:54:56,884 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:54:57,966 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-17 20:54:57,972 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:54:58,022 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:54:58,022 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:54:59,098 - core.client - INFO - Received 6 items from /
+2026-02-17 20:54:59,100 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:54:59,100 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:54:59,100 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:55:07,168 - core.client - INFO - All operations cancelled
+2026-02-17 20:55:18,467 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:55:25,914 - ui.login_dialog - INFO - Login successful
+2026-02-17 20:55:25,924 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-17 20:55:25,928 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:55:25,938 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-17 20:55:25,944 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-17 20:55:25,947 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-17 20:55:25,951 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-17 20:55:25,957 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-17 20:55:25,962 - main - WARNING - Icon not found: lock.png
+2026-02-17 20:55:26,004 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:55:27,023 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-17 20:55:27,027 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:55:27,088 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:55:27,088 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:55:28,222 - core.client - INFO - Received 6 items from /
+2026-02-17 20:55:28,223 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:55:28,224 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:55:28,224 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:55:28,366 - core.client - INFO - Received 6 items from /
+2026-02-17 20:55:28,435 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:55:34,066 - core.key_manager - INFO - KeyManager initialized with config dir: C:\Users\grayg\.webdav_manager
+2026-02-17 20:55:39,495 - core.encryption - INFO - Encryptor initialized with key: default (ID: 0dc993ab)
+2026-02-17 20:55:39,495 - core.encryption - INFO - System: Windows, Storage type: SSD
+2026-02-17 20:55:39,500 - services.secure_transfer - INFO - Secure transfer service initialized with temp dir: C:\Users\grayg\AppData\Local\Temp\webdav_secure_qqu2m7gm
+2026-02-17 20:55:39,501 - services.secure_transfer - INFO - Active key: default (ID: 0dc993ab)
+2026-02-17 20:55:43,006 - ui.main_window - INFO - Opening settings dialog
+2026-02-17 20:55:50,245 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-17 20:55:50,248 - services.secure_transfer - INFO - Temporary directory cleaned up: C:\Users\grayg\AppData\Local\Temp\webdav_secure_qqu2m7gm
+2026-02-17 20:55:50,248 - ui.main_window - INFO - Encryption disabled
+2026-02-17 20:55:51,843 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-17 20:55:53,625 - core.client - INFO - All operations cancelled
+2026-02-17 20:56:01,159 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:56:10,502 - ui.login_dialog - INFO - Login successful
+2026-02-17 20:56:10,512 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-17 20:56:10,516 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-17 20:56:10,521 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-17 20:56:10,526 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-17 20:56:10,529 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-17 20:56:10,531 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-17 20:56:10,535 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-17 20:56:10,539 - main - WARNING - Icon not found: lock.png
+2026-02-17 20:56:10,563 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:56:11,937 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-17 20:56:11,940 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-17 20:56:12,003 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:56:12,003 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:56:13,020 - core.client - INFO - Received 6 items from /
+2026-02-17 20:56:13,021 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:56:13,021 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:56:13,021 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:56:13,692 - core.client - INFO - Received 6 items from /
+2026-02-17 20:56:13,693 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:56:57,944 - core.client - INFO - Account set: Резерв Яндекс with timeout=30s
+2026-02-17 20:56:58,733 - services.cloud_info - INFO - Quota: used=5122545680, available=246163440, total=5368709120
+2026-02-17 20:56:58,742 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-17 20:56:58,742 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-17 20:57:00,166 - core.client - INFO - Received 40 items from /
+2026-02-17 20:57:00,167 - ui.main_window - INFO - Directory loaded: /
+2026-02-17 20:57:15,989 - core.client - INFO - All operations cancelled
