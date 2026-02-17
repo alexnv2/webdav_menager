@@ -1,0 +1,32 @@
+{
+  "settings": {
+    "logs_enabled": true,
+    "log_level": "INFO",
+    "log_file": "C:\\Users\\grayg\\PycharmProjects\\WebDAVManager\\config\\log\\webdav_manager.log",
+    "theme": "dark",
+    "auto_connect": true,
+    "confirm_on_exit": true,
+    "cache_ttl": 300,
+    "cache_size": 100,
+    "auto_quota": true,
+    "confirm_dialogs": true,
+    "restore_session": false,
+    "quota_interval": 300,
+    "download_folder": "C:/Users/grayg/Downloads",
+    "temp_folder": "",
+    "clean_temp": false,
+    "auto_create_dirs": true,
+    "language": "ru",
+    "show_hidden": true,
+    "show_system": false,
+    "connection_timeout": 30,
+    "read_timeout": 60,
+    "proxy_enabled": false,
+    "proxy_type": "http",
+    "proxy_host": "",
+    "proxy_port": 8080,
+    "proxy_login": "",
+    "proxy_password": ""
+  },
+  "encryption_key": "QduCvcwXhSn8JBYF69oi_2umL7m1_4XjlGXBPeyKdIA="
+}
