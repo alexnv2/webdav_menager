@@ -2,51 +2,45 @@
 import os
 import logging
 from typing import Optional, List, Dict, Any
+from datetime import datetime
 
 from PyQt5.QtCore import (QAbstractItemModel, QModelIndex, Qt, QThread,
-                          QObject, pyqtSignal, QTimer)
-from PyQt5.QtGui import QIcon, QFont
+                          QObject, pyqtSignal, QTimer, QSortFilterProxyModel,
+                          QDateTime)
+from PyQt5.QtGui import QIcon, QFont, QColor
 from PyQt5.QtWidgets import (QTreeView, QMenu, QAction, QApplication,
                              QStyle, QHeaderView)
 
 from core.client import WebDAVClient
 from core.models import FileInfo
-from utils.helpers import format_size
+from utils.helpers import format_size, format_datetime
 from ui.widgets import PropertiesDialog
 
 logger = logging.getLogger(__name__)
 
 
-class DirectoryLoader(QObject):
-    """Background directory loader."""
+def parse_webdav_date(date_str: str) -> datetime:
+    """Parse WebDAV date format to datetime object."""
+    if not date_str:
+        return datetime.min
 
-    loaded = pyqtSignal(str, list)  # path, files
-    error = pyqtSignal(str, str)  # path, error
+    try:
+        # WebDAV usually returns dates in format: "2024-01-15T14:30:00Z"
+        if 'T' in date_str:
+            # Remove 'Z' and timezone info for parsing
+            date_str = date_str.replace('Z', '+00:00')
+            return datetime.fromisoformat(date_str)
+        else:
+            # Try common formats
+            for fmt in ['%Y-%m-%d %H:%M:%S', '%d.%m.%Y %H:%M', '%Y-%m-%d']:
+                try:
+                    return datetime.strptime(date_str, fmt)
+                except ValueError:
+                    continue
+    except Exception as e:
+        logger.debug(f"Error parsing date '{date_str}': {e}")
 
-    def __init__(self, client: WebDAVClient):
-        super().__init__()
-        self.client = client
-
-    def load_path(self, path: str, force: bool = False):
-        """Load directory contents in background."""
-        logger.info(f"Loading directory: {path} (force={force})")
-        try:
-            if force:
-                files = self.client.list_files_no_cache(path)
-            else:
-                files = self.client.list_files(path)
-
-            # Convert to dict for Qt if they're FileInfo objects
-            if files and hasattr(files[0], 'to_dict'):
-                files_dict = [f.to_dict() for f in files]
-            else:
-                files_dict = files
-
-            self.loaded.emit(path, files_dict)
-
-        except Exception as e:
-            logger.exception(f"Error loading {path}")
-            self.error.emit(path, str(e))
+    return datetime.min
 
 
 class FileSystemItem:
@@ -99,11 +93,107 @@ class FileSystemItem:
         return 0
 
 
+class FileSystemSortFilterProxyModel(QSortFilterProxyModel):
+    """Proxy model for sorting files and folders."""
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setSortCaseSensitivity(Qt.CaseInsensitive)
+        self.setDynamicSortFilter(True)
+        self.setSortRole(Qt.UserRole)
+
+    def lessThan(self, left: QModelIndex, right: QModelIndex) -> bool:
+        """Custom sorting logic."""
+        try:
+            source_model = self.sourceModel()
+
+            # Получаем данные через UserRole для правильной сортировки
+            left_data = source_model.data(left, Qt.UserRole)
+            right_data = source_model.data(right, Qt.UserRole)
+
+            if not left_data or not right_data:
+                return super().lessThan(left, right)
+
+            column = left.column()
+
+            # Специальная сортировка для разных колонок
+            if column == 0:  # Колонка имени - папки всегда сверху
+                left_is_dir = left_data.get('isdir', False)
+                right_is_dir = right_data.get('isdir', False)
+
+                if left_is_dir != right_is_dir:
+                    return left_is_dir  # Папки идут первыми
+
+                # Сортировка по имени
+                left_name = left_data.get('name', '').lower()
+                right_name = right_data.get('name', '').lower()
+                return left_name < right_name
+
+            elif column == 1:  # Колонка размера
+                left_size = left_data.get('size', 0)
+                right_size = right_data.get('size', 0)
+                return left_size < right_size
+
+            elif column == 2:  # Колонка типа
+                left_type = left_data.get('type_name', '').lower()
+                right_type = right_data.get('type_name', '').lower()
+                return left_type < right_type
+
+            elif column == 3:  # Колонка даты изменения
+                left_date = left_data.get('datetime', datetime.min)
+                right_date = right_data.get('datetime', datetime.min)
+                return left_date < right_date
+
+            return super().lessThan(left, right)
+
+        except Exception as e:
+            logger.error(f"Error in sort comparison: {e}")
+            return False
+
+
+class DirectoryLoader(QObject):
+    """Background directory loader."""
+
+    loaded = pyqtSignal(str, list)  # path, files
+    error = pyqtSignal(str, str)  # path, error
+
+    def __init__(self, client: WebDAVClient):
+        super().__init__()
+        self.client = client
+
+    def load_path(self, path: str, force: bool = False):
+        """Load directory contents in background."""
+        logger.info(f"Loading directory: {path} (force={force})")
+        try:
+            if force:
+                files = self.client.list_files_no_cache(path)
+            else:
+                files = self.client.list_files(path)
+
+            # Convert to dict for Qt if they're FileInfo objects
+            if files and hasattr(files[0], 'to_dict'):
+                files_dict = [f.to_dict() for f in files]
+            else:
+                files_dict = files
+
+            self.loaded.emit(path, files_dict)
+
+        except Exception as e:
+            logger.exception(f"Error loading {path}")
+            self.error.emit(path, str(e))
+
+
 class FileBrowserModel(QAbstractItemModel):
     """Model for file browser tree view."""
 
     requestLoad = pyqtSignal(str, bool)  # path, force
     directoryLoaded = pyqtSignal(str)
+
+    # Константы для колонок
+    COLUMN_NAME = 0
+    COLUMN_SIZE = 1
+    COLUMN_TYPE = 2
+    COLUMN_MODIFIED = 3
 
     def __init__(self, client: WebDAVClient):
         super().__init__()
@@ -118,12 +208,12 @@ class FileBrowserModel(QAbstractItemModel):
         self._loader = DirectoryLoader(client)
         self._loader.moveToThread(self._loader_thread)
 
-        # Connect signals - ИСПРАВЛЕНО: используем правильные имена методов
+        # Connect signals
         self.requestLoad.connect(self._loader.load_path, Qt.QueuedConnection)
         self._loader.loaded.connect(self.on_directory_loaded,
-                                    Qt.QueuedConnection)  # Было _on_directory_loaded
+                                    Qt.QueuedConnection)
         self._loader.error.connect(self.on_directory_error,
-                                   Qt.QueuedConnection)  # Было _on_directory_error
+                                   Qt.QueuedConnection)
 
         self._loader_thread.start()
 
@@ -242,17 +332,33 @@ class FileBrowserModel(QAbstractItemModel):
         info = item.file_info
 
         try:
-            if role == Qt.DisplayRole:
-                if col == 0:
-                    return info.name
-                elif col == 1:
-                    return "" if info.isdir else format_size(info.size)
-                elif col == 2:
-                    return info.type_name
-                elif col == 3:
-                    return info.modified
+            # Парсим дату для сортировки
+            dt = parse_webdav_date(info.modified)
 
-            elif role == Qt.DecorationRole and col == 0:
+            # UserRole - возвращаем полный словарь для сортировки
+            if role == Qt.UserRole:
+                return {
+                    'name': info.name,
+                    'isdir': info.isdir,
+                    'size': info.size,
+                    'type_name': info.type_name,
+                    'modified': info.modified,
+                    'datetime': dt,  # Добавляем datetime объект для сортировки
+                    'path': info.path
+                }
+
+            if role == Qt.DisplayRole:
+                if col == self.COLUMN_NAME:
+                    return info.name
+                elif col == self.COLUMN_SIZE:
+                    return "" if info.isdir else format_size(info.size)
+                elif col == self.COLUMN_TYPE:
+                    return info.type_name
+                elif col == self.COLUMN_MODIFIED:
+                    # Форматируем дату в нужный формат
+                    return format_datetime(info.modified)
+
+            elif role == Qt.DecorationRole and col == self.COLUMN_NAME:
                 style = QApplication.style()
                 if info.isdir:
                     if info.islink:
@@ -263,10 +369,32 @@ class FileBrowserModel(QAbstractItemModel):
                         return style.standardIcon(QStyle.SP_FileLinkIcon)
                     return style.standardIcon(QStyle.SP_FileIcon)
 
-            elif role == Qt.FontRole and col == 0 and info.isdir:
+            elif role == Qt.FontRole and col == self.COLUMN_NAME and info.isdir:
                 font = QFont()
                 font.setBold(True)
                 return font
+
+            elif role == Qt.ForegroundRole:
+                # Разные цвета для разных типов
+                if info.isdir:
+                    return QColor(0, 100, 200)  # Синий для папок
+                elif info.islink:
+                    return QColor(150, 150, 150)  # Серый для ссылок
+
+            elif role == Qt.TextAlignmentRole:
+                # Выравнивание для колонки размера
+                if col == self.COLUMN_SIZE:
+                    return Qt.AlignRight | Qt.AlignVCenter
+
+            elif role == Qt.ToolTipRole:
+                # Подсказка с полной информацией
+                if col == self.COLUMN_NAME:
+                    if info.isdir:
+                        return f"Папка: {info.name}\nПуть: {info.path}"
+                    else:
+                        size = format_size(info.size)
+                        modified = format_datetime(info.modified)
+                        return f"Файл: {info.name}\nРазмер: {size}\nТип: {info.type_name}\nИзменён: {modified}"
 
         except Exception as e:
             logger.exception(f"Error getting data: {e}")
@@ -276,9 +404,13 @@ class FileBrowserModel(QAbstractItemModel):
     def headerData(self, section: int, orientation: Qt.Orientation,
                    role: int = Qt.DisplayRole) -> Any:
         """Get header data."""
-        if orientation == Qt.Horizontal and role == Qt.DisplayRole:
-            headers = ["Имя", "Размер", "Тип", "Дата изменения"]
-            return headers[section] if section < len(headers) else None
+        if orientation == Qt.Horizontal:
+            if role == Qt.DisplayRole:
+                headers = ["Имя", "Размер", "Тип", "Дата изменения"]
+                return headers[section] if section < len(headers) else None
+            elif role == Qt.TextAlignmentRole:
+                if section == self.COLUMN_SIZE:
+                    return Qt.AlignRight | Qt.AlignVCenter
         return None
 
     def _get_item(self, index: QModelIndex) -> Optional[FileSystemItem]:
@@ -298,7 +430,7 @@ class FileBrowserModel(QAbstractItemModel):
 
 
 class FileBrowserView(QTreeView):
-    """Tree view for file browser."""
+    """Tree view for file browser with sorting support."""
 
     # Signals
     downloadRequested = pyqtSignal(dict)
@@ -313,7 +445,17 @@ class FileBrowserView(QTreeView):
 
     def __init__(self, model: FileBrowserModel, parent=None):
         super().__init__(parent)
-        self.setModel(model)
+
+        # Сохраняем исходную модель
+        self.source_model = model
+
+        # Создаем прокси-модель для сортировки
+        self.proxy_model = FileSystemSortFilterProxyModel(self)
+        self.proxy_model.setSourceModel(model)
+
+        # Устанавливаем прокси-модель
+        self.setModel(self.proxy_model)
+
         self._setup_ui()
         self._connect_signals()
 
@@ -323,7 +465,17 @@ class FileBrowserView(QTreeView):
         self.setAlternatingRowColors(True)
         self.setExpandsOnDoubleClick(False)
         self.setSelectionBehavior(QTreeView.SelectRows)
+
+        # Включаем сортировку
         self.setSortingEnabled(True)
+
+        # Настраиваем заголовок
+        header = self.header()
+        header.setStretchLastSection(True)
+        header.setSectionsMovable(True)
+        header.setSortIndicatorShown(True)
+        header.setSortIndicator(0,
+                                Qt.AscendingOrder)  # Сортировка по имени по умолчанию
 
         # Set column widths
         self.setColumnWidth(0, 250)  # Name
@@ -339,6 +491,15 @@ class FileBrowserView(QTreeView):
         """Connect internal signals."""
         self.doubleClicked.connect(self._on_double_clicked)
 
+        # Подключаем сигнал сортировки
+        header = self.header()
+        header.sortIndicatorChanged.connect(self._on_sort_indicator_changed)
+
+    def _on_sort_indicator_changed(self, logical_index: int,
+                                   order: Qt.SortOrder):
+        """Handle sort indicator change."""
+        logger.debug(f"Sort changed: column {logical_index}, order {order}")
+
     def set_theme(self, theme: str):
         """Apply theme stylesheet."""
         self.setStyleSheet(self._get_theme_style(theme))
@@ -353,7 +514,11 @@ class FileBrowserView(QTreeView):
                     color: #ffffff;
                 }
                 QTreeView::item:selected {
-                    background-color: #0066cc;
+                    background-color: #3399ff;
+                    color: white;
+                }
+                QTreeView::item:selected:focus {
+                    background-color: #66b3ff;
                 }
                 QTreeView::item:hover {
                     background-color: #404040;
@@ -364,6 +529,9 @@ class FileBrowserView(QTreeView):
                     border: 1px solid #555555;
                     padding: 4px;
                 }
+                QHeaderView::section:checked {
+                    background-color: #505050;
+                }
             """
         else:  # light theme
             return """
@@ -373,8 +541,11 @@ class FileBrowserView(QTreeView):
                     color: #000000;
                 }
                 QTreeView::item:selected {
-                    background-color: #3399ff;
-                    color: #ffffff;
+                    background-color: #99ccff;
+                    color: black;
+                }
+                QTreeView::item:selected:focus {
+                    background-color: #b3d9ff;
                 }
                 QTreeView::item:hover {
                     background-color: #e0e0e0;
@@ -385,78 +556,117 @@ class FileBrowserView(QTreeView):
                     border: 1px solid #a0a0a0;
                     padding: 4px;
                 }
+                QHeaderView::section:checked {
+                    background-color: #e0e0e0;
+                }
             """
 
     def _show_context_menu(self, position):
         """Show context menu at position."""
-        index = self.indexAt(position)
-        if not index.isValid():
-            return
+        try:
+            proxy_index = self.indexAt(position)
+            if not proxy_index.isValid():
+                return
 
-        item = self.model().file_info(index)
-        if not item:
-            return
+            # Конвертируем в индекс исходной модели
+            source_index = self.proxy_model.mapToSource(proxy_index)
+            item = self.source_model.file_info(source_index)
 
-        menu = QMenu(self)
+            if not item:
+                return
 
-        # Add actions based on item type
-        if not item['isdir']:
-            download_action = menu.addAction("Скачать")
-            download_action.triggered.connect(
-                lambda: self.downloadRequested.emit(item)
+            menu = QMenu(self)
+
+            # Add actions based on item type
+            if not item['isdir']:
+                download_action = menu.addAction("Скачать")
+                download_action.triggered.connect(
+                    lambda checked, i=item: self.downloadRequested.emit(i)
+                )
+
+            if item['isdir']:
+                upload_action = menu.addAction("Загрузить сюда")
+                upload_action.triggered.connect(
+                    lambda checked, i=item: self.uploadRequested.emit(i)
+                )
+
+            menu.addSeparator()
+
+            copy_action = menu.addAction("Копировать")
+            copy_action.triggered.connect(
+                lambda checked, i=item: self.copyRequested.emit(i)
             )
 
-        if item['isdir']:
-            upload_action = menu.addAction("Загрузить сюда")
-            upload_action.triggered.connect(
-                lambda: self.uploadRequested.emit(item)
+            cut_action = menu.addAction("Вырезать")
+            cut_action.triggered.connect(
+                lambda checked, i=item: self.cutRequested.emit(i)
             )
 
-        menu.addSeparator()
+            paste_action = menu.addAction("Вставить")
+            paste_action.triggered.connect(
+                lambda checked, i=item: self.pasteRequested.emit(i)
+            )
 
-        copy_action = menu.addAction("Копировать")
-        copy_action.triggered.connect(
-            lambda: self.copyRequested.emit(item)
-        )
+            menu.addSeparator()
 
-        cut_action = menu.addAction("Вырезать")
-        cut_action.triggered.connect(
-            lambda: self.cutRequested.emit(item)
-        )
+            rename_action = menu.addAction("Переименовать")
+            rename_action.triggered.connect(
+                lambda checked, i=item: self.renameRequested.emit(i)
+            )
 
-        paste_action = menu.addAction("Вставить")
-        paste_action.triggered.connect(
-            lambda: self.pasteRequested.emit(item)
-        )
+            delete_action = menu.addAction("Удалить")
+            delete_action.triggered.connect(
+                lambda checked, i=item: self.deleteRequested.emit(i)
+            )
 
-        menu.addSeparator()
+            menu.addSeparator()
 
-        rename_action = menu.addAction("Переименовать")
-        rename_action.triggered.connect(
-            lambda: self.renameRequested.emit(item)
-        )
+            properties_action = menu.addAction("Свойства")
+            properties_action.triggered.connect(
+                lambda checked, i=item: self.propertiesRequested.emit(i)
+            )
 
-        delete_action = menu.addAction("Удалить")
-        delete_action.triggered.connect(
-            lambda: self.deleteRequested.emit(item)
-        )
+            menu.exec_(self.viewport().mapToGlobal(position))
 
-        menu.addSeparator()
+        except Exception as e:
+            logger.error(f"Error showing context menu: {e}")
 
-        properties_action = menu.addAction("Свойства")
-        properties_action.triggered.connect(
-            lambda: self.propertiesRequested.emit(item)
-        )
-
-        menu.exec_(self.viewport().mapToGlobal(position))
-
-    def _on_double_clicked(self, index: QModelIndex):
+    def _on_double_clicked(self, proxy_index: QModelIndex):
         """Handle double click."""
-        item = self.model().file_info(index)
-        if not item:
-            return
+        try:
+            # Конвертируем в индекс исходной модели
+            source_index = self.proxy_model.mapToSource(proxy_index)
+            item = self.source_model.file_info(source_index)
 
-        if item['isdir']:
-            self.directoryChanged.emit(item['path'])
-        else:
-            self.downloadRequested.emit(item)
+            if not item:
+                return
+
+            if item['isdir']:
+                self.directoryChanged.emit(item['path'])
+            else:
+                self.downloadRequested.emit(item)
+
+        except Exception as e:
+            logger.error(f"Error handling double click: {e}")
+
+    def set_root(self, path: str):
+        """Set root directory."""
+        self.source_model.set_root(path)
+
+    def refresh(self):
+        """Refresh current directory."""
+        self.source_model.refresh()
+
+    def selected_items(self) -> List[Dict]:
+        """Get list of selected items."""
+        items = []
+        try:
+            for proxy_index in self.selectedIndexes():
+                if proxy_index.column() == 0:  # Только одна запись на строку
+                    source_index = self.proxy_model.mapToSource(proxy_index)
+                    item = self.source_model.file_info(source_index)
+                    if item:
+                        items.append(item)
+        except Exception as e:
+            logger.error(f"Error getting selected items: {e}")
+        return items
