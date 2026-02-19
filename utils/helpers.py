@@ -1,11 +1,35 @@
-# utils/helpers.py
+# utils/helpers.py (исправленный)
 import os
 import logging
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Union
 
-# Создаем свой логгер вместо импорта из main
 logger = logging.getLogger(__name__)
+
+
+def parse_webdav_date(date_str: str) -> datetime:
+    """Parse WebDAV date format to datetime object."""
+    if not date_str:
+        return datetime.min
+
+    try:
+        # WebDAV usually returns dates in format: "2024-01-15T14:30:00Z"
+        if 'T' in date_str:
+            # Remove 'Z' and timezone info for parsing
+            date_str = date_str.replace('Z', '+00:00')
+            return datetime.fromisoformat(date_str)
+        else:
+            # Try common formats
+            for fmt in ['%Y-%m-%d %H:%M:%S', '%d.%m.%Y %H:%M', '%Y-%m-%d',
+                        '%a, %d %b %Y %H:%M:%S %Z', '%Y%m%dT%H%M%S']:
+                try:
+                    return datetime.strptime(date_str, fmt)
+                except ValueError:
+                    continue
+    except Exception as e:
+        logger.debug(f"Error parsing date '{date_str}': {e}")
+
+    return datetime.min
 
 
 def format_size(size: int) -> str:
@@ -20,30 +44,37 @@ def format_size(size: int) -> str:
         return f"{size / (1024 * 1024 * 1024):.1f} GB"
 
 
-def format_datetime(dt_str: str) -> str:
-    """Format datetime string for display in DD.MM.YYYY HH:MM format."""
-    if not dt_str:
+def format_datetime(dt_input: Union[str, datetime, None]) -> str:
+    """
+    Format datetime for display in DD.MM.YYYY HH:MM format.
+
+    Args:
+        dt_input: datetime object or string
+
+    Returns:
+        Formatted date string or empty string if input is invalid
+    """
+    if dt_input is None:
         return ""
 
     try:
-        # WebDAV usually returns dates in format: "2024-01-15T14:30:00Z"
-        if 'T' in dt_str:
-            # Remove 'Z' and parse
-            dt_str = dt_str.replace('Z', '+00:00')
-            dt = datetime.fromisoformat(dt_str)
-            return dt.strftime("%d.%m.%Y %H:%M")
+        # If it's already a datetime object
+        if isinstance(dt_input, datetime):
+            dt = dt_input
         else:
-            # Try common formats
-            for fmt in ['%Y-%m-%d %H:%M:%S', '%d.%m.%Y %H:%M', '%Y-%m-%d']:
-                try:
-                    dt = datetime.strptime(dt_str, fmt)
-                    return dt.strftime("%d.%m.%Y %H:%M")
-                except ValueError:
-                    continue
-    except Exception as e:
-        logger.debug(f"Error formatting date '{dt_str}': {e}")
+            # Parse string to datetime
+            dt = parse_webdav_date(dt_input)
 
-    return dt_str[:16]  # Return truncated original if parsing fails
+        if dt and dt != datetime.min:
+            return dt.strftime("%d.%m.%Y %H:%M")
+
+    except Exception as e:
+        logger.debug(f"Error formatting date: {e}")
+
+    # Return original if parsing fails, but truncate if too long
+    if isinstance(dt_input, str):
+        return dt_input[:16] if len(dt_input) > 16 else dt_input
+    return str(dt_input)[:16]
 
 
 def normalize_path(path: str) -> str:
@@ -53,6 +84,10 @@ def normalize_path(path: str) -> str:
 
     # Replace backslashes with forward slashes
     path = path.replace('\\', '/')
+
+    # Remove duplicate slashes
+    while '//' in path:
+        path = path.replace('//', '/')
 
     # Ensure it starts with /
     if not path.startswith('/'):
@@ -97,3 +132,24 @@ def format_error(error: Exception) -> str:
     if hasattr(error, 'response') and hasattr(error.response, 'status_code'):
         return f"HTTP {error.response.status_code}: {str(error)}"
     return str(error)
+
+
+def get_file_extension(filename: str) -> str:
+    """Get file extension without dot."""
+    if '.' in filename:
+        return filename.rsplit('.', 1)[-1].lower()
+    return ""
+
+
+def is_hidden_file(filename: str) -> bool:
+    """Check if file is hidden."""
+    return filename.startswith('.')
+
+
+def truncate_filename(filename: str, max_length: int = 50) -> str:
+    """Truncate filename if too long."""
+    if len(filename) <= max_length:
+        return filename
+
+    half = (max_length - 3) // 2
+    return f"{filename[:half]}...{filename[-half:]}"

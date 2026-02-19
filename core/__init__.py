@@ -4,6 +4,7 @@
 from core.client import WebDAVClient
 from core.config import ConfigManager
 from core.cache import Cache
+from core.master_key import MasterKeyManager
 from core.models import FileInfo, Account
 from core.encryption import FileEncryptor, EncryptionKey
 from core.key_manager import KeyManager

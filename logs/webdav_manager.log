@@ -3521,3 +3521,1262 @@ webdav3.exceptions.RemoteResourceNotFound: Remote resource: /%D0%9F%D1%80%D0%BE%
 2026-02-17 20:57:00,166 - core.client - INFO - Received 40 items from /
 2026-02-17 20:57:00,167 - ui.main_window - INFO - Directory loaded: /
 2026-02-17 20:57:15,989 - core.client - INFO - All operations cancelled
+2026-02-19 10:54:24,836 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 10:54:34,051 - ui.login_dialog - INFO - Login successful
+2026-02-19 10:54:34,057 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 10:54:34,059 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 10:54:34,064 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 10:54:34,065 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 10:54:34,066 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 10:54:34,068 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 10:54:34,070 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 10:54:34,072 - main - WARNING - Icon not found: lock.png
+2026-02-19 10:54:34,092 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 10:54:34,749 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-19 10:54:34,752 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 10:54:34,792 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 10:54:34,792 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 10:54:35,472 - core.client - INFO - Received 6 items from /
+2026-02-19 10:54:35,473 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 10:54:35,473 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 10:54:35,474 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 10:54:35,605 - core.client - INFO - Received 6 items from /
+2026-02-19 10:54:35,606 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:05,643 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:04:21,480 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:04:21,491 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:04:21,494 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:04:21,502 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:04:21,505 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:04:21,509 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:04:21,511 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:04:21,514 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:04:21,518 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:04:21,580 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:21,581 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:04:21,590 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:04:21,591 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:21,603 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:22,387 - core.client - INFO - Received 6 items from /
+2026-02-19 11:04:22,440 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-19 11:04:22,445 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:04:22,447 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:22,448 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:22,492 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:04:22,494 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:22,496 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,110 - core.client - INFO - Received 6 items from /
+2026-02-19 11:04:23,110 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,110 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,111 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,111 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,111 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,112 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,112 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,112 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,112 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,113 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,113 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,114 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:04:23,114 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:04:23,116 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:23,129 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,130 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,130 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,131 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,131 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,132 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,132 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,133 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,133 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,134 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,134 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,259 - core.client - INFO - Received 6 items from /
+2026-02-19 11:04:23,260 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:04:23,260 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:23,261 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:23,388 - core.client - INFO - Received 6 items from /
+2026-02-19 11:04:23,390 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:31,123 - ui.main_window - INFO - Opening accounts dialog
+2026-02-19 11:04:34,557 - ui.accounts_dialog - INFO - Saved 4 accounts
+2026-02-19 11:04:34,565 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:04:34,666 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:04:34,666 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:35,257 - core.client - INFO - Received 6 items from /
+2026-02-19 11:04:35,258 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:39,730 - core.client - INFO - Account set: Резервная with timeout=30s
+2026-02-19 11:04:40,258 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-19 11:04:40,265 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:04:40,265 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:40,910 - core.client - INFO - Received 16 items from /
+2026-02-19 11:04:40,913 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:04:44,518 - ui.file_browser - INFO - Loading directory: /Учебники (force=False)
+2026-02-19 11:04:44,519 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:45,277 - core.client - INFO - Received 33 items from /Учебники
+2026-02-19 11:04:45,278 - ui.file_browser - INFO - Loading directory: /Учебники (force=True)
+2026-02-19 11:04:45,278 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:45,282 - ui.main_window - INFO - Directory loaded: /Учебники
+2026-02-19 11:04:46,061 - core.client - INFO - Received 33 items from /Учебники
+2026-02-19 11:04:46,063 - ui.main_window - INFO - Directory loaded: /Учебники
+2026-02-19 11:04:50,692 - ui.file_browser - INFO - Loading directory: /фото (force=False)
+2026-02-19 11:04:50,694 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:51,734 - core.client - INFO - Received 18 items from /фото
+2026-02-19 11:04:51,735 - ui.file_browser - INFO - Loading directory: /фото (force=False)
+2026-02-19 11:04:51,736 - ui.file_browser - INFO - Loading directory: /фото (force=False)
+2026-02-19 11:04:51,738 - ui.file_browser - INFO - Loading directory: /фото (force=False)
+2026-02-19 11:04:51,738 - ui.main_window - INFO - Directory loaded: /фото
+2026-02-19 11:04:51,740 - ui.main_window - INFO - Directory loaded: /фото
+2026-02-19 11:04:51,742 - ui.main_window - INFO - Directory loaded: /фото
+2026-02-19 11:04:51,782 - ui.main_window - INFO - Directory loaded: /фото
+2026-02-19 11:04:58,527 - ui.file_browser - INFO - Loading directory: /фото (force=False)
+2026-02-19 11:04:58,529 - ui.main_window - INFO - Directory loaded: /фото
+2026-02-19 11:04:58,626 - ui.file_browser - INFO - Loading directory: /фото (force=True)
+2026-02-19 11:04:58,627 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:04:59,403 - core.client - INFO - Received 18 items from /фото
+2026-02-19 11:04:59,405 - ui.main_window - INFO - Directory loaded: /фото
+2026-02-19 11:08:33,228 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:08:59,041 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:08:59,046 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:08:59,047 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:08:59,051 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:08:59,053 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:08:59,055 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:08:59,057 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:08:59,059 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:08:59,062 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:08:59,081 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:08:59,081 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:08:59,083 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:08:59,085 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:08:59,087 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:08:59,790 - core.client - INFO - Received 6 items from /
+2026-02-19 11:09:00,243 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-19 11:09:00,247 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:09:00,260 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,283 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:09:00,286 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:09:00,286 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,288 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,813 - core.client - INFO - Received 6 items from /
+2026-02-19 11:09:00,814 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,814 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,814 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,815 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,817 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,817 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,817 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,817 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,817 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,818 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,818 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,818 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,819 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,819 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:09:00,819 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:09:00,820 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:09:00,820 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,833 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,833 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,834 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,834 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,835 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,835 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,836 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,836 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:00,913 - core.client - INFO - Received 6 items from /
+2026-02-19 11:09:00,913 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:09:00,913 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:09:00,915 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:01,001 - core.client - INFO - Received 6 items from /
+2026-02-19 11:09:01,002 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:09:03,972 - core.client - INFO - Account set: Резервная with timeout=30s
+2026-02-19 11:09:04,482 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-19 11:09:04,487 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:09:04,487 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:09:05,082 - core.client - INFO - Received 16 items from /
+2026-02-19 11:09:05,085 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:36,951 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:11:52,931 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:11:52,938 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:11:52,940 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:11:52,944 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:11:52,945 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:11:52,947 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:11:52,948 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:11:52,951 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:11:52,955 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:11:52,973 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:52,973 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:11:52,976 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:52,976 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:11:52,977 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:11:53,664 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-19 11:11:53,667 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:11:53,672 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:53,680 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:11:53,708 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:11:53,708 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:53,708 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:11:53,709 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,395 - core.client - INFO - Received 6 items from /
+2026-02-19 11:11:54,395 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,396 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,396 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,396 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,397 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,397 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,398 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,399 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,399 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,400 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,400 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,400 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,401 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,401 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,401 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:11:54,402 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:11:54,402 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,403 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:11:54,482 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,483 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,484 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,484 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,485 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,485 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,486 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,537 - core.client - INFO - Received 6 items from /
+2026-02-19 11:11:54,538 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:11:54,538 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:11:54,539 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:54,642 - core.client - INFO - Received 6 items from /
+2026-02-19 11:11:54,643 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:11:58,820 - ui.main_window - INFO - Opening settings dialog
+2026-02-19 11:12:03,626 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-19 11:12:04,881 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-19 11:12:10,352 - core.client - INFO - All operations cancelled
+2026-02-19 11:12:16,608 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:12:28,690 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:16:34,272 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:16:43,671 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:16:43,676 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:16:43,677 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:16:43,680 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:16:43,681 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:16:43,683 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:16:43,684 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:16:43,686 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:16:43,689 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:16:43,710 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:43,710 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:16:43,712 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:16:43,714 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:43,716 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:16:44,631 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-19 11:16:44,634 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:16:44,678 - core.client - INFO - Received 6 items from /
+2026-02-19 11:16:44,678 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,679 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,679 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:16:44,679 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,680 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,680 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,680 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,680 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,681 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,681 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,681 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,682 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,682 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,683 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:16:44,683 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:16:44,683 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:16:44,718 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,719 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,720 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,721 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,722 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,722 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,723 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,723 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,724 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,725 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,725 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,726 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:44,726 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:45,328 - core.client - INFO - Received 6 items from /
+2026-02-19 11:16:45,329 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:16:45,329 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:16:45,329 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:45,510 - core.client - INFO - Received 6 items from /
+2026-02-19 11:16:45,511 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:16:53,752 - core.client - INFO - All operations cancelled
+2026-02-19 11:16:59,032 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:17:04,295 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:19:14,695 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:19:17,531 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:21:42,664 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:21:51,214 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:21:51,220 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:21:51,222 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:21:51,225 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:21:51,226 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:21:51,228 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:21:51,229 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:21:51,232 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:21:51,235 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:21:51,254 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,254 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:21:51,257 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:21:51,258 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,260 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:21:51,934 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-19 11:21:51,937 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:21:51,980 - core.client - INFO - Received 6 items from /
+2026-02-19 11:21:51,980 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,981 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,981 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,981 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,981 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,982 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:21:51,982 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,982 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:51,983 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,983 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,983 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,984 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,984 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,985 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:21:51,985 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:21:51,985 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:21:52,034 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,034 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,035 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,036 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,036 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,037 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,037 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,038 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,038 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,039 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,039 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,040 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,040 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,585 - core.client - INFO - Received 6 items from /
+2026-02-19 11:21:52,586 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:21:52,586 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:21:52,587 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:52,746 - core.client - INFO - Received 6 items from /
+2026-02-19 11:21:52,747 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:21:56,607 - ui.main_window - INFO - Opening settings dialog
+2026-02-19 11:22:03,731 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-19 11:22:16,797 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-19 11:23:19,466 - core.client - INFO - All operations cancelled
+2026-02-19 11:25:20,080 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:25:20,102 - ui.login_dialog - INFO - settings.json not found, using light theme
+2026-02-19 11:25:20,111 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:25:26,507 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:29:13,500 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:29:13,523 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.json
+2026-02-19 11:29:13,524 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: light
+2026-02-19 11:29:13,532 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:29:26,058 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:29:26,068 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:29:26,070 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:29:26,074 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:29:26,075 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:29:26,077 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:29:26,079 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:29:26,081 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:29:26,084 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:29:26,101 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,102 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:29:26,103 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:29:26,104 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,107 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:29:26,785 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-19 11:29:26,788 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:29:26,833 - core.client - INFO - Received 6 items from /
+2026-02-19 11:29:26,834 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,834 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,834 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:29:26,835 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,835 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,835 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,835 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,836 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,836 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,836 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,837 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,837 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,837 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,838 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:26,838 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:29:26,838 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:29:26,873 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,874 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,875 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,875 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,876 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,877 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,877 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,878 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,878 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,879 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,880 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,881 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:26,882 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:27,371 - core.client - INFO - Received 6 items from /
+2026-02-19 11:29:27,372 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:29:27,372 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:29:27,373 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:27,466 - core.client - INFO - Received 6 items from /
+2026-02-19 11:29:27,467 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:31,084 - ui.main_window - INFO - Opening settings dialog
+2026-02-19 11:29:37,952 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-19 11:29:39,055 - ui.settings_dialog - INFO - Settings saved successfully
+2026-02-19 11:29:42,734 - core.client - INFO - All operations cancelled
+2026-02-19 11:29:47,949 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:29:47,971 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.json
+2026-02-19 11:29:47,972 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: light
+2026-02-19 11:29:47,980 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:29:56,140 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:29:56,145 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:29:56,147 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:29:56,152 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:29:56,154 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:29:56,156 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:29:56,158 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:29:56,161 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:29:56,164 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:29:56,181 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,182 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:29:56,184 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:29:56,186 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,188 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:29:56,838 - services.cloud_info - INFO - Quota: used=699385886, available=7890548706, total=8589934592
+2026-02-19 11:29:56,840 - core.client - INFO - Account set: Рабочая with timeout=30s
+2026-02-19 11:29:56,882 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:29:56,882 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,900 - core.client - INFO - Received 6 items from /
+2026-02-19 11:29:56,901 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,901 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,902 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,902 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,902 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,902 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,903 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,903 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,903 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,903 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,903 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,904 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:29:56,904 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:29:56,904 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:29:56,923 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,924 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,924 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,925 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,926 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,927 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,928 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,928 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,929 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,930 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,930 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,931 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:56,931 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:57,525 - core.client - INFO - Received 6 items from /
+2026-02-19 11:29:57,526 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-19 11:29:57,526 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-19 11:29:57,528 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:29:57,639 - core.client - INFO - Received 6 items from /
+2026-02-19 11:29:57,640 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:30:05,946 - core.client - INFO - All operations cancelled
+2026-02-19 11:30:50,998 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:30:51,136 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.json
+2026-02-19 11:30:51,137 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: light
+2026-02-19 11:30:51,146 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:30:54,002 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:33:02,715 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:33:02,736 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.json
+2026-02-19 11:33:02,737 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: light
+2026-02-19 11:33:02,744 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:33:08,981 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:33:39,602 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:33:39,624 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.json
+2026-02-19 11:33:39,624 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: light
+2026-02-19 11:33:39,633 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:33:42,238 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:35:17,558 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:35:17,579 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\./config\settings.json
+2026-02-19 11:35:17,580 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\./config\settings.json: light
+2026-02-19 11:35:17,587 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:35:29,687 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:35:38,211 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:35:38,233 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\.\config\settings.json
+2026-02-19 11:35:38,233 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\.\config\settings.json: light
+2026-02-19 11:35:38,242 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:35:42,712 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:35:59,561 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:36:40,940 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:36:40,965 - ui.login_dialog - INFO - Looking for settings at: C:/config\settings.json
+2026-02-19 11:36:40,966 - ui.login_dialog - WARNING - settings.json not found at C:/config\settings.json, using light theme
+2026-02-19 11:36:40,966 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json: light
+2026-02-19 11:36:40,974 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:36:45,395 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:36:49,196 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:37:08,855 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:37:26,721 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:37:31,856 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\../config\settings.json
+2026-02-19 11:37:44,532 - ui.login_dialog - WARNING - settings.json not found at C:\Users\grayg\PycharmProjects\../config\settings.json, using light theme
+2026-02-19 11:37:54,131 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json: light
+2026-02-19 11:44:33,802 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:44:33,824 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.jason
+2026-02-19 11:44:33,824 - ui.login_dialog - WARNING - settings.jason not found at C:\Users\grayg\PycharmProjects\config\settings.jason, using light theme
+2026-02-19 11:44:33,825 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: light
+2026-02-19 11:44:33,833 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:44:48,436 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:46:01,859 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:46:17,736 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.jason
+2026-02-19 11:46:24,200 - ui.login_dialog - WARNING - settings.jason not found at C:\Users\grayg\PycharmProjects\config\settings.jason, using light theme
+2026-02-19 11:47:40,523 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:47:40,666 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.jason
+2026-02-19 11:47:40,666 - ui.login_dialog - WARNING - settings.jason not found at C:\Users\grayg\PycharmProjects\config\settings.jason, using light theme
+2026-02-19 11:47:40,667 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: dark
+2026-02-19 11:47:40,738 - ui.login_dialog - INFO - Applied dark theme to login dialog
+2026-02-19 11:47:47,019 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:48:35,066 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:48:35,088 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.jason
+2026-02-19 11:48:35,088 - ui.login_dialog - WARNING - settings.jason not found at C:\Users\grayg\PycharmProjects\config\settings.jason, using light theme
+2026-02-19 11:49:04,254 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:49:04,280 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.jason
+2026-02-19 11:49:04,280 - ui.login_dialog - WARNING - settings.jason not found at C:\Users\grayg\PycharmProjects\config\settings.jason, using light theme
+2026-02-19 11:49:04,281 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: None
+2026-02-19 11:49:04,306 - ui.login_dialog - INFO - Applied light theme to login dialog
+2026-02-19 11:49:12,277 - __main__ - INFO - Login cancelled or failed, exiting application
+2026-02-19 11:49:38,102 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:49:38,124 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.jason
+2026-02-19 11:49:38,124 - ui.login_dialog - WARNING - settings.jason not found at C:\Users\grayg\PycharmProjects\config\settings.jason, using light theme
+2026-02-19 11:49:38,125 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: dark
+2026-02-19 11:49:38,133 - ui.login_dialog - INFO - Applied dark theme to login dialog
+2026-02-19 11:49:53,905 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:49:53,911 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:49:53,920 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:49:53,925 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:49:53,927 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:49:53,928 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:49:53,930 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:49:53,933 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:49:53,935 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:49:53,951 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:53,952 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:53,991 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:53,992 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:53,992 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:53,993 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:53,994 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:53,994 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:53,995 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:53,995 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:53,996 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:53,996 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:53,996 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:53,997 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:53,997 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:53,998 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:53,999 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:53,999 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:54,000 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:54,000 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:54,001 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:54,001 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:54,002 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:54,002 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:54,003 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:54,003 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:54,004 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:49:54,004 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:49:54,025 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,026 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,026 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,026 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,026 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,026 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,026 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,026 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,026 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,027 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,027 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,027 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,027 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,027 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,027 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,027 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,027 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,027 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,028 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,028 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,028 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,028 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,028 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,028 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,028 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,028 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:49:54,028 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:49:54,029 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:00,042 - ui.main_window - INFO - Opening accounts dialog
+2026-02-19 11:50:06,799 - core.client - INFO - All operations cancelled
+2026-02-19 11:50:11,202 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:50:11,223 - ui.login_dialog - INFO - Looking for settings at: C:\Users\grayg\PycharmProjects\config\settings.jason
+2026-02-19 11:50:11,223 - ui.login_dialog - WARNING - settings.jason not found at C:\Users\grayg\PycharmProjects\config\settings.jason, using light theme
+2026-02-19 11:50:11,223 - ui.login_dialog - INFO - Loaded theme from C:\Users\grayg\PycharmProjects\config\settings.json: dark
+2026-02-19 11:50:11,232 - ui.login_dialog - INFO - Applied dark theme to login dialog
+2026-02-19 11:50:17,571 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:50:17,578 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:50:17,580 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:50:17,585 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:50:17,587 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:50:17,589 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:50:17,591 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:50:17,593 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:50:17,596 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:50:17,612 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,612 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,650 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,651 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,652 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,652 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,654 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,654 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,655 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,655 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,657 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,657 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,658 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,658 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,659 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,660 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,661 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,661 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,663 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,663 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,664 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,664 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,665 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,666 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,667 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,667 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,668 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:50:17,668 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:50:17,687 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,687 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,687 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,687 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,687 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,688 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,688 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,688 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,688 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,688 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,688 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,688 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,688 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,688 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,689 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,689 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,689 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,689 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,689 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,689 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,689 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,689 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,689 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,690 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,690 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,690 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:17,690 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:50:17,690 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:50:20,666 - core.client - INFO - All operations cancelled
+2026-02-19 11:51:18,519 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:51:25,301 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:51:25,307 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:51:25,309 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:51:25,313 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:51:25,315 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:51:25,316 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:51:25,317 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:51:25,320 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:51:25,323 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:51:25,339 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,339 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,380 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,380 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,381 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,381 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,382 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,382 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,383 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,383 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,384 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,384 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,386 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,386 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,387 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,387 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,388 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,388 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,389 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,389 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,390 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,390 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,392 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,392 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,393 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,393 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,394 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:51:25,394 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:51:25,417 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,417 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,417 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,417 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,417 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,417 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,417 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,418 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,418 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,418 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,418 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,418 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,418 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,418 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,418 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,418 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,419 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,419 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,419 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,419 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,419 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,419 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,419 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,419 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,420 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,420 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:25,420 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:51:25,420 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:51:29,523 - core.client - INFO - All operations cancelled
+2026-02-19 11:51:55,825 - __main__ - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:52:02,373 - ui.login_dialog - INFO - Login successful
+2026-02-19 11:52:02,379 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-19 11:52:02,381 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-19 11:52:02,386 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-19 11:52:02,388 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-19 11:52:02,390 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-19 11:52:02,392 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-19 11:52:02,394 - main - INFO - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-19 11:52:02,396 - main - WARNING - Icon not found: lock.png
+2026-02-19 11:52:02,413 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,413 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,416 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,450 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,452 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,452 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,453 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,453 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,454 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,454 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,455 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,455 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,456 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,456 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,458 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,458 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,459 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,459 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,460 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,460 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,462 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,462 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,464 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,464 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,466 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,466 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,467 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,467 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,468 - ui.file_browser - INFO - Loading directory: / (force=False)
+2026-02-19 11:52:02,468 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 208, in load_path
+    files = self.client.list_files(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 115, in list_files
+    raise WebDavException("Клиент не инициализирован")
+webdav3.exceptions.WebDavException: Клиент не инициализирован
+2026-02-19 11:52:02,488 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,488 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,488 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,488 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,488 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,488 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,489 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,489 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,489 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,489 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,489 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,489 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,489 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,489 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,489 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,490 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,490 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,490 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,490 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,490 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,490 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,490 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,490 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,490 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:02,491 - ui.file_browser - ERROR - Error loading /: Клиент не инициализирован
+2026-02-19 11:52:02,491 - ui.main_window - INFO - Directory loaded: /
+2026-02-19 11:52:04,763 - core.client - INFO - All operations cancelled
+2026-02-19 11:52:08,168 - core.client - INFO - All operations cancelled
