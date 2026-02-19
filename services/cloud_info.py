@@ -4,7 +4,6 @@
 import logging
 import xml.etree.ElementTree as ET
 from typing import Optional, Dict, Tuple
-from functools import lru_cache
 from datetime import datetime, timedelta
 
 import requests
@@ -48,7 +47,7 @@ class CloudInfoFetcher:
 
     @classmethod
     def get_quota(cls, client: WebDAVClient, use_cache: bool = True) -> \
-    Optional[Dict[str, int]]:
+            Optional[Dict[str, int]]:
         """
         Get quota information from WebDAV server.
 

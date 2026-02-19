@@ -4,11 +4,11 @@
 import os
 import tempfile
 import logging
-import threading
-from typing import Optional, Callable, Dict, Any
+import shutil
+from typing import Optional
 from PyQt5.QtCore import QObject, pyqtSignal
 
-from core.encryption import FileEncryptor, EncryptionKey
+from core.encryption import FileEncryptor
 from core.key_manager import KeyManager
 from core.client import WebDAVClient
 
@@ -115,10 +115,7 @@ class SecureTransferService(QObject):
             logger.info(f"Uploading encrypted file to {encrypted_remote}")
             self.client.upload_file(temp_file, encrypted_remote)
 
-            if temp_file and os.path.exists(temp_file):
-                os.unlink(temp_file)
-
-            if delete_original:
+            if delete_original and os.path.exists(local_path):
                 os.unlink(local_path)
 
             self.progress_updated.emit(100, 100)
@@ -167,11 +164,7 @@ class SecureTransferService(QObject):
                 # File is not encrypted, just copy it
                 logger.warning(
                     f"File {remote_path} is not encrypted, copying as-is")
-                import shutil
                 shutil.copy2(temp_file, local_path)
-
-                if temp_file and os.path.exists(temp_file):
-                    os.unlink(temp_file)
 
                 if delete_remote:
                     self.client.delete(remote_path)
@@ -192,9 +185,6 @@ class SecureTransferService(QObject):
 
             if not success:
                 raise Exception(message)
-
-            if temp_file and os.path.exists(temp_file):
-                os.unlink(temp_file)
 
             if delete_remote:
                 self.client.delete(remote_path)
@@ -225,7 +215,6 @@ class SecureTransferService(QObject):
 
     def cleanup(self):
         """Clean up temporary directory."""
-        import shutil
         if os.path.exists(self.temp_dir):
             shutil.rmtree(self.temp_dir)
             logger.info(f"Temporary directory cleaned up: {self.temp_dir}")

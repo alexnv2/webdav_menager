@@ -1,152 +1,155 @@
 # main.py
-"""Main entry point for WebDAV Manager."""
-import logging
+# !/usr/bin/env python3
+"""WebDAV Manager - Main entry point."""
+
 import sys
 import os
-from pathlib import Path
+import logging
+from logging.handlers import RotatingFileHandler
 
-from PyQt5.QtWidgets import QApplication, QMessageBox
-from PyQt5.QtGui import QPalette, QColor, QIcon
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtGui import QIcon
 
-from core.config import ConfigManager
+# Сначала настраиваем пути
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+# Импортируем утилиты
+from utils.icon_helper import get_icon_path
+from utils.theme_helper import apply_global_theme
+from core.config import ConfigManager, get_data_dir
 from core.master_key import MasterKeyManager
-from ui.main_window import MainWindow
 from ui.login_dialog import LoginDialog
-from utils.logging_config import setup_logging
 
-logger = logging.getLogger(__name__)
-
-
-def get_base_dir() -> Path:
-    """Get base directory of the application."""
-    if getattr(sys, 'frozen', False):
-        # Running as compiled executable
-        return Path(sys.executable).parent
-    else:
-        # Running as script
-        return Path(__file__).parent
+# Глобальный логгер (будет инициализирован позже)
+logger = None
 
 
-def get_icon_path(icon_name: str) -> str:
-    """Get full path to an icon file."""
-    base_dir = get_base_dir()
+# Настройка логирования
+def setup_logging() -> logging.Logger:
+    """Setup logging configuration."""
+    # Определяем корневую директорию проекта
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    log_dir = os.path.join(base_dir, 'logs')
+    os.makedirs(log_dir, exist_ok=True)
 
-    # Проверяем несколько возможных расположений папки icons
-    possible_paths = [
-        base_dir / 'icons' / icon_name,
-        base_dir.parent / 'icons' / icon_name,
-        Path(__file__).parent / 'icons' / icon_name,
-        Path(__file__).parent.parent / 'icons' / icon_name
-    ]
+    log_file = os.path.join(log_dir, 'webdav_manager.log')
 
-    for path in possible_paths:
-        if path.exists():
-            logger.info(f"Icon found: {path}")
-            return str(path)
+    # Создаем форматтер
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
 
-    logger.warning(f"Icon not found: {icon_name}")
-    return ""
+    # File handler with rotation
+    file_handler = RotatingFileHandler(
+        log_file, maxBytes=5 * 1024 * 1024, backupCount=3, encoding='utf-8'
+    )
+    file_handler.setFormatter(formatter)
+    file_handler.setLevel(logging.DEBUG)
 
+    # Console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    console_handler.setLevel(logging.INFO)
 
-def apply_dark_theme(app: QApplication):
-    """Apply dark theme to application."""
-    app.setStyle('Fusion')
+    # Root logger
+    root_logger = logging.getLogger()
+    # Очищаем существующие handlers
+    for handler in root_logger.handlers[:]:
+        root_logger.removeHandler(handler)
 
-    palette = QPalette()
+    root_logger.setLevel(logging.DEBUG)
+    root_logger.addHandler(file_handler)
+    root_logger.addHandler(console_handler)
 
-    palette.setColor(QPalette.WindowText, Qt.white)
-    palette.setColor(QPalette.Base, QColor(25, 25, 25))
-    palette.setColor(QPalette.AlternateBase, QColor(53, 53, 53))
-    palette.setColor(QPalette.ToolTipBase, Qt.white)
-    palette.setColor(QPalette.ToolTipText, Qt.white)
-    palette.setColor(QPalette.Text, Qt.white)
-    palette.setColor(QPalette.Button, QColor(53, 53, 53))
-    palette.setColor(QPalette.ButtonText, Qt.white)
-    palette.setColor(QPalette.BrightText, Qt.red)
-    palette.setColor(QPalette.Link, QColor(42, 130, 218))
-    palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
-    palette.setColor(QPalette.HighlightedText, Qt.black)
-
-    app.setPalette(palette)
-
-
-def apply_light_theme(app: QApplication):
-    """Apply light theme to application."""
-    app.setStyle('Fusion')
-
-    palette = QPalette()
-    palette.setColor(QPalette.Window, Qt.white)
-    palette.setColor(QPalette.WindowText, Qt.black)
-    palette.setColor(QPalette.Base, QColor(240, 240, 240))
-    palette.setColor(QPalette.AlternateBase, QColor(245, 245, 245))
-    palette.setColor(QPalette.ToolTipBase, Qt.white)
-    palette.setColor(QPalette.ToolTipText, Qt.black)
-    palette.setColor(QPalette.Text, Qt.black)
-    palette.setColor(QPalette.Button, QColor(240, 240, 240))
-    palette.setColor(QPalette.ButtonText, Qt.black)
-    palette.setColor(QPalette.BrightText, Qt.red)
-    palette.setColor(QPalette.Link, QColor(0, 0, 255))
-    palette.setColor(QPalette.Highlight, QColor(51, 153, 255))
-    palette.setColor(QPalette.HighlightedText, Qt.white)
-
-    app.setPalette(palette)
+    logger = logging.getLogger(__name__)
+    logger.info(f"Logging initialized. Log file: {log_file}")
+    return logger
 
 
 def main():
     """Main application entry point."""
-    base_dir = get_base_dir()
+    global logger
 
-    # Initialize configuration
-    config = ConfigManager()
+    # Setup logging FIRST
+    logger = setup_logging()
+    logger.info("=" * 60)
+    logger.info("Starting WebDAV Manager")
+    logger.info("=" * 60)
 
-    # Setup logging
-    log_dir = base_dir / 'logs'
-    log_dir.mkdir(exist_ok=True)
+    # Setup config directory
+    config_dir = get_data_dir()
+    os.makedirs(config_dir, exist_ok=True)
+    logger.info(f"Config directory: {config_dir}")
 
-    setup_logging(
-        log_dir=str(log_dir),
-        log_file="webdav_manager.log",
-        level=config.get_setting("log_level", "INFO"),
-        console=True
-    )
-
-    # Create application
+    # Create Qt application
     app = QApplication(sys.argv)
     app.setApplicationName("WebDAV Manager")
-    app.setOrganizationName("WebDAVManager")
+    app.setOrganizationName("WebDAV Manager")
 
     # Set application icon
     icon_path = get_icon_path('app.ico')
     if icon_path:
         app.setWindowIcon(QIcon(icon_path))
 
-    # Apply theme
-    theme = config.get_setting("theme", "dark")
-    if theme == "dark":
-        apply_dark_theme(app)
-    elif theme == "light":
-        apply_light_theme(app)
+    # Load config
+    config = ConfigManager(config_dir)
 
-    # Initialize master key manager
-    config_dir = os.path.join(os.path.expanduser("~"), ".webdav_manager")
+    # Применяем тему глобально
+    from ui.theme import get_theme_stylesheet
+    theme = config.get_setting("theme", "dark")
+    app.setStyleSheet(get_theme_stylesheet(theme))
+    logger.info(f"Applied global theme: {theme}")
+
+    # Check if master key exists
     master_key_manager = MasterKeyManager(config_dir)
 
-    # Show login dialog
-    login_dialog = LoginDialog(master_key_manager)
+    # Проверяем наличие мастер-ключа
+    is_configured = master_key_manager.is_configured()
+    logger.info(f"Master key configured: {is_configured}")
 
-    # Если пользователь закрыл диалог или не прошел аутентификацию
-    if login_dialog.exec_() != LoginDialog.Accepted:
-        logger.info("Login cancelled or failed, exiting application")
-        sys.exit(0)
+    # Show login dialog if needed
+    if is_configured:
+        logger.info("Showing login dialog")
+        login_dialog = LoginDialog(master_key_manager)
+
+        result = login_dialog.exec_()
+        logger.info(f"Login dialog result: {result}")
+
+        if result != LoginDialog.Accepted:
+            logger.info("Login cancelled")
+            return 1
+
+        logger.info("Login successful")
+    else:
+        logger.info("No master key configured, showing first-run dialog")
+        login_dialog = LoginDialog(master_key_manager)
+
+        result = login_dialog.exec_()
+        logger.info(f"First-run dialog result: {result}")
+
+        if result != LoginDialog.Accepted:
+            logger.info("First-run cancelled")
+            return 1
+
+        logger.info("Master key created successfully")
+
+    # Импортируем MainWindow ТОЛЬКО после успешной аутентификации
+    from ui.main_window import MainWindow
 
     # Create and show main window
+    logger.info("Creating main window")
     window = MainWindow(config)
     window.show()
 
     # Run application
-    sys.exit(app.exec_())
+    logger.info("Starting event loop")
+    exit_code = app.exec_()
+    logger.info(f"Application exited with code {exit_code}")
+    logger.info("=" * 60)
+
+    return exit_code
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

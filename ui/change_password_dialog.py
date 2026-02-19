@@ -31,8 +31,7 @@ class ChangePasswordDialog(QDialog):
         # Title
         title = QLabel("Изменение мастер-пароля")
         title.setAlignment(Qt.AlignCenter)
-        title.setStyleSheet(
-            "font-size: 16px; font-weight: bold; margin-bottom: 10px;")
+        title.setStyleSheet("font-size: 16px; font-weight: bold; margin-bottom: 10px;")
         layout.addWidget(title)
 
         # Current password
@@ -66,8 +65,6 @@ class ChangePasswordDialog(QDialog):
             "• Хотя бы одна заглавная буква\n"
             "• Хотя бы одна цифра"
         )
-        requirements.setStyleSheet(
-            "color: #666; font-size: 9pt; padding: 5px;")
         requirements.setWordWrap(True)
         layout.addWidget(requirements)
 
@@ -133,8 +130,7 @@ class ChangePasswordDialog(QDialog):
             return
 
         # Attempt to change password
-        success, message = self.master_key_manager.change_password(current,
-                                                                   new)
+        success, message = self.master_key_manager.change_password(current, new)
 
         if success:
             QMessageBox.information(self, "Успех", message)

@@ -254,56 +254,49 @@ class WebDAVClient(QObject):
         if src_parent != dst_parent:
             self._cache.remove(self._get_cache_key(dst_parent))
 
-    # Async methods with unified worker creation
-    def _create_worker(self, worker_class: Type['BaseWorker'],
-                       finished_msg: str, *args) -> 'BaseWorker':
-        """Create and start a worker."""
-        worker = worker_class(self, *args, finished_msg=finished_msg)
-        self._workers.append(worker)
-
-        worker.finished.connect(
-            lambda result: self._on_worker_finished(worker, result))
-        worker.error.connect(
-            lambda err: self._on_worker_error(worker, err))
-        worker.finished.connect(worker.deleteLater)
-        worker.error.connect(worker.deleteLater)
-        worker.start()
-
-        logger.debug(f"Started worker: {worker.__class__.__name__}")
-        return worker
-
+    # Async methods
     def list_files_async(self, path: str = "/"):
         """List files asynchronously."""
-        self._create_worker(ListWorker, None, path)
+        self._create_worker(ListWorker, path)
 
     def download_async(self, remote_path: str, local_path: str):
         """Download file asynchronously."""
-        self._create_worker(DownloadWorker, "Скачано", remote_path, local_path)
+        self._create_worker(DownloadWorker, remote_path, local_path)
 
     def upload_async(self, local_path: str, remote_path: str):
         """Upload file asynchronously."""
-        self._create_worker(UploadWorker, "Загружено", local_path, remote_path)
+        self._create_worker(UploadWorker, local_path, remote_path)
 
     def move_async(self, src_path: str, dst_path: str):
         """Move file asynchronously."""
-        self._create_worker(MoveWorker, "Перемещено", src_path, dst_path)
+        self._create_worker(MoveWorker, src_path, dst_path)
 
     def copy_async(self, src_path: str, dst_path: str):
         """Copy file asynchronously."""
-        self._create_worker(CopyWorker, "Скопировано", src_path, dst_path)
+        self._create_worker(CopyWorker, src_path, dst_path)
 
     def delete_async(self, path: str):
         """Delete file asynchronously."""
-        self._create_worker(DeleteWorker, "Удалено", path)
+        self._create_worker(DeleteWorker, path)
 
     def mkdir_async(self, path: str):
         """Create directory asynchronously."""
-        self._create_worker(MkdirWorker, "Папка создана", path)
+        self._create_worker(MkdirWorker, path)
 
     def rename_async(self, old_path: str, new_path: str):
         """Rename file asynchronously."""
-        self._create_worker(RenameWorker, "Переименовано в", old_path,
-                            new_path)
+        self._create_worker(RenameWorker, old_path, new_path)
+
+    def _create_worker(self, worker_class, *args):
+        """Create and start a worker."""
+        worker = worker_class(self, *args)
+        worker.finished.connect(lambda result: self._on_worker_finished(worker, result))
+        worker.error.connect(lambda err: self._on_worker_error(worker, err))
+        worker.finished.connect(worker.deleteLater)
+        worker.error.connect(worker.deleteLater)
+        worker.start()
+        self._workers.append(worker)
+        logger.debug(f"Started worker: {worker_class.__name__}")
 
     def _on_worker_finished(self, worker, result):
         """Handle worker finished."""
@@ -311,8 +304,8 @@ class WebDAVClient(QObject):
             self._workers.remove(worker)
 
         # Emit appropriate signal
-        if isinstance(result, tuple) and len(result) == 2:
-            self.list_finished.emit(result[0], result[1])
+        if hasattr(worker, 'path') and hasattr(worker, 'get_files'):
+            self.list_finished.emit(worker.path, result)
         else:
             self.operation_finished.emit(result)
 
@@ -324,7 +317,7 @@ class WebDAVClient(QObject):
             self._workers.remove(worker)
 
         # Determine signal type
-        if isinstance(worker, ListWorker):
+        if hasattr(worker, 'path'):
             self.list_error.emit(getattr(worker, 'path', '/'), error)
         else:
             self.operation_error.emit(format_error(error))
@@ -347,62 +340,31 @@ class BaseWorker(QThread):
     finished = pyqtSignal(object)
     error = pyqtSignal(str)
 
-    def __init__(self, client: WebDAVClient, finished_msg: str = None):
+    def __init__(self, client: WebDAVClient):
         super().__init__()
         self.client = client
-        self.finished_msg = finished_msg
-
-    def get_finished_message(self, *args) -> str:
-        """Get finished message based on operation."""
-        if self.finished_msg:
-            return self.finished_msg
-        return "Операция завершена"
-
-    def handle_error(self, error: Exception) -> str:
-        """Format error message."""
-        error_msg = str(error)
-        if "timed out" in error_msg.lower():
-            return "Превышен таймаут. Проверьте соединение и попробуйте снова."
-        return error_msg
 
 
 class ListWorker(BaseWorker):
     """Worker for listing files."""
 
-    def __init__(self, client: WebDAVClient, path: str, **kwargs):
-        super().__init__(client, **kwargs)
+    def __init__(self, client: WebDAVClient, path: str):
+        super().__init__(client)
         self.path = path
 
     def run(self):
         try:
             files = self.client.list_files(self.path, as_dict=True)
-            self.finished.emit((self.path, files))
+            self.finished.emit(files)
         except Exception as e:
-            self.error.emit(self.handle_error(e))
+            self.error.emit(str(e))
 
 
-class FileOperationWorker(BaseWorker):
-    """Base worker for file operations."""
-
-    def __init__(self, client: WebDAVClient, *args, **kwargs):
-        self.operation_args = args
-        super().__init__(client, **kwargs)
-
-    def get_filename(self) -> str:
-        """Get filename from args."""
-        if self.operation_args:
-            first_arg = self.operation_args[0]
-            if isinstance(first_arg, str):
-                return os.path.basename(first_arg)
-        return ""
-
-
-class DownloadWorker(FileOperationWorker):
+class DownloadWorker(BaseWorker):
     """Worker for downloading files."""
 
-    def __init__(self, client: WebDAVClient, remote: str, local: str,
-                 **kwargs):
-        super().__init__(client, remote, local, **kwargs)
+    def __init__(self, client: WebDAVClient, remote: str, local: str):
+        super().__init__(client)
         self.remote = remote
         self.local = local
 
@@ -411,15 +373,14 @@ class DownloadWorker(FileOperationWorker):
             self.client.download_file(self.remote, self.local)
             self.finished.emit(f"Скачано: {os.path.basename(self.remote)}")
         except Exception as e:
-            self.error.emit(self.handle_error(e))
+            self.error.emit(str(e))
 
 
-class UploadWorker(FileOperationWorker):
+class UploadWorker(BaseWorker):
     """Worker for uploading files."""
 
-    def __init__(self, client: WebDAVClient, local: str, remote: str,
-                 **kwargs):
-        super().__init__(client, local, remote, **kwargs)
+    def __init__(self, client: WebDAVClient, local: str, remote: str):
+        super().__init__(client)
         self.local = local
         self.remote = remote
 
@@ -428,14 +389,14 @@ class UploadWorker(FileOperationWorker):
             self.client.upload_file(self.local, self.remote)
             self.finished.emit(f"Загружено: {os.path.basename(self.local)}")
         except Exception as e:
-            self.error.emit(self.handle_error(e))
+            self.error.emit(str(e))
 
 
-class MoveWorker(FileOperationWorker):
+class MoveWorker(BaseWorker):
     """Worker for moving files."""
 
-    def __init__(self, client: WebDAVClient, src: str, dst: str, **kwargs):
-        super().__init__(client, src, dst, **kwargs)
+    def __init__(self, client: WebDAVClient, src: str, dst: str):
+        super().__init__(client)
         self.src = src
         self.dst = dst
 
@@ -444,14 +405,14 @@ class MoveWorker(FileOperationWorker):
             self.client.move(self.src, self.dst)
             self.finished.emit(f"Перемещено: {os.path.basename(self.src)}")
         except Exception as e:
-            self.error.emit(self.handle_error(e))
+            self.error.emit(str(e))
 
 
-class CopyWorker(FileOperationWorker):
+class CopyWorker(BaseWorker):
     """Worker for copying files."""
 
-    def __init__(self, client: WebDAVClient, src: str, dst: str, **kwargs):
-        super().__init__(client, src, dst, **kwargs)
+    def __init__(self, client: WebDAVClient, src: str, dst: str):
+        super().__init__(client)
         self.src = src
         self.dst = dst
 
@@ -460,14 +421,14 @@ class CopyWorker(FileOperationWorker):
             self.client.copy(self.src, self.dst)
             self.finished.emit(f"Скопировано: {os.path.basename(self.src)}")
         except Exception as e:
-            self.error.emit(self.handle_error(e))
+            self.error.emit(str(e))
 
 
-class DeleteWorker(FileOperationWorker):
+class DeleteWorker(BaseWorker):
     """Worker for deleting files."""
 
-    def __init__(self, client: WebDAVClient, path: str, **kwargs):
-        super().__init__(client, path, **kwargs)
+    def __init__(self, client: WebDAVClient, path: str):
+        super().__init__(client)
         self.path = path
 
     def run(self):
@@ -475,14 +436,14 @@ class DeleteWorker(FileOperationWorker):
             self.client.delete(self.path)
             self.finished.emit(f"Удалено: {os.path.basename(self.path)}")
         except Exception as e:
-            self.error.emit(self.handle_error(e))
+            self.error.emit(str(e))
 
 
-class MkdirWorker(FileOperationWorker):
+class MkdirWorker(BaseWorker):
     """Worker for creating directories."""
 
-    def __init__(self, client: WebDAVClient, path: str, **kwargs):
-        super().__init__(client, path, **kwargs)
+    def __init__(self, client: WebDAVClient, path: str):
+        super().__init__(client)
         self.path = path
 
     def run(self):
@@ -490,15 +451,14 @@ class MkdirWorker(FileOperationWorker):
             self.client.mkdir(self.path)
             self.finished.emit(f"Папка создана: {os.path.basename(self.path)}")
         except Exception as e:
-            self.error.emit(self.handle_error(e))
+            self.error.emit(str(e))
 
 
-class RenameWorker(FileOperationWorker):
+class RenameWorker(BaseWorker):
     """Worker for renaming files."""
 
-    def __init__(self, client: WebDAVClient, old_path: str, new_path: str,
-                 **kwargs):
-        super().__init__(client, old_path, new_path, **kwargs)
+    def __init__(self, client: WebDAVClient, old_path: str, new_path: str):
+        super().__init__(client)
         self.old_path = old_path
         self.new_path = new_path
 
@@ -508,4 +468,4 @@ class RenameWorker(FileOperationWorker):
             self.finished.emit(
                 f"Переименовано в: {os.path.basename(self.new_path)}")
         except Exception as e:
-            self.error.emit(self.handle_error(e))
+            self.error.emit(str(e))

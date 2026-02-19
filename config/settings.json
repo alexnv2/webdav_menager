@@ -26,7 +26,16 @@
     "proxy_host": "",
     "proxy_port": 8080,
     "proxy_login": "",
-    "proxy_password": ""
+    "proxy_password": "",
+    "encryption_enabled": false,
+    "auto_refresh": true,
+    "refresh_interval": 30,
+    "font_size": 9,
+    "icon_size": 16,
+    "retry_count": 3,
+    "retry_delay": 2,
+    "encryption_delete_original": false,
+    "cache_enabled": true
   },
   "encryption_key": "QduCvcwXhSn8JBYF69oi_2umL7m1_4XjlGXBPeyKdIA="
 }

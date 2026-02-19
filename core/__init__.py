@@ -17,5 +17,6 @@ __all__ = [
     'Account',
     'FileEncryptor',
     'EncryptionKey',
-    'KeyManager'
+    'KeyManager',
+    'MasterKeyManager'
 ]

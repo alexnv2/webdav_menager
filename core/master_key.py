@@ -4,10 +4,8 @@
 import os
 import json
 import base64
-import hashlib
 import logging
 from typing import Optional, Tuple
-from datetime import datetime
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
@@ -41,6 +39,10 @@ class MasterKeyManager:
         """Check if master key is already set up."""
         return os.path.exists(self.master_key_file) and os.path.exists(
             self.salt_file)
+
+    def is_configured(self) -> bool:
+        """Alias for is_initialized."""
+        return self.is_initialized()
 
     def create_master_key(self, password: str) -> Tuple[bool, str]:
         """
@@ -254,10 +256,8 @@ class MasterKeyManager:
             logger.error(f"Failed to restore from backup: {e}")
             return False, "Не удалось восстановить ключ из резервной копии"
 
-    # core/master_key.py (добавить метод restore_from_backup)
-
     def restore_from_backup(self, backup_file: str, new_password: str) -> \
-    Tuple[bool, str]:
+            Tuple[bool, str]:
         """
         Restore master key from backup file and set new password.
 
@@ -272,27 +272,6 @@ class MasterKeyManager:
             if not os.path.exists(backup_file):
                 return False, "Файл резервной копии не найден"
 
-            # Load the backup
-            with open(backup_file, 'rb') as f:
-                encrypted_backup = f.read()
-
-            # We need the original salt to verify it's a valid backup
-            # The salt is stored separately, but we can try to decrypt with empty key
-            # to check if it's a valid Fernet token
-            try:
-                # Just check if it's a valid Fernet token
-                from cryptography.fernet import Fernet
-                import base64
-
-                # Try with a dummy key just to check format
-                dummy_key = base64.urlsafe_b64encode(b'0' * 32)
-                cipher = Fernet(dummy_key)
-                # This will fail if not valid Fernet token
-                cipher.decrypt(encrypted_backup)
-            except:
-                # Not a valid Fernet token, but could still be our backup
-                pass
-
             # Generate new salt
             new_salt = os.urandom(32)
 
@@ -306,33 +285,31 @@ class MasterKeyManager:
             )
             new_key = kdf.derive(new_password.encode('utf-8'))
 
-            # Re-encrypt the backup data with new key
-            # The backup contains the same data as the original master key file
+            # Read the backup file
+            with open(backup_file, 'rb') as f:
+                backup_data = f.read()
+
+            # Create validation token
+            validation_data = b"VALIDATION_TOKEN"
+
+            # Encrypt with new key
             cipher_new = Fernet(base64.urlsafe_b64encode(new_key))
+            new_encrypted = cipher_new.encrypt(validation_data)
 
-            # We need to preserve the original encrypted data structure
-            # For now, we'll just copy the backup to the master key file
-            import shutil
-            shutil.copy2(backup_file, self.master_key_file)
+            # Save the new encrypted data as master key
+            with open(self.master_key_file, 'wb') as f:
+                f.write(new_encrypted)
+            os.chmod(self.master_key_file, 0o600)
 
-            # Generate new salt file
+            # Save the new salt
             with open(self.salt_file, 'wb') as f:
                 f.write(new_salt)
             os.chmod(self.salt_file, 0o600)
 
-            # Now we need to re-encrypt the master key with the new password
-            # Read the backup data
-            with open(self.master_key_file, 'rb') as f:
-                current_encrypted = f.read()
-
-            # Create new encrypted data with new key
-            # This is the validation token
-            validation_data = b"VALIDATION_TOKEN"
-            new_encrypted = cipher_new.encrypt(validation_data)
-
-            # Save the new encrypted data
-            with open(self.master_key_file, 'wb') as f:
+            # Also save as backup
+            with open(self.backup_file, 'wb') as f:
                 f.write(new_encrypted)
+            os.chmod(self.backup_file, 0o600)
 
             logger.info("Master key restored from backup with new password")
             return True, ("Мастер-ключ восстановлен из резервной копии. Новый "

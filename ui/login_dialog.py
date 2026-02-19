@@ -29,6 +29,7 @@ class LoginDialog(QDialog):
         self.setWindowTitle("Вход в WebDAV Manager")
         self.setFixedSize(450, 400)
         self.setWindowFlags(Qt.WindowCloseButtonHint | Qt.WindowStaysOnTopHint)
+        self.setModal(True)
 
         self._setup_ui()
         self._check_initialized()
@@ -52,8 +53,7 @@ class LoginDialog(QDialog):
         layout.addWidget(title)
 
         # Subtitle
-        self.subtitle = QLabel(
-            "Введите мастер-пароль для доступа к приложению")
+        self.subtitle = QLabel("Введите мастер-пароль для доступа к приложению")
         self.subtitle.setAlignment(Qt.AlignCenter)
         self.subtitle.setStyleSheet("color: #666; margin-bottom: 20px;")
         self.subtitle.setWordWrap(True)
@@ -99,11 +99,9 @@ class LoginDialog(QDialog):
 
         # First time setup hint
         if not self.master_key_manager.is_initialized():
-            hint = QLabel(
-                "👋 Первый запуск: нажмите 'Войти' для создания мастер-ключа")
+            hint = QLabel("👋 Первый запуск: нажмите 'Войти' для создания мастер-ключа")
             hint.setAlignment(Qt.AlignCenter)
-            hint.setStyleSheet(
-                "color: #4CAF50; font-size: 10pt; margin-top: 10px;")
+            hint.setStyleSheet("color: #4CAF50; font-size: 10pt; margin-top: 10px;")
             hint.setWordWrap(True)
             layout.addWidget(hint)
 
@@ -114,6 +112,7 @@ class LoginDialog(QDialog):
             self.subtitle.setText("Создайте мастер-ключ для защиты приложения")
             self.restore_button.setEnabled(False)
             self.restore_button.setVisible(False)
+            logger.info("First run detected - showing create key dialog")
 
     def _toggle_password_visibility(self, state):
         """Toggle password visibility."""
@@ -170,8 +169,7 @@ class LoginDialog(QDialog):
         )
 
         if reply == QMessageBox.Yes:
-            success, message = self.master_key_manager.create_master_key(
-                password)
+            success, message = self.master_key_manager.create_master_key(password)
             if success:
                 QMessageBox.information(
                     self,

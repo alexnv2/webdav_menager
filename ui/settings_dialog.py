@@ -3,7 +3,6 @@
 
 import logging
 import os
-import traceback
 from typing import Dict, Any
 
 from PyQt5.QtWidgets import (QDialog, QVBoxLayout, QTabWidget, QWidget,
@@ -11,12 +10,12 @@ from PyQt5.QtWidgets import (QDialog, QVBoxLayout, QTabWidget, QWidget,
                              QPushButton, QComboBox, QFileDialog, QGroupBox,
                              QHBoxLayout, QMessageBox, QLabel)
 from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtWidgets import QApplication
 
 from core.config import ConfigManager
+from utils.theme_helper import change_theme
 
 logger = logging.getLogger(__name__)
-
-print("DEBUG: settings_dialog.py is being imported")  # Отладка
 
 
 class SettingsDialog(QDialog):
@@ -25,83 +24,54 @@ class SettingsDialog(QDialog):
     settingsChanged = pyqtSignal()
 
     def __init__(self, config: ConfigManager, parent=None):
-        print("DEBUG: SettingsDialog.__init__ started")  # Отладка
         super().__init__(parent)
-        print("DEBUG: super() called")  # Отладка
 
         self.config = config
         self.theme_changed = False
 
-        print("DEBUG: Setting window title and size")  # Отладка
         self.setWindowTitle("Настройки")
         self.resize(600, 600)
 
-        print("DEBUG: Calling _setup_ui")  # Отладка
         self._setup_ui()
-        print("DEBUG: _setup_ui completed")  # Отладка
-
-        print("DEBUG: Calling _load_settings")  # Отладка
         self._load_settings()
-        print("DEBUG: _load_settings completed")  # Отладка
-
-        print("DEBUG: SettingsDialog.__init__ completed")  # Отладка
 
     def _setup_ui(self):
         """Setup dialog UI."""
-        print("DEBUG: _setup_ui started")  # Отладка
-        try:
-            layout = QVBoxLayout(self)
-            print("DEBUG: Layout created")  # Отладка
+        layout = QVBoxLayout(self)
 
-            # Create tabs
-            self.tabs = QTabWidget()
-            print("DEBUG: Tab widget created")  # Отладка
-            layout.addWidget(self.tabs)
+        # Create tabs
+        self.tabs = QTabWidget()
+        layout.addWidget(self.tabs)
 
-            print("DEBUG: Creating tabs...")  # Отладка
-            self.general_tab = self._create_general_tab()
-            print("DEBUG: General tab created")  # Отладка
-            self.paths_tab = self._create_paths_tab()
-            print("DEBUG: Paths tab created")  # Отладка
-            self.appearance_tab = self._create_appearance_tab()
-            print("DEBUG: Appearance tab created")  # Отладка
-            self.network_tab = self._create_network_tab()
-            print("DEBUG: Network tab created")  # Отладка
-            self.advanced_tab = self._create_advanced_tab()
-            print("DEBUG: Advanced tab created")  # Отладка
+        self.general_tab = self._create_general_tab()
+        self.paths_tab = self._create_paths_tab()
+        self.appearance_tab = self._create_appearance_tab()
+        self.network_tab = self._create_network_tab()
+        self.advanced_tab = self._create_advanced_tab()
 
-            self.tabs.addTab(self.general_tab, "Общие")
-            self.tabs.addTab(self.paths_tab, "Пути")
-            self.tabs.addTab(self.appearance_tab, "Внешний вид")
-            self.tabs.addTab(self.network_tab, "Сеть")
-            self.tabs.addTab(self.advanced_tab, "Дополнительно")
-            print("DEBUG: Tabs added")  # Отладка
+        self.tabs.addTab(self.general_tab, "Общие")
+        self.tabs.addTab(self.paths_tab, "Пути")
+        self.tabs.addTab(self.appearance_tab, "Внешний вид")
+        self.tabs.addTab(self.network_tab, "Сеть")
+        self.tabs.addTab(self.advanced_tab, "Дополнительно")
 
-            # Buttons
-            button_layout = QHBoxLayout()
-            button_layout.addStretch()
+        # Buttons
+        button_layout = QHBoxLayout()
+        button_layout.addStretch()
 
-            self.ok_button = QPushButton("OK")
-            self.ok_button.clicked.connect(self.accept)
-            button_layout.addWidget(self.ok_button)
+        self.ok_button = QPushButton("OK")
+        self.ok_button.clicked.connect(self.accept)
+        button_layout.addWidget(self.ok_button)
 
-            self.apply_button = QPushButton("Применить")
-            self.apply_button.clicked.connect(self._apply_settings)
-            button_layout.addWidget(self.apply_button)
+        self.apply_button = QPushButton("Применить")
+        self.apply_button.clicked.connect(self._apply_settings)
+        button_layout.addWidget(self.apply_button)
 
-            self.cancel_button = QPushButton("Отмена")
-            self.cancel_button.clicked.connect(self.reject)
-            button_layout.addWidget(self.cancel_button)
+        self.cancel_button = QPushButton("Отмена")
+        self.cancel_button.clicked.connect(self.reject)
+        button_layout.addWidget(self.cancel_button)
 
-            layout.addLayout(button_layout)
-            print("DEBUG: Buttons added")  # Отладка
-
-        except Exception as e:
-            print(f"DEBUG ERROR in _setup_ui: {e}")
-            traceback.print_exc()
-            raise
-
-        print("DEBUG: _setup_ui completed")  # Отладка
+        layout.addLayout(button_layout)
 
     def _create_general_tab(self) -> QWidget:
         """Create general settings tab."""
@@ -189,7 +159,6 @@ class SettingsDialog(QDialog):
         self.theme_combo = QComboBox()
         self.theme_combo.addItem("Тёмная", "dark")
         self.theme_combo.addItem("Светлая", "light")
-        self.theme_combo.addItem("Системная", "system")
         self.theme_combo.currentIndexChanged.connect(self._on_theme_changed)
         form_layout.addRow("Тема оформления:", self.theme_combo)
 
@@ -287,12 +256,10 @@ class SettingsDialog(QDialog):
 
     def _create_advanced_tab(self) -> QWidget:
         """Create advanced settings tab."""
-        print("DEBUG: _create_advanced_tab started")  # Отладка
         widget = QWidget()
         layout = QVBoxLayout(widget)
 
         # Master key settings
-        print("DEBUG: Creating master key group")  # Отладка
         master_key_group = QGroupBox("Мастер-ключ")
         master_key_layout = QVBoxLayout(master_key_group)
 
@@ -301,7 +268,6 @@ class SettingsDialog(QDialog):
             "Без него невозможно получить доступ к зашифрованным данным."
         )
         master_key_info.setWordWrap(True)
-        master_key_info.setStyleSheet("color: #666; font-size: 9pt;")
         master_key_layout.addWidget(master_key_info)
 
         master_key_buttons = QHBoxLayout()
@@ -320,8 +286,6 @@ class SettingsDialog(QDialog):
         restore_layout = QHBoxLayout()
         self.restore_key_btn = QPushButton("Восстановить из резервной копии")
         self.restore_key_btn.clicked.connect(self._restore_master_key)
-        self.restore_key_btn.setStyleSheet(
-            "background-color: #4CAF50; color: white;")
         restore_layout.addWidget(self.restore_key_btn)
 
         master_key_layout.addLayout(restore_layout)
@@ -332,47 +296,32 @@ class SettingsDialog(QDialog):
             "Используйте эту функцию только если вы забыли пароль."
         )
         warning_label.setWordWrap(True)
-        warning_label.setStyleSheet(
-            "color: #ff6b6b; font-size: 9pt; padding: 5px;")
         master_key_layout.addWidget(warning_label)
 
         layout.addWidget(master_key_group)
-        print("DEBUG: Master key group created")  # Отладка
 
         # Encryption settings
-        print("DEBUG: Creating encryption group")  # Отладка
         encryption_group = QGroupBox("Шифрование файлов")
         encryption_layout = QFormLayout(encryption_group)
 
         self.encryption_enable_check = QCheckBox(
             "Включить режим шифрования (глобально)")
-        self.encryption_enable_check.setToolTip(
-            "При включении этой опции шифрование будет активно по умолчанию\n"
-            "Можно также включать/отключать через меню Настройки → Шифрование"
-        )
         encryption_layout.addRow(self.encryption_enable_check)
 
         self.encryption_delete_original_check = QCheckBox(
             "Удалять исходные файлы после шифрования")
-        self.encryption_delete_original_check.setToolTip(
-            "Исходные файлы будут удаляться после успешной загрузки зашифрованной копии"
-        )
         encryption_layout.addRow(self.encryption_delete_original_check)
 
-        # Добавляем информационную метку
         info_label = QLabel(
             "⚠️ Включение шифрования в настройках автоматически активирует "
             "соответствующий пункт в меню Настройки → Шифрование"
         )
         info_label.setWordWrap(True)
-        info_label.setStyleSheet("color: #666; font-size: 10pt; padding: 5px;")
         encryption_layout.addRow(info_label)
 
         layout.addWidget(encryption_group)
-        print("DEBUG: Encryption group created")  # Отладка
 
         # Cache settings
-        print("DEBUG: Creating cache group")  # Отладка
         cache_group = QGroupBox("Кэширование")
         cache_layout = QFormLayout(cache_group)
 
@@ -392,10 +341,8 @@ class SettingsDialog(QDialog):
         cache_layout.addRow("Макс. размер кэша:", self.cache_size_spin)
 
         layout.addWidget(cache_group)
-        print("DEBUG: Cache group created")  # Отладка
 
         # Logging settings
-        print("DEBUG: Creating logging group")  # Отладка
         logging_group = QGroupBox("Логирование")
         logging_layout = QFormLayout(logging_group)
 
@@ -407,7 +354,6 @@ class SettingsDialog(QDialog):
         logging_layout.addRow("Уровень логирования:", self.log_level_combo)
 
         layout.addWidget(logging_group)
-        print("DEBUG: Logging group created")  # Отладка
 
         # Buttons
         button_layout = QHBoxLayout()
@@ -423,7 +369,6 @@ class SettingsDialog(QDialog):
         layout.addLayout(button_layout)
         layout.addStretch()
 
-        print("DEBUG: _create_advanced_tab completed")  # Отладка
         return widget
 
     def _browse_path(self, line_edit: QLineEdit):
@@ -440,7 +385,6 @@ class SettingsDialog(QDialog):
 
     def _clear_cache(self):
         """Clear application cache."""
-        # Пытаемся получить доступ к клиенту через родительское окно
         try:
             if hasattr(self.parent(), 'client'):
                 self.parent().client._cache.clear()
@@ -456,7 +400,6 @@ class SettingsDialog(QDialog):
 
     def _change_master_password(self):
         """Open change master password dialog."""
-        print("DEBUG: _change_master_password called")  # Отладка
         try:
             from ui.change_password_dialog import ChangePasswordDialog
             from core.master_key import MasterKeyManager
@@ -481,11 +424,7 @@ class SettingsDialog(QDialog):
                                         "Мастер-пароль успешно изменен")
 
         except Exception as e:
-            print(f"DEBUG ERROR in _change_master_password: {e}")
-            import traceback
-            traceback.print_exc()
             logger.error(f"Error in change password dialog: {e}")
-            logger.error(traceback.format_exc())
             QMessageBox.critical(
                 self,
                 "Ошибка",
@@ -531,7 +470,6 @@ class SettingsDialog(QDialog):
 
     def _restore_master_key(self):
         """Open restore master key dialog."""
-        print("DEBUG: _restore_master_key called")  # Отладка
         try:
             from ui.restore_dialog import RestoreDialog
             from core.master_key import MasterKeyManager
@@ -548,14 +486,10 @@ class SettingsDialog(QDialog):
                     "Мастер-ключ успешно восстановлен.\n"
                     "Приложение будет закрыто. Запустите его снова и войдите с новым паролем."
                 )
-                # Закрываем приложение после восстановления
                 if self.parent():
                     self.parent().close()
 
         except Exception as e:
-            print(f"DEBUG ERROR in _restore_master_key: {e}")
-            import traceback
-            traceback.print_exc()
             logger.error(f"Error in restore dialog: {e}")
             QMessageBox.critical(
                 self,
@@ -609,7 +543,6 @@ class SettingsDialog(QDialog):
 
     def _load_settings(self):
         """Load settings from config."""
-        print("DEBUG: _load_settings started")  # Отладка
         settings = self.config.settings
 
         # General
@@ -679,8 +612,6 @@ class SettingsDialog(QDialog):
         if index >= 0:
             self.log_level_combo.setCurrentIndex(index)
 
-        print("DEBUG: _load_settings completed")  # Отладка
-
     def _apply_settings(self):
         """Apply settings to config."""
         try:
@@ -722,11 +653,9 @@ class SettingsDialog(QDialog):
             settings["proxy_login"] = self.proxy_login_edit.text()
             settings["proxy_password"] = self.proxy_password_edit.text()
 
-            # Advanced - ВАЖНО: сохраняем все настройки!
-            settings[
-                "encryption_enabled"] = self.encryption_enable_check.isChecked()
-            settings[
-                "encryption_delete_original"] = self.encryption_delete_original_check.isChecked()
+            # Advanced
+            settings["encryption_enabled"] = self.encryption_enable_check.isChecked()
+            settings["encryption_delete_original"] = self.encryption_delete_original_check.isChecked()
             settings["cache_enabled"] = self.cache_enable_check.isChecked()
             settings["cache_ttl"] = self.cache_ttl_spin.value()
             settings["cache_size"] = self.cache_size_spin.value()
@@ -736,9 +665,12 @@ class SettingsDialog(QDialog):
             # Save to file
             self.config.save_config()
 
+            # Если тема изменилась, применяем глобально
+            if self.theme_changed:
+                change_theme(QApplication.instance(), new_theme)
+                logger.info(f"Theme changed from {old_theme} to {new_theme}")
+
             logger.info("Settings saved successfully")
-            logger.debug(
-                f"encryption_delete_original = {settings['encryption_delete_original']}")
             self.settingsChanged.emit()
 
         except Exception as e:

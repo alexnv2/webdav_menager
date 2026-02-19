@@ -1,4 +1,4 @@
-# core/config.py (обновленный с правильными путями)
+# core/config.py
 """Configuration management for WebDAV Manager."""
 
 import base64
@@ -22,19 +22,20 @@ def get_data_dir() -> str:
     Returns:
         Path to config directory
     """
-    if getattr(sys, 'frozen', False):
-        # Running as compiled executable
-        appdata = os.environ.get('APPDATA')
-        if appdata:
-            return os.path.join(appdata, 'WebDAVManager', 'config')
-        else:
-            # Fallback to executable directory
-            return os.path.join(os.path.dirname(sys.executable), 'config')
-    else:
+    # В режиме разработки используем папку config в корне проекта
+    if not getattr(sys, 'frozen', False):
         # Running as script (development mode)
-        current_dir = os.path.dirname(
-            os.path.dirname(os.path.dirname(__file__)))
-        return os.path.join(current_dir, 'config')
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        config_dir = os.path.join(base_dir, 'config')
+        return config_dir
+
+    # В скомпилированной версии используем AppData
+    appdata = os.environ.get('APPDATA')
+    if appdata:
+        return os.path.join(appdata, 'WebDAVManager')
+    else:
+        # Fallback to executable directory
+        return os.path.join(os.path.dirname(sys.executable), 'config')
 
 
 class ConfigManager:
@@ -61,13 +62,16 @@ class ConfigManager:
         'connection_timeout': 30,
         'read_timeout': 60,
         'retry_count': 3,
+        'retry_delay': 2,
         'proxy_enabled': False,
         'proxy_type': 'http',
         'proxy_host': '',
         'proxy_port': 8080,
         'proxy_login': '',
         'proxy_password': '',
-        'cache_enabled': True
+        'cache_enabled': True,
+        'encryption_enabled': False,
+        'encryption_delete_original': False
     }
 
     def __init__(self, config_dir: Optional[str] = None):
@@ -83,6 +87,9 @@ class ConfigManager:
 
         # Create directory if it doesn't exist
         os.makedirs(self.config_dir, exist_ok=True)
+        logger.debug(f"Config directory: {self.config_dir}")
+        logger.debug(f"Config file: {self.config_file}")
+        logger.debug(f"Accounts file: {self.accounts_file}")
 
         # Load configuration
         self.config = self._load_config()
@@ -96,16 +103,18 @@ class ConfigManager:
         # Initialize cipher for encryption
         self.cipher = self._init_cipher()
 
-        # Migrate from old format if needed
-        self._migrate_from_connections()
-
         # Load accounts
         self.accounts = self._load_accounts()
 
-        # Repair accounts if needed
-        self._repair_accounts()
+        # Log accounts info
+        if self.accounts:
+            logger.info(f"Loaded {len(self.accounts)} accounts")
+            if isinstance(self.accounts, dict):
+                logger.debug(f"Account names: {list(self.accounts.keys())}")
+        else:
+            logger.debug("No accounts loaded")
 
-        logger.info(
+        logger.debug(
             f"ConfigManager initialized with config dir: {self.config_dir}")
 
     def _load_config(self) -> Dict[str, Any]:
@@ -113,13 +122,14 @@ class ConfigManager:
         if os.path.exists(self.config_file):
             try:
                 with open(self.config_file, 'r', encoding='utf-8') as f:
-                    return json.load(f)
+                    data = json.load(f)
+                    logger.debug(f"Loaded config from {self.config_file}")
+                    return data
             except (json.JSONDecodeError, IOError) as e:
                 logger.error(f"Error loading configuration: {e}")
                 return {}
         else:
-            logger.info(f"Configuration file not found: {self.config_file}")
-            logger.info("Creating new configuration with default settings")
+            logger.debug(f"Configuration file not found: {self.config_file}")
             return {}
 
     def _save_config(self):
@@ -178,140 +188,30 @@ class ConfigManager:
         self._save_config()
         return Fernet(key)
 
-    def _migrate_from_connections(self):
-        """Migrate accounts from old connections.json file."""
-        old_file = os.path.join(self.config_dir, "connections.json")
-        if os.path.exists(old_file) and not os.path.exists(self.accounts_file):
-            try:
-                logger.info(
-                    "Found old connections.json file, attempting migration...")
-
-                with open(old_file, 'rb') as f:
-                    encrypted_data = f.read()
-
-                if encrypted_data:
-                    try:
-                        decrypted_data = self.cipher.decrypt(encrypted_data)
-                        old_accounts = json.loads(
-                            decrypted_data.decode('utf-8'))
-
-                        # Save in new format
-                        self.accounts = old_accounts
-                        self._save_accounts()
-
-                        # Backup old file
-                        backup_file = old_file + '.migrated'
-                        os.rename(old_file, backup_file)
-
-                        logger.info(
-                            f"Migration successful, old file backed up to {backup_file}")
-
-                    except Exception as e:
-                        logger.error(f"Failed to decrypt old file: {e}")
-
-            except Exception as e:
-                logger.error(f"Error during migration: {e}")
-
-    def _repair_accounts(self):
-        """Repair accounts structure if corrupted."""
-        if not hasattr(self, 'accounts'):
-            return False
-
-        changed = False
-
-        # Convert list to dict
-        if isinstance(self.accounts, list):
-            logger.info("Converting accounts list to dictionary")
-            accounts_dict = {}
-            for i, item in enumerate(self.accounts):
-                if isinstance(item, dict):
-                    name = item.get('name',
-                                    item.get('url', f'account_{i + 1}'))
-                    accounts_dict[name] = self._normalize_account(name, item)
-            self.accounts = accounts_dict
-            changed = True
-
-        # Normalize each account
-        elif isinstance(self.accounts, dict):
-            for name, data in list(self.accounts.items()):
-                if not isinstance(data, dict):
-                    logger.warning(f"Removing corrupted account: {name}")
-                    del self.accounts[name]
-                    changed = True
-                else:
-                    normalized = self._normalize_account(name, data)
-                    if normalized != data:
-                        self.accounts[name] = normalized
-                        changed = True
-
-        if changed:
-            self._save_accounts()
-
-        return changed
-
-    @staticmethod
-    def _normalize_account(name: str, data: Dict[str, Any]) -> Dict[str, Any]:
-        """Normalize account data to consistent format."""
-        if not isinstance(data, dict):
-            data = {}
-
-        # Ensure all required fields exist
-        normalized = {
-            'name': data.get('name', name),
-            'url': data.get('url', ''),
-            'login': data.get('login', data.get('username', '')),
-            'password': data.get('password', ''),
-            'type': data.get('type', 'webdav'),
-            'default_path': data.get('default_path', '/'),
-            'enabled': data.get('enabled', True)
-        }
-
-        # Preserve id if exists
-        if 'id' in data:
-            normalized['id'] = data['id']
-
-        return normalized
-
     def _load_accounts(self) -> Dict[str, Any]:
         """Load accounts from encrypted file."""
         if not os.path.exists(self.accounts_file):
-            logger.info("Accounts file not found, will create new one")
+            logger.debug(f"Accounts file not found: {self.accounts_file}")
             return {}
 
         try:
+            file_size = os.path.getsize(self.accounts_file)
+            logger.debug(
+                f"Accounts file exists: {self.accounts_file} (size: {file_size} bytes)")
+
             with open(self.accounts_file, 'rb') as f:
                 encrypted_data = f.read()
 
             if not encrypted_data:
-                logger.info("Accounts file is empty")
+                logger.warning("Accounts file is empty")
                 return {}
 
             try:
                 decrypted_data = self.cipher.decrypt(encrypted_data)
                 accounts = json.loads(decrypted_data.decode('utf-8'))
 
-                logger.info(f"Loaded accounts: {type(accounts)}")
-
-                # Handle different data types
-                if isinstance(accounts, dict):
-                    logger.info(f"Loaded {len(accounts)} accounts")
-                    return accounts
-
-                elif isinstance(accounts, list):
-                    logger.info(
-                        f"Loaded list with {len(accounts)} items, converting to dict")
-                    accounts_dict = {}
-                    for i, item in enumerate(accounts):
-                        if isinstance(item, dict):
-                            name = item.get('name', f'account_{i + 1}')
-                            accounts_dict[name] = self._normalize_account(name,
-                                                                          item)
-                    return accounts_dict
-
-                else:
-                    logger.warning(
-                        f"Unexpected accounts data type: {type(accounts)}")
-                    return {}
+                logger.info(f"Successfully loaded {len(accounts)} accounts")
+                return accounts
 
             except Exception as e:
                 logger.error(f"Error decrypting accounts: {e}")
@@ -325,10 +225,11 @@ class ConfigManager:
     def _backup_corrupted_file(self):
         """Create backup of corrupted accounts file."""
         try:
-            backup_file = self.accounts_file + '.corrupted.' + str(
-                int(os.path.getmtime(self.accounts_file)))
-            shutil.copy2(self.accounts_file, backup_file)
-            logger.info(f"Corrupted file backed up to {backup_file}")
+            if os.path.exists(self.accounts_file):
+                backup_file = self.accounts_file + '.corrupted.' + str(
+                    int(os.path.getmtime(self.accounts_file)))
+                shutil.copy2(self.accounts_file, backup_file)
+                logger.info(f"Corrupted file backed up to {backup_file}")
         except Exception as e:
             logger.error(f"Error backing up corrupted file: {e}")
 
@@ -373,8 +274,8 @@ class ConfigManager:
         self.save_config()
 
     def set_theme(self, theme_name: str) -> bool:
-        """Set theme (dark/light/system)."""
-        if theme_name in ['dark', 'light', 'system']:
+        """Set theme (dark/light)."""
+        if theme_name in ['dark', 'light']:
             self.settings['theme'] = theme_name
             self.save_config()
             return True
@@ -384,30 +285,62 @@ class ConfigManager:
 
     def load_accounts(self) -> List[Dict[str, Any]]:
         """Load accounts as list of dictionaries."""
+        logger.debug(f"Loading accounts, current type: {type(self.accounts)}")
+
         if isinstance(self.accounts, dict):
-            return list(self.accounts.values())
+            logger.debug(f"Accounts is dict with {len(self.accounts)} items")
+            result = list(self.accounts.values())
+            logger.debug(f"Converted to list with {len(result)} items")
+            return result
         elif isinstance(self.accounts, list):
+            logger.debug(f"Accounts is list with {len(self.accounts)} items")
             return self.accounts
-        return []
+        else:
+            logger.warning(
+                f"Accounts is unexpected type: {type(self.accounts)}")
+            return []
 
     def save_accounts(self, accounts: List[Dict[str, Any]]):
         """Save accounts from list of dictionaries."""
+        logger.info(f"Saving {len(accounts)} accounts")
+
+        # Очищаем текущие аккаунты
         new_accounts = {}
-        for acc in accounts:
+
+        # Преобразуем список в словарь
+        for i, acc in enumerate(accounts):
             if isinstance(acc, dict):
-                name = acc.get('name', '')
+                name = acc.get('name')
                 if name:
-                    new_accounts[name] = self._normalize_account(name, acc)
+                    # Убедимся, что все необходимые поля есть
+                    normalized_acc = {
+                        'name': name,
+                        'url': acc.get('url', ''),
+                        'login': acc.get('login', ''),
+                        'password': acc.get('password', ''),
+                        'type': acc.get('type', 'webdav'),
+                        'default_path': acc.get('default_path', '/'),
+                        'enabled': acc.get('enabled', True)
+                    }
+                    # Сохраняем id если есть
+                    if 'id' in acc:
+                        normalized_acc['id'] = acc['id']
+
+                    new_accounts[name] = normalized_acc
+                    logger.debug(f"Added account: {name}")
+                else:
+                    logger.warning(f"Account {i} missing name: {acc}")
+            else:
+                logger.warning(f"Account {i} is not a dict: {type(acc)}")
 
         self.accounts = new_accounts
+        logger.info(f"Converted to dict with {len(new_accounts)} items")
         self._save_accounts()
 
     def get_account(self, name: str) -> Optional[Dict[str, Any]]:
         """Get account by name (password encrypted)."""
         if isinstance(self.accounts, dict):
-            data = self.accounts.get(name)
-            if data:
-                return self._normalize_account(name, data)
+            return self.accounts.get(name)
         return None
 
     def get_account_with_decrypted_password(self, name: str) -> Optional[
@@ -498,37 +431,3 @@ class ConfigManager:
         except Exception as e:
             logger.error(f"Error decrypting password: {e}")
             raise
-
-    # Compatibility methods
-
-    def add_connection(self, name: str, url: str, username: str,
-                       password: str) -> bool:
-        """Compatibility method for add_connection."""
-        return self.save_account(name, url, username, password)
-
-    def get_connection(self, name: str) -> Optional[Dict[str, Any]]:
-        """Compatibility method for get_connection."""
-        return self.get_account_with_decrypted_password(name)
-
-    def remove_connection(self, name: str) -> bool:
-        """Compatibility method for remove_connection."""
-        return self.delete_account(name)
-
-    def list_connections(self) -> List[Dict[str, Any]]:
-        """Compatibility method for list_connections."""
-        return self.load_accounts()
-
-    # Debug methods
-
-    def debug_info(self) -> Dict[str, Any]:
-        """Get debug information."""
-        return {
-            'config_dir': self.config_dir,
-            'config_file_exists': os.path.exists(self.config_file),
-            'accounts_file_exists': os.path.exists(self.accounts_file),
-            'accounts_type': type(self.accounts).__name__,
-            'accounts_count': len(self.accounts) if isinstance(self.accounts,
-                                                               dict) else 0,
-            'settings_count': len(self.settings),
-            'encryption_key_valid': self.cipher is not None
-        }

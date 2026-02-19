@@ -2,22 +2,21 @@
 """Key management dialog."""
 
 import os
+import json
 import logging
 from PyQt5.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QTableWidget,
                              QTableWidgetItem, QPushButton, QHeaderView,
                              QMessageBox, QLineEdit, QFormLayout,
                              QDialogButtonBox, QTextEdit, QLabel)
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer
 
 from core.key_manager import KeyManager
-from core.encryption import EncryptionKey, FileEncryptor
+from core.encryption import FileEncryptor, EncryptionKey
 
 logger = logging.getLogger(__name__)
 
 
 class KeyDialog(QDialog):
-    """Dialog for managing encryption keys."""
-
     def __init__(self, key_manager: KeyManager, parent=None):
         super().__init__(parent)
         self.key_manager = key_manager
@@ -28,22 +27,17 @@ class KeyDialog(QDialog):
         self._load_keys()
 
     def _setup_ui(self):
-        """Setup dialog UI."""
         layout = QVBoxLayout(self)
 
-        # Keys table
         self.table = QTableWidget()
         self.table.setColumnCount(4)
         self.table.setHorizontalHeaderLabels(["Имя", "ID", "Создан", "Тип"])
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.table.setSelectionBehavior(QTableWidget.SelectRows)
         self.table.setAlternatingRowColors(True)
-
         layout.addWidget(self.table)
 
-        # Buttons
         button_layout = QHBoxLayout()
-
         self.new_random_btn = QPushButton("Случайный ключ")
         self.new_random_btn.clicked.connect(self._create_random_key)
         button_layout.addWidget(self.new_random_btn)
@@ -67,43 +61,32 @@ class KeyDialog(QDialog):
         button_layout.addStretch()
         layout.addLayout(button_layout)
 
-        # Dialog buttons
         self.button_box = QDialogButtonBox(QDialogButtonBox.Close)
         self.button_box.rejected.connect(self.reject)
         layout.addWidget(self.button_box)
 
     def _load_keys(self):
-        """Load keys into table."""
         keys = self.key_manager.get_all_keys()
         self.table.setRowCount(len(keys))
-
         for i, (key_id, key_info) in enumerate(keys.items()):
-            self.table.setItem(i, 0, QTableWidgetItem(
-                key_info.get('name', 'Без имени')))
+            self.table.setItem(i, 0, QTableWidgetItem(key_info.get('name', 'Без имени')))
             self.table.setItem(i, 1, QTableWidgetItem(key_id[:8]))
-
             created = key_info.get('created', 'Неизвестно')
             if len(created) > 10:
                 created = created[:10]
             self.table.setItem(i, 2, QTableWidgetItem(created))
-
-            key_type = "Пароль" if key_info.get(
-                'password_derived') else "Случайный"
+            key_type = "Пароль" if key_info.get('password_derived') else "Случайный"
             self.table.setItem(i, 3, QTableWidgetItem(key_type))
 
     def _create_random_key(self):
-        """Create new random key."""
-        name, ok = QLineEdit.getText(self, "Имя ключа",
-                                     "Введите имя для ключа:")
+        name, ok = QLineEdit.getText(self, "Имя ключа", "Введите имя для ключа:")
         if ok and name:
             encryptor = FileEncryptor.create_random(name)
             self.key_manager.save_key(encryptor.key.to_dict())
             self._load_keys()
-            QMessageBox.information(self, "Успех",
-                                    f"Ключ создан!\nID: {encryptor.key.id[:8]}")
+            QMessageBox.information(self, "Успех", f"Ключ создан!\nID: {encryptor.key.id[:8]}")
 
     def _create_password_key(self):
-        """Create key from password."""
         dialog = QDialog(self)
         dialog.setWindowTitle("Создание ключа из пароля")
         layout = QFormLayout(dialog)
@@ -119,8 +102,7 @@ class KeyDialog(QDialog):
         confirm_edit.setEchoMode(QLineEdit.Password)
         layout.addRow("Подтверждение:", confirm_edit)
 
-        buttons = QDialogButtonBox(
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         buttons.accepted.connect(dialog.accept)
         buttons.rejected.connect(dialog.reject)
         layout.addRow(buttons)
@@ -129,117 +111,76 @@ class KeyDialog(QDialog):
             name = name_edit.text().strip()
             password = password_edit.text()
             confirm = confirm_edit.text()
-
             if not name or not password:
                 QMessageBox.warning(self, "Ошибка", "Заполните все поля")
                 return
-
             if password != confirm:
                 QMessageBox.warning(self, "Ошибка", "Пароли не совпадают")
                 return
-
             encryptor = FileEncryptor.create_from_password(password, name)
             self.key_manager.save_key(encryptor.key.to_dict())
             self._load_keys()
-            QMessageBox.information(self, "Успех",
-                                    f"Ключ создан!\nID: {encryptor.key.id[:8]}")
+            QMessageBox.information(self, "Успех", f"Ключ создан!\nID: {encryptor.key.id[:8]}")
 
     def _export_key(self):
-        """Export selected key."""
         row = self.table.currentRow()
         if row < 0:
             QMessageBox.warning(self, "Ошибка", "Выберите ключ для экспорта")
             return
-
         key_id = list(self.key_manager.get_all_keys().keys())[row]
         key_data = self.key_manager.export_key(key_id)
-
         if key_data:
-            from PyQt5.QtWidgets import QTextEdit
-            from PyQt5.QtCore import QTimer
-
             dialog = QDialog(self)
             dialog.setWindowTitle("Экспорт ключа")
             layout = QVBoxLayout(dialog)
-
-            layout.addWidget(
-                QLabel("Ключ (скопируйте и сохраните в безопасном месте):"))
-
-            import json
+            layout.addWidget(QLabel("Ключ (скопируйте и сохраните в безопасном месте):"))
             text_edit = QTextEdit()
             text_edit.setPlainText(json.dumps(key_data, indent=2))
             text_edit.setReadOnly(True)
             layout.addWidget(text_edit)
-
-            layout.addWidget(QLabel(
-                "Внимание! Ключ виден на экране. Закройте диалог после копирования."))
-
+            layout.addWidget(QLabel("Внимание! Ключ виден на экране. Закройте диалог после копирования."))
             buttons = QDialogButtonBox(QDialogButtonBox.Close)
             buttons.rejected.connect(dialog.accept)
             layout.addWidget(buttons)
-
-            # Auto-close after 30 seconds
             QTimer.singleShot(30000, dialog.accept)
-
             dialog.exec_()
 
     def _import_key(self):
-        """Import key from JSON."""
-        from PyQt5.QtWidgets import QTextEdit
-
         dialog = QDialog(self)
         dialog.setWindowTitle("Импорт ключа")
         dialog.resize(600, 400)
-
         layout = QVBoxLayout(dialog)
         layout.addWidget(QLabel("Вставьте JSON ключа:"))
-
         text_edit = QTextEdit()
         layout.addWidget(text_edit)
-
-        buttons = QDialogButtonBox(
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         buttons.accepted.connect(dialog.accept)
         buttons.rejected.connect(dialog.reject)
         layout.addWidget(buttons)
 
         if dialog.exec_():
             try:
-                import json
                 key_data = json.loads(text_edit.toPlainText())
                 key_id = self.key_manager.import_key(key_data)
-
                 if key_id:
                     self._load_keys()
-                    QMessageBox.information(self, "Успех",
-                                            f"Ключ импортирован!\nID: {key_id[:8]}")
+                    QMessageBox.information(self, "Успех", f"Ключ импортирован!\nID: {key_id[:8]}")
                 else:
-                    QMessageBox.warning(self, "Ошибка",
-                                        "Не удалось импортировать ключ")
-
+                    QMessageBox.warning(self, "Ошибка", "Не удалось импортировать ключ")
             except Exception as e:
-                QMessageBox.critical(self, "Ошибка",
-                                     f"Неверный формат данных: {e}")
+                QMessageBox.critical(self, "Ошибка", f"Неверный формат данных: {e}")
 
     def _delete_key(self):
-        """Delete selected key."""
         row = self.table.currentRow()
         if row < 0:
             QMessageBox.warning(self, "Ошибка", "Выберите ключ для удаления")
             return
-
         keys = self.key_manager.get_all_keys()
         key_id = list(keys.keys())[row]
         key_name = keys[key_id].get('name', 'Без имени')
-
-        reply = QMessageBox.question(
-            self,
-            "Подтверждение",
-            f"Удалить ключ '{key_name}'?\n"
-            "Зашифрованные файлы будет невозможно расшифровать без этого ключа!",
-            QMessageBox.Yes | QMessageBox.No
-        )
-
+        reply = QMessageBox.question(self, "Подтверждение",
+            f"Удалить ключ '{key_name}'?\nЗашифрованные файлы будет невозможно расшифровать без этого ключа!",
+            QMessageBox.Yes | QMessageBox.No)
         if reply == QMessageBox.Yes:
             if self.key_manager.delete_key(key_id):
                 self._load_keys()

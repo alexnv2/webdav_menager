@@ -1,4 +1,5 @@
-# ui/main_window.py (оптимизированная версия с улучшенной структурой и полным функционалом выделения)
+# ui/main_window.py
+"""Main application window with file browser and controls."""
 
 import os
 import logging
@@ -15,6 +16,10 @@ from PyQt5.QtCore import Qt, QTimer, QSize, pyqtSignal, QMetaObject, Q_ARG, \
     pyqtSlot, QPoint, QItemSelection, QItemSelectionModel
 from PyQt5.QtGui import QIcon, QKeySequence, QPalette, QMouseEvent
 
+# Импортируем утилиты
+from utils.icon_helper import get_icon_path
+from utils.helpers import format_size, normalize_path, join_path, format_error
+
 from core import FileEncryptor
 from core.client import WebDAVClient
 from core.config import ConfigManager
@@ -27,7 +32,6 @@ from ui.settings_dialog import SettingsDialog
 from ui.widgets import PathBar, ProgressWidget
 from ui.key_dialog import KeyDialog
 from ui.login_dialog import LoginDialog
-from utils.helpers import format_size, normalize_path, join_path, format_error
 
 logger = logging.getLogger(__name__)
 
@@ -96,8 +100,6 @@ class MainWindow(QMainWindow):
 
     def _set_window_icon(self):
         """Set window icon."""
-        from main import get_icon_path
-
         icon_path = get_icon_path('app.ico')
         if icon_path:
             self.setWindowIcon(QIcon(icon_path))
@@ -214,8 +216,6 @@ class MainWindow(QMainWindow):
     def _set_action_icon(self, action: QAction, icon_name: str,
                          fallback_text: str):
         """Set action icon with fallback."""
-        from main import get_icon_path
-
         icon_path = get_icon_path(icon_name)
         if icon_path:
             action.setIcon(QIcon(icon_path))
@@ -1172,12 +1172,15 @@ class MainWindow(QMainWindow):
 
     def _update_progress_color(self, percent: float):
         """Update progress bar color based on usage."""
+        from ui.theme import get_color
+        theme = self.config.get_setting("theme", "dark")
+
         if percent < 80:
-            color = "#4CAF50"
+            color = get_color(theme, 'success')
         elif percent < 95:
-            color = "#FFC107"
+            color = get_color(theme, 'quota_warning')
         else:
-            color = "#F44336"
+            color = get_color(theme, 'quota_danger')
 
         self.quota_progress.setStyleSheet(f"""
             QProgressBar::chunk {{
@@ -1349,12 +1352,17 @@ class MainWindow(QMainWindow):
 
     def _update_encryption_status(self):
         """Update encryption status display."""
+        from ui.theme import get_color
+        theme = self.config.get_setting("theme", "dark")
+
         if self.encryption_enabled:
             self.encryption_status.setText("🔒 Шифрование вкл")
-            self.encryption_status.setStyleSheet("color: #4CAF50;")
+            color = get_color(theme, 'success')
         else:
             self.encryption_status.setText("🔓 Шифрование выкл")
-            self.encryption_status.setStyleSheet("color: #999999;")
+            color = get_color(theme, 'button_disabled_text')
+
+        self.encryption_status.setStyleSheet(f"color: {color};")
 
     def _upload_encrypted(self, local_path: str, remote_path: str):
         """Upload encrypted file in separate thread."""
@@ -1474,7 +1482,7 @@ class MainWindow(QMainWindow):
         dialog.settingsChanged.connect(self._sync_encryption_from_settings)
 
         if dialog.exec_():
-            self._apply_theme()
+            # Тема применяется глобально через settings_dialog
             self.client.update_settings(self.config.settings)
             self._sync_encryption_from_settings()
 
@@ -1530,59 +1538,10 @@ class MainWindow(QMainWindow):
     # -------------------------------------------------------------------------
 
     def _apply_theme(self):
-        """Apply current theme."""
+        """Apply theme to file_view specific styles."""
         theme = self.config.get_setting("theme", "dark")
         self.file_view.set_theme(theme)
-
-        # Устанавливаем голубой цвет выделения
-        if theme == "dark":
-            self.setStyleSheet("""
-                QToolBar { background-color: #404040; border: none; }
-                QStatusBar { background-color: #404040; color: #ffffff; }
-                QMenuBar { background-color: #404040; color: #ffffff; }
-                QMenuBar::item:selected { background-color: #0066cc; }
-
-                /* Голубое выделение для таблицы */
-                QTreeView::item:selected {
-                    background-color: #3399ff;
-                    color: white;
-                }
-                QTreeView::item:selected:focus {
-                    background-color: #66b3ff;
-                }
-                QTreeView::item:selected:!active {
-                    background-color: #66a3d2;
-                }
-
-                /* Стиль для области выделения при драге */
-                QTreeView::item:hover {
-                    background-color: #4d4d4d;
-                }
-            """)
-        else:
-            self.setStyleSheet("""
-                QToolBar { background-color: #f0f0f0; border: none; }
-                QStatusBar { background-color: #f0f0f0; color: #000000; }
-                QMenuBar { background-color: #f0f0f0; color: #000000; }
-                QMenuBar::item:selected { background-color: #3399ff; }
-
-                /* Голубое выделение для таблицы */
-                QTreeView::item:selected {
-                    background-color: #99ccff;
-                    color: black;
-                }
-                QTreeView::item:selected:focus {
-                    background-color: #b3d9ff;
-                }
-                QTreeView::item:selected:!active {
-                    background-color: #cce0f0;
-                }
-
-                /* Стиль для области выделения при драге */
-                QTreeView::item:hover {
-                    background-color: #e6f0ff;
-                }
-            """)
+        logger.debug(f"Theme applied to file_view: {theme}")
 
     def _sync_encryption_from_settings(self):
         """Synchronize encryption state with settings."""

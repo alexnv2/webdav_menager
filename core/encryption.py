@@ -6,9 +6,9 @@ import logging
 import os
 import time
 import platform
+from datetime import datetime
 from dataclasses import dataclass
 from typing import Optional, Tuple, Callable, Dict, Any
-from functools import wraps
 
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes, padding
@@ -135,9 +135,6 @@ class AdaptiveFileEncryptor:
     def _detect_storage_type(self) -> bool:
         """Simplified storage type detection."""
         try:
-            # On Windows, you could check Win32_LogicalDisk
-            # On Linux, check /sys/block/.../queue/rotational
-            # For now, return True (SSD) for most modern systems
             import psutil
             # If psutil is available, we could check disk rotations
             return True
@@ -187,9 +184,6 @@ class AdaptiveFileEncryptor:
     def create_from_password(cls, password: str,
                              name: str = "password_key") -> 'AdaptiveFileEncryptor':
         """Create encryptor from password."""
-        import os
-        from datetime import datetime
-
         salt = os.urandom(16)
 
         kdf = PBKDF2HMAC(
@@ -216,9 +210,6 @@ class AdaptiveFileEncryptor:
     def create_random(cls,
                       name: str = "random_key") -> 'AdaptiveFileEncryptor':
         """Create encryptor with random key."""
-        import os
-        from datetime import datetime
-
         salt = os.urandom(16)
         key = os.urandom(cls.KEY_SIZE)
 
@@ -384,7 +375,6 @@ class AdaptiveFileEncryptor:
                     with open(output_path, 'wb',
                               buffering=buffer_size) as f_out:
                         processed = 0
-                        remaining = file_size - f_in.tell()
 
                         while True:
                             chunk = f_in.read(chunk_size)
@@ -475,84 +465,3 @@ class AdaptiveFileEncryptor:
 
 # Convenience aliases for backward compatibility
 FileEncryptor = AdaptiveFileEncryptor
-
-
-# Benchmarking utility
-def benchmark_encryption(
-        file_sizes=[1 * 1024 * 1024, 10 * 1024 * 1024, 100 * 1024 * 1024]):
-    """
-    Benchmark encryption performance with different file sizes.
-
-    Args:
-        file_sizes: List of file sizes to test in bytes
-    """
-    print("=" * 60)
-    print("ENCRYPTION BENCHMARK")
-    print("=" * 60)
-
-    for size in file_sizes:
-        # Create test file
-        test_file = f"benchmark_test_{size}.bin"
-        enc_file = f"{test_file}.enc"
-        dec_file = f"{test_file}.dec"
-
-        print(f"\nTesting file size: {size / 1024 / 1024:.1f} MB")
-        print("-" * 40)
-
-        try:
-            # Generate random test data
-            with open(test_file, 'wb') as f:
-                f.write(os.urandom(size))
-
-            # Create encryptor
-            encryptor = AdaptiveFileEncryptor.create_random("benchmark")
-
-            # Measure encryption
-            start = time.perf_counter()
-            success, message = encryptor.encrypt_file(test_file, enc_file)
-            enc_time = time.perf_counter() - start
-
-            if success:
-                print(f"  Encryption: {enc_time:.2f} s | "
-                      f"{size / 1024 / 1024 / enc_time:.2f} MB/s")
-            else:
-                print(f"  Encryption failed: {message}")
-
-            # Measure decryption
-            start = time.perf_counter()
-            success, message = encryptor.decrypt_file(enc_file, dec_file)
-            dec_time = time.perf_counter() - start
-
-            if success:
-                print(f"  Decryption: {dec_time:.2f} s | "
-                      f"{size / 1024 / 1024 / dec_time:.2f} MB/s")
-            else:
-                print(f"  Decryption failed: {message}")
-
-            # Verify
-            import filecmp
-            if os.path.exists(dec_file) and filecmp.cmp(test_file, dec_file,
-                                                        shallow=False):
-                print("  Verification: ✅ OK")
-            else:
-                print("  Verification: ❌ FAILED")
-
-        finally:
-            # Cleanup
-            for f in [test_file, enc_file, dec_file]:
-                try:
-                    if os.path.exists(f):
-                        os.unlink(f)
-                except:
-                    pass
-
-
-if __name__ == "__main__":
-    # Configure logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    )
-
-    # Run benchmark
-    benchmark_encryption([1 * 1024 * 1024, 10 * 1024 * 1024, 50 * 1024 * 1024])
