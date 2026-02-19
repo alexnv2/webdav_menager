@@ -1,19 +1,19 @@
-# ui/main_window.py (оптимизированная версия с улучшенной структурой и
-# полным функционалом выделения)
+# ui/main_window.py (оптимизированная версия с улучшенной структурой и полным функционалом выделения)
 
-import logging
 import os
+import logging
 import threading
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Any
+from datetime import datetime
 
-from PyQt5.QtCore import Qt, QTimer, QSize, pyqtSignal, QMetaObject, Q_ARG, \
-    pyqtSlot, QPoint, QItemSelection, QItemSelectionModel
-from PyQt5.QtGui import QIcon, QKeySequence, QMouseEvent
 from PyQt5.QtWidgets import (QMainWindow, QAction, QToolBar, QComboBox,
                              QStatusBar, QVBoxLayout, QWidget, QMessageBox,
-                             QFileDialog, QProgressBar,
-                             QInputDialog, QLabel,
+                             QFileDialog, QApplication, QProgressBar,
+                             QLineEdit, QPushButton, QInputDialog, QLabel,
                              QStyle, QMenu, QAbstractItemView)
+from PyQt5.QtCore import Qt, QTimer, QSize, pyqtSignal, QMetaObject, Q_ARG, \
+    pyqtSlot, QPoint, QItemSelection, QItemSelectionModel
+from PyQt5.QtGui import QIcon, QKeySequence, QPalette, QMouseEvent
 
 from core import FileEncryptor
 from core.client import WebDAVClient
@@ -21,11 +21,12 @@ from core.config import ConfigManager
 from core.models import Account
 from services.cloud_info import CloudInfoFetcher
 from services.file_operations import FileOperationService
-from ui.accounts_dialog import AccountsDialog
 from ui.file_browser import FileBrowserModel, FileBrowserView
-from ui.login_dialog import LoginDialog
+from ui.accounts_dialog import AccountsDialog
 from ui.settings_dialog import SettingsDialog
 from ui.widgets import PathBar, ProgressWidget
+from ui.key_dialog import KeyDialog
+from ui.login_dialog import LoginDialog
 from utils.helpers import format_size, normalize_path, join_path, format_error
 
 logger = logging.getLogger(__name__)
@@ -860,8 +861,7 @@ class MainWindow(QMainWindow):
 
         reply = QMessageBox.question(
             self, "Расшифровка",
-            f"Найдено {len(encrypted_files)} зашифрованных файлов. "
-            f"Расшифровать их?",
+            f"Найдено {len(encrypted_files)} зашифрованных файлов. Расшифровать их?",
             QMessageBox.Yes | QMessageBox.No
         )
 
