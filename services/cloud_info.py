@@ -1,5 +1,5 @@
 # services/cloud_info.py
-"""Cloud information service."""
+"""Информация по квоте в облаке."""
 
 import logging
 import xml.etree.ElementTree as ET
@@ -8,7 +8,6 @@ from datetime import datetime, timedelta
 
 import requests
 from requests.auth import HTTPBasicAuth
-
 from core.client import WebDAVClient
 
 logger = logging.getLogger(__name__)
