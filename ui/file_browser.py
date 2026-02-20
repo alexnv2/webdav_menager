@@ -4,11 +4,12 @@
 import logging
 import traceback
 import time
+from datetime import datetime
 from typing import Optional, List, Dict, Any, Union
 from functools import lru_cache, wraps
 
 from PyQt5.QtCore import (QAbstractItemModel, QModelIndex, Qt, QThread,
-                          QObject, pyqtSignal, QTimer)
+                          QObject, pyqtSignal, QTimer, QSettings)
 from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtWidgets import (QTreeView, QMenu, QApplication,
                              QStyle, QHeaderView, QMessageBox)
@@ -18,6 +19,109 @@ from core.models import FileInfo
 from utils.helpers import format_size
 
 logger = logging.getLogger(__name__)
+
+
+def format_datetime(datetime_value: Optional[Any]) -> str:
+    """
+    Format datetime value to DD.MM.YYYY HH:MM:SS format.
+    Handles various formats including RFC 2822, Unix, ISO, and Russian.
+    """
+    if not datetime_value:
+        return ""
+
+    # Логируем входное значение
+    logger.debug(
+        f"format_datetime input: type={type(datetime_value)}, value='{datetime_value}'")
+
+    # Преобразуем в строку
+    dt_str = str(datetime_value).strip()
+    logger.debug(f"String representation: '{dt_str}'")
+
+    # Если уже в нужном формате (DD.MM.YYYY HH:MM:SS)
+    if len(dt_str) == 19 and dt_str[2] == '.' and dt_str[5] == '.' and dt_str[
+        10] == ' ' and dt_str[13] == ':':
+        logger.debug("Already in correct format")
+        return dt_str
+
+    # --- Парсинг через datetime.strptime с различными форматами ---
+    # Очищаем строку от возможных лишних пробелов
+    dt_clean = dt_str
+
+    # Список форматов для пробования (в порядке убывания специфичности)
+    formats = [
+        ("%a, %d %b %Y %H:%M:%S %Z", "RFC 2822"),
+        # Thu, 15 Mar 2018 17:58:29 GMT
+        ("%a %b %d %H:%M:%S %Y", "Unix"),  # Thu Feb 20 15:30:45 2025
+        ("%Y-%m-%dT%H:%M:%S", "ISO with T"),
+        ("%Y-%m-%d %H:%M:%S", "ISO with space"),
+        ("%d.%m.%Y %H:%M:%S", "Russian"),
+        ("%Y/%m/%d %H:%M:%S", "Slash"),
+        ("%Y-%m-%dT%H:%M", "ISO with T (no seconds)"),
+        ("%Y-%m-%d %H:%M", "ISO with space (no seconds)"),
+        ("%d.%m.%Y %H:%M", "Russian (no seconds)"),
+    ]
+
+    for fmt, desc in formats:
+        try:
+            dt = datetime.strptime(dt_clean, fmt)
+            result = dt.strftime("%d.%m.%Y %H:%M:%S")
+            logger.debug(f"Parsed as {desc}: '{result}'")
+            return result
+        except (ValueError, IndexError) as e:
+            logger.debug(f"Failed {desc}: {e}")
+            continue
+
+    # --- Ручной разбор, если strptime не сработал ---
+    parts = dt_clean.split()
+    logger.debug(f"Manual parsing, split into {len(parts)} parts: {parts}")
+
+    # Удаляем возможную временную зону в конце (GMT, UTC и т.п.)
+    if parts and parts[-1] in (
+    'GMT', 'UTC', 'EST', 'PST', 'CEST', 'CET', 'EET', 'EEST', 'MSK'):
+        parts = parts[:-1]
+        logger.debug(f"Removed timezone, parts now: {parts}")
+
+    if len(parts) >= 5:
+        # Ищем компоненты: число, месяц, год, время
+        day = None
+        month_abbr = None
+        year = None
+        time_str = None
+
+        for part in parts:
+            # Год (4 цифры)
+            if part.isdigit() and len(part) == 4:
+                year = part
+            # Число (1-2 цифры, возможно с запятой в конце, но мы уже разделили)
+            elif part.isdigit() and len(part) <= 2:
+                day = part.zfill(2)
+            # Время (содержит двоеточия)
+            elif ':' in part:
+                time_str = part
+            # Месяц (3 буквы)
+            elif part.isalpha() and len(part) == 3:
+                month_abbr = part
+
+        if day and month_abbr and year and time_str:
+            months = {
+                'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04',
+                'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08',
+                'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+            }
+            if month_abbr in months:
+                month = months[month_abbr]
+                result = f"{day}.{month}.{year} {time_str}"
+                logger.debug(f"Manual parse succeeded: '{result}'")
+                return result
+            else:
+                logger.debug(f"Unknown month abbreviation: '{month_abbr}'")
+        else:
+            logger.debug(
+                f"Could not identify all components: day={day}, month={month_abbr}, year={year}, time={time_str}")
+
+    # Если ничего не помогло, возвращаем исходную строку (обрезанную)
+    logger.debug(f"All parsing failed, returning truncated: '{dt_str[:19]}'")
+    return dt_str[:19]
 
 
 def log_method_call(func):
@@ -142,8 +246,8 @@ class FileSystemItem:
     """Internal tree item for file browser with lazy loading."""
 
     __slots__ = (
-    'parent', 'file_info', 'children', 'is_loaded', 'is_placeholder',
-    '_path_cache', '_name_cache', '_row_cache', '_deleted')
+        'parent', 'file_info', 'children', 'is_loaded', 'is_placeholder',
+        '_path_cache', '_name_cache', '_row_cache', '_deleted')
 
     def __init__(self, parent: Optional['FileSystemItem'] = None,
                  file_info: Optional[FileInfo] = None,
@@ -732,7 +836,8 @@ class FileBrowserModel(QAbstractItemModel):
                 elif col == 2:
                     return "Папка" if item.file_info.isdir else "Файл"
                 elif col == 3:
-                    return item.file_info.modified or ""
+                    # Форматируем дату
+                    return format_datetime(item.file_info.modified)
 
             elif role == Qt.DecorationRole and col == 0:
                 if item.is_placeholder or not item.file_info:
@@ -749,7 +854,7 @@ class FileBrowserModel(QAbstractItemModel):
                 return (f"Имя: {item.file_info.name}\n"
                         f"Путь: {item.file_info.path}\n"
                         f"Размер: {format_size(item.file_info.size) if not item.file_info.isdir else 'Папка'}\n"
-                        f"Изменен: {item.file_info.modified or 'Неизвестно'}")
+                        f"Изменен: {format_datetime(item.file_info.modified)}")
 
         except Exception as e:
             logger.exception(f"Error getting data for index {index}: {e}")
@@ -845,6 +950,75 @@ class FileBrowserModel(QAbstractItemModel):
         logger.info("Cleared all caches")
         self.layoutChanged.emit()
 
+    def sort(self, column: int, order: Qt.SortOrder = Qt.AscendingOrder):
+        """Sort the model by given column and order."""
+        logger.info(f"Sorting by column {column}, order: {order}")
+
+        if not self.root_item or self.root_item._deleted:
+            return
+
+        # Сохраняем текущее состояние
+        self.layoutAboutToBeChanged.emit()
+
+        # Функция для получения значения для сортировки
+        def get_sort_key(item: FileSystemItem) -> tuple:
+            if item.is_placeholder:
+                # Placeholders всегда в конце
+                return (1, "") if order == Qt.AscendingOrder else (0, "")
+
+            if not item.file_info:
+                return (1, "") if order == Qt.AscendingOrder else (0, "")
+
+            # Получаем значение для сортировки в зависимости от колонки
+            if column == 0:  # Имя
+                # Директории всегда перед файлами
+                is_dir_sort = 0 if item.isdir else 1
+                return (is_dir_sort, item.name.lower())
+
+            elif column == 1:  # Размер
+                if item.isdir:
+                    # Директории сортируются по имени, но всегда перед файлами
+                    return (0, item.name.lower())
+                else:
+                    # Файлы сортируются по размеру
+                    return (1, item.file_info.size, item.name.lower())
+
+            elif column == 2:  # Тип
+                type_str = "Папка" if item.isdir else "Файл"
+                if item.isdir:
+                    return (0, type_str, item.name.lower())
+                else:
+                    return (1, type_str, item.name.lower())
+
+            elif column == 3:  # Дата
+                if item.isdir:
+                    return (
+                    0, item.file_info.modified or "", item.name.lower())
+                else:
+                    return (
+                    1, item.file_info.modified or "", item.name.lower())
+
+            return (item.name.lower(),)
+
+        # Сортируем детей каждого элемента рекурсивно
+        def sort_item(item: FileSystemItem):
+            if not item or item._deleted:
+                return
+
+            # Сортируем детей текущего элемента
+            if item.children:
+                item.children.sort(key=get_sort_key)
+
+            # Рекурсивно сортируем детей детей
+            for child in item.children:
+                if child and not child._deleted and child.has_children:
+                    sort_item(child)
+
+        # Начинаем сортировку с корня
+        sort_item(self.root_item)
+
+        self.layoutChanged.emit()
+
 
 class FileBrowserView(QTreeView):
     """Tree view for file browser with improved UX."""
@@ -873,13 +1047,15 @@ class FileBrowserView(QTreeView):
         self._is_deleting = False
         self._current_root = "/"
 
+        # Загружаем сохранённые настройки
+        self._load_settings()
+
     def _setup_ui(self):
         """Setup view UI with optimal defaults."""
         # Basic settings
         self.setHeaderHidden(False)
         self.setAlternatingRowColors(True)
-        self.setExpandsOnDoubleClick(
-            False)  # Важно: не раскрывать автоматически
+        self.setExpandsOnDoubleClick(False)
         self.setSelectionBehavior(QTreeView.SelectRows)
         self.setSelectionMode(QTreeView.ExtendedSelection)
         self.setSortingEnabled(True)
@@ -896,7 +1072,7 @@ class FileBrowserView(QTreeView):
         header.setSectionResizeMode(3,
                                     QHeaderView.ResizeToContents)  # Modified
 
-        # Default widths
+        # Default widths (будут перезаписаны загруженными, если есть)
         self.setColumnWidth(0, 300)  # Name
         self.setColumnWidth(1, 80)  # Size
         self.setColumnWidth(2, 100)  # Type
@@ -911,6 +1087,10 @@ class FileBrowserView(QTreeView):
         self.doubleClicked.connect(self._on_double_clicked)
         self.activated.connect(self._on_activated)
 
+        # Подключаем сигнал сортировки
+        header = self.header()
+        header.sectionClicked.connect(self._on_header_clicked)
+
         # Connect model signals
         model = self.model()
         if model:
@@ -918,6 +1098,53 @@ class FileBrowserView(QTreeView):
             model.errorOccurred.connect(self._on_model_error)
             model.directoryLoaded.connect(self._on_directory_loaded)
             model.layoutChanged.connect(self._on_layout_changed)
+
+    def _load_settings(self):
+        """Load saved column widths and sort state from QSettings."""
+        settings = QSettings("YourCompany", "FileBridge")  # Замените на свои
+        # Загружаем ширины колонок
+        width0 = settings.value("filebrowser/column0_width", 300, type=int)
+        width1 = settings.value("filebrowser/column1_width", 80, type=int)
+        width2 = settings.value("filebrowser/column2_width", 100, type=int)
+        width3 = settings.value("filebrowser/column3_width", 150, type=int)
+        self.setColumnWidth(0, width0)
+        self.setColumnWidth(1, width1)
+        self.setColumnWidth(2, width2)
+        self.setColumnWidth(3, width3)
+
+        # Загружаем состояние сортировки
+        sort_column = settings.value("filebrowser/sort_column", -1, type=int)
+        sort_order = settings.value("filebrowser/sort_order",
+                                    Qt.AscendingOrder, type=int)
+        if sort_column >= 0:
+            self.sortByColumn(sort_column, Qt.SortOrder(sort_order))
+
+    def _save_settings(self):
+        """Save column widths and sort state to QSettings."""
+        settings = QSettings("YourCompany", "FileBridge")
+        # Сохраняем ширины колонок
+        settings.setValue("filebrowser/column0_width", self.columnWidth(0))
+        settings.setValue("filebrowser/column1_width", self.columnWidth(1))
+        settings.setValue("filebrowser/column2_width", self.columnWidth(2))
+        settings.setValue("filebrowser/column3_width", self.columnWidth(3))
+
+        # Сохраняем состояние сортировки
+        header = self.header()
+        sort_column = header.sortIndicatorSection()
+        sort_order = header.sortIndicatorOrder()
+        settings.setValue("filebrowser/sort_column", sort_column)
+        settings.setValue("filebrowser/sort_order", int(sort_order))
+
+    def _on_header_clicked(self, logical_index: int):
+        """Handle header click for sorting."""
+        logger.info(f"Header clicked: {logical_index}")
+
+        # Определяем порядок сортировки
+        current_order = self.header().sortIndicatorOrder()
+        new_order = Qt.DescendingOrder if current_order == Qt.AscendingOrder else Qt.AscendingOrder
+
+        # Вызываем сортировку модели
+        self.model().sort(logical_index, new_order)
 
     def _on_directory_loaded(self, path: str):
         """Handle directory loaded in model."""
@@ -1202,10 +1429,3 @@ class FileBrowserView(QTreeView):
             return
 
         super().keyPressEvent(event)
-
-    def closeEvent(self, event):
-        """Handle close event."""
-        logger.info("Closing FileBrowserView")
-        if hasattr(self, 'model') and self.model():
-            self.model().shutdown()
-        super().closeEvent(event)
