@@ -27,7 +27,7 @@
     "proxy_port": 8080,
     "proxy_login": "",
     "proxy_password": "",
-    "encryption_enabled": false,
+    "encryption_enabled": true,
     "auto_refresh": true,
     "refresh_interval": 30,
     "font_size": 9,
