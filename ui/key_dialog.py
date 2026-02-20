@@ -1,17 +1,17 @@
 # ui/key_dialog.py
 """Key management dialog."""
 
-import os
 import json
 import logging
+
+from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QTableWidget,
                              QTableWidgetItem, QPushButton, QHeaderView,
                              QMessageBox, QLineEdit, QFormLayout,
                              QDialogButtonBox, QTextEdit, QLabel)
-from PyQt5.QtCore import Qt, QTimer
 
+from core.encryption import FileEncryptor
 from core.key_manager import KeyManager
-from core.encryption import FileEncryptor, EncryptionKey
 
 logger = logging.getLogger(__name__)
 
@@ -133,12 +133,14 @@ class KeyDialog(QDialog):
             dialog = QDialog(self)
             dialog.setWindowTitle("Экспорт ключа")
             layout = QVBoxLayout(dialog)
-            layout.addWidget(QLabel("Ключ (скопируйте и сохраните в безопасном месте):"))
+            layout.addWidget(QLabel("Ключ (скопируйте и сохраните в "
+                                    "безопасном месте):"))
             text_edit = QTextEdit()
             text_edit.setPlainText(json.dumps(key_data, indent=2))
             text_edit.setReadOnly(True)
             layout.addWidget(text_edit)
-            layout.addWidget(QLabel("Внимание! Ключ виден на экране. Закройте диалог после копирования."))
+            layout.addWidget(QLabel("Внимание! Ключ виден на экране. "
+                                    "Закройте диалог после копирования."))
             buttons = QDialogButtonBox(QDialogButtonBox.Close)
             buttons.rejected.connect(dialog.accept)
             layout.addWidget(buttons)
