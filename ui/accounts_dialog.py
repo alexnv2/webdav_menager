@@ -726,7 +726,8 @@ class AccountsDialog(QDialog):
             if not imported:
                 self._show_error("Импорт не удался",
                                  Exception(
-                                     "Не удалось импортировать ни одного аккаунта"))
+                                     "Не удалось импортировать ни одного "
+                                     "аккаунта"))
                 return
 
             if reply == QMessageBox.Yes:
@@ -742,7 +743,8 @@ class AccountsDialog(QDialog):
             self._refresh_table()
             self.accountsChanged.emit()
 
-            success_msg = f"Успешно импортировано {len(imported)} аккаунтов (импортированные {action_msg})"
+            success_msg = (f"Успешно импортировано {len(imported)} аккаунтов "
+                           f"(импортированные {action_msg})")
             if errors:
                 success_msg += f"\n\nОшибки при импорте {len(errors)} аккаунтов:\n" + "\n".join(
                     errors[:5])
