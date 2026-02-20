@@ -34,17 +34,22 @@ class RestoreDialog(QDialog):
         title = QLabel("Восстановление мастер-ключа из резервной копии")
         title.setAlignment(Qt.AlignCenter)
         title.setWordWrap(True)
-        title.setStyleSheet("font-size: 16px; font-weight: bold; color: #4CAF50; margin-bottom: 5px;")
+        title.setStyleSheet(
+            "font-size: 16px; font-weight: bold; color: #4CAF50; "
+            "margin-bottom: 5px;")
         layout.addWidget(title)
 
         # Info
         info = QLabel(
             "Используйте этот диалог, если вы забыли мастер-пароль.\n"
-            "Вам потребуется файл резервной копии мастер-ключа, который вы создали ранее."
+            "Вам потребуется файл резервной копии мастер-ключа, который вы "
+            "создали ранее."
         )
         info.setWordWrap(True)
         info.setAlignment(Qt.AlignCenter)
-        info.setStyleSheet("color: #666; padding: 8px; background-color: #f5f5f5; border-radius: 5px; font-size: 11px;")
+        info.setStyleSheet(
+            "color: #666; padding: 8px; background-color: #f5f5f5; "
+            "border-radius: 5px; font-size: 11px;")
         layout.addWidget(info)
 
         # Backup file selection
@@ -53,7 +58,8 @@ class RestoreDialog(QDialog):
 
         file_layout = QHBoxLayout()
         self.file_path_edit = QLineEdit()
-        self.file_path_edit.setPlaceholderText("Выберите файл резервной копии...")
+        self.file_path_edit.setPlaceholderText(
+            "Выберите файл резервной копии...")
         self.browse_btn = QPushButton("Обзор...")
         self.browse_btn.clicked.connect(self._browse_backup)
         file_layout.addWidget(self.file_path_edit)
@@ -71,12 +77,14 @@ class RestoreDialog(QDialog):
         layout.addWidget(QLabel("Подтверждение пароля:"))
         self.confirm_password_edit = QLineEdit()
         self.confirm_password_edit.setEchoMode(QLineEdit.Password)
-        self.confirm_password_edit.setPlaceholderText("Подтвердите новый пароль")
+        self.confirm_password_edit.setPlaceholderText(
+            "Подтвердите новый пароль")
         layout.addWidget(self.confirm_password_edit)
 
         # Show password checkbox
         self.show_password_check = QCheckBox("Показать пароли")
-        self.show_password_check.stateChanged.connect(self._toggle_password_visibility)
+        self.show_password_check.stateChanged.connect(
+            self._toggle_password_visibility)
         layout.addWidget(self.show_password_check)
 
         # Password requirements
@@ -87,16 +95,23 @@ class RestoreDialog(QDialog):
             "• Хотя бы одна цифра"
         )
         requirements.setWordWrap(True)
-        requirements.setStyleSheet("color: #666; font-size: 10px; padding: 6px; background-color: #f0f0f0; border-radius: 4px; margin-top: 5px;")
+        requirements.setStyleSheet(
+            "color: #666; font-size: 10px; padding: 6px; background-color: "
+            "#f0f0f0; border-radius: 4px; margin-top: 5px;")
         layout.addWidget(requirements)
 
         # Warning
         warning = QLabel(
-            "⚠️ Внимание! Восстановление ключа перезапишет текущий мастер-ключ.\n"
-            "Убедитесь, что у вас есть резервная копия, и вы действительно хотите продолжить."
+            "⚠️ Внимание! Восстановление ключа перезапишет текущий "
+            "мастер-ключ.\n"
+            "Убедитесь, что у вас есть резервная копия, и вы действительно "
+            "хотите продолжить."
         )
         warning.setWordWrap(True)
-        warning.setStyleSheet("color: #ff6b6b; font-size: 10px; padding: 6px; background-color: #ff6b6b20; border-radius: 4px; margin-top: 8px;")
+        warning.setStyleSheet(
+            "color: #ff6b6b; font-size: 10px; padding: 6px; "
+            "background-color: #ff6b6b20; border-radius: 4px; margin-top: "
+            "8px;")
         layout.addWidget(warning)
 
         # Buttons
@@ -139,10 +154,12 @@ class RestoreDialog(QDialog):
         confirm_password = self.confirm_password_edit.text()
 
         if not backup_file:
-            QMessageBox.warning(self, "Ошибка", "Выберите файл резервной копии")
+            QMessageBox.warning(self, "Ошибка",
+                                "Выберите файл резервной копии")
             return
         if not os.path.exists(backup_file):
-            QMessageBox.warning(self, "Ошибка", "Файл резервной копии не найден")
+            QMessageBox.warning(self, "Ошибка",
+                                "Файл резервной копии не найден")
             return
         if not new_password:
             QMessageBox.warning(self, "Ошибка", "Введите новый пароль")
@@ -151,19 +168,28 @@ class RestoreDialog(QDialog):
             QMessageBox.warning(self, "Ошибка", "Пароли не совпадают")
             return
         if not self._validate_password(new_password):
-            QMessageBox.warning(self, "Ошибка", "Пароль не соответствует требованиям:\n• Минимум 8 символов\n• Хотя бы одна заглавная буква\n• Хотя бы одна цифра")
+            QMessageBox.warning(self, "Ошибка", "Пароль не соответствует "
+                                                "требованиям:\n• Минимум 8 "
+                                                "символов\n• Хотя бы одна "
+                                                "заглавная буква\n• Хотя бы "
+                                                "одна цифра")
             return
 
         reply = QMessageBox.question(self, "Подтверждение",
-            "Восстановление мастер-ключа перезапишет текущий ключ.\nВы уверены, что хотите продолжить?",
-            QMessageBox.Yes | QMessageBox.No)
+                                     "Восстановление мастер-ключа "
+                                     "перезапишет текущий ключ.\nВы"
+                                     "уверены, что хотите продолжить?",
+                                     QMessageBox.Yes | QMessageBox.No)
         if reply != QMessageBox.Yes:
             return
 
-        success, message = self.master_key_manager.restore_from_backup(backup_file, new_password)
+        success, message = self.master_key_manager.restore_from_backup(
+            backup_file, new_password)
         if success:
             QMessageBox.information(self, "Успех",
-                "Мастер-ключ успешно восстановлен!\n\nТеперь вы можете войти в приложение с новым паролем.")
+                                    "Мастер-ключ успешно "
+                                    "восстановлен!\n\nТеперь вы можете войти "
+                                    "в приложение с новым паролем.")
             self.accept()
         else:
             QMessageBox.critical(self, "Ошибка", message)
