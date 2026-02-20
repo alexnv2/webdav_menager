@@ -492,3 +492,1194 @@
 2026-02-20 13:14:26 - core.client - INFO - All operations cancelled
 2026-02-20 13:14:27 - __main__ - INFO - Application exited with code 0
 2026-02-20 13:14:27 - __main__ - INFO - ============================================================
+2026-02-20 13:16:45 - __main__ - INFO - Logging initialized. Log file: C:\Users\grayg\PycharmProjects\webdav_man_ref\logs\webdav_manager.log
+2026-02-20 13:16:45 - __main__ - INFO - ============================================================
+2026-02-20 13:16:45 - __main__ - INFO - Starting WebDAV Manager
+2026-02-20 13:16:45 - __main__ - INFO - ============================================================
+2026-02-20 13:16:45 - __main__ - INFO - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:16:45 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:16:45 - core.config - DEBUG - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:16:45 - core.config - DEBUG - Config file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:16:45 - core.config - DEBUG - Accounts file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:16:45 - core.config - DEBUG - Loaded config from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:16:45 - core.config - DEBUG - Accounts file exists: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json (size: 1548 bytes)
+2026-02-20 13:16:45 - core.config - INFO - Successfully loaded 3 accounts
+2026-02-20 13:16:45 - core.config - INFO - Loaded 3 accounts
+2026-02-20 13:16:45 - core.config - DEBUG - Account names: ['Рабочий', 'Резервный', 'Яндекс рабочий']
+2026-02-20 13:16:45 - core.config - DEBUG - ConfigManager initialized with config dir: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:16:45 - __main__ - INFO - Applied global theme: dark
+2026-02-20 13:16:45 - __main__ - INFO - Master key configured: True
+2026-02-20 13:16:45 - __main__ - INFO - Showing login dialog
+2026-02-20 13:16:57 - ui.login_dialog - INFO - Login successful
+2026-02-20 13:16:57 - __main__ - INFO - Login dialog result: 1
+2026-02-20 13:16:57 - __main__ - INFO - Login successful
+2026-02-20 13:16:57 - __main__ - INFO - Creating main window
+2026-02-20 13:16:57 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-20 13:16:57 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:16:57 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-20 13:16:57 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-20 13:16:57 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-20 13:16:57 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-20 13:16:57 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-20 13:16:57 - utils.icon_helper - WARNING - Icon not found: lock.png
+2026-02-20 13:16:57 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:16:57 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:16:57 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:16:57 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:16:57 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:16:57 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:16:58 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 13:16:58 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 13:16:58 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:16:58 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:16:58 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:16:58 - ui.main_window - DEBUG - Theme applied to file_view: dark
+2026-02-20 13:16:58 - __main__ - INFO - Starting event loop
+2026-02-20 13:16:58 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:16:58 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:16:58 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000002678D74F600>(('/',), {'get_info': True})
+2026-02-20 13:16:58 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:16:59 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:16:59 - core.client - INFO - Received 16 items from /
+2026-02-20 13:16:59 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:16:59 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:16:59 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:16:59 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000002678D74F600>(('/',), {'get_info': True})
+2026-02-20 13:16:59 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:16:59 - core.client - INFO - Received 16 items from /
+2026-02-20 13:16:59 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:17:01 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:17:01 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:17:01 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:17:01 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:17:01 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:17:01 - ui.accounts_dialog - INFO - Loaded 3 accounts
+2026-02-20 13:17:10 - ui.accounts_dialog - ERROR - Error in _add_account: AccountsDialog._add_account() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\accounts_dialog.py", line 34, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AccountsDialog._add_account() takes 1 positional argument but 2 were given
+2026-02-20 13:17:18 - ui.accounts_dialog - ERROR - Error in _add_account: AccountsDialog._add_account() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\accounts_dialog.py", line 34, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AccountsDialog._add_account() takes 1 positional argument but 2 were given
+2026-02-20 13:17:21 - ui.accounts_dialog - ERROR - Error in _edit_account: AccountsDialog._edit_account() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\accounts_dialog.py", line 34, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AccountsDialog._edit_account() takes 1 positional argument but 2 were given
+2026-02-20 13:17:26 - ui.accounts_dialog - ERROR - Error in _duplicate_account: AccountsDialog._duplicate_account() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\accounts_dialog.py", line 34, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AccountsDialog._duplicate_account() takes 1 positional argument but 2 were given
+2026-02-20 13:17:29 - ui.accounts_dialog - ERROR - Error in _test_connection: AccountsDialog._test_connection() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\accounts_dialog.py", line 34, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AccountsDialog._test_connection() takes 1 positional argument but 2 were given
+2026-02-20 13:17:31 - ui.accounts_dialog - ERROR - Error in _export_accounts: AccountsDialog._export_accounts() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\accounts_dialog.py", line 34, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AccountsDialog._export_accounts() takes 1 positional argument but 2 were given
+2026-02-20 13:17:34 - ui.accounts_dialog - ERROR - Error in _import_accounts: AccountsDialog._import_accounts() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\accounts_dialog.py", line 34, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AccountsDialog._import_accounts() takes 1 positional argument but 2 were given
+2026-02-20 13:18:11 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:18:11 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:18:11 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:18:11 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:18:11 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:18:11 - ui.accounts_dialog - INFO - Loaded 3 accounts
+2026-02-20 13:19:43 - core.client - INFO - All operations cancelled
+2026-02-20 13:19:46 - __main__ - INFO - Application exited with code 0
+2026-02-20 13:19:46 - __main__ - INFO - ============================================================
+2026-02-20 13:22:36 - __main__ - INFO - Logging initialized. Log file: C:\Users\grayg\PycharmProjects\webdav_man_ref\logs\webdav_manager.log
+2026-02-20 13:22:36 - __main__ - INFO - ============================================================
+2026-02-20 13:22:36 - __main__ - INFO - Starting WebDAV Manager
+2026-02-20 13:22:36 - __main__ - INFO - ============================================================
+2026-02-20 13:22:36 - __main__ - INFO - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:22:36 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:22:36 - core.config - DEBUG - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:22:36 - core.config - DEBUG - Config file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:22:36 - core.config - DEBUG - Accounts file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:22:36 - core.config - DEBUG - Loaded config from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:22:36 - core.config - DEBUG - Accounts file exists: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json (size: 1548 bytes)
+2026-02-20 13:22:36 - core.config - INFO - Successfully loaded 3 accounts
+2026-02-20 13:22:36 - core.config - INFO - Loaded 3 accounts
+2026-02-20 13:22:36 - core.config - DEBUG - Account names: ['Рабочий', 'Резервный', 'Яндекс рабочий']
+2026-02-20 13:22:36 - core.config - DEBUG - ConfigManager initialized with config dir: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:22:36 - __main__ - INFO - Applied global theme: dark
+2026-02-20 13:22:36 - __main__ - INFO - Master key configured: True
+2026-02-20 13:22:36 - __main__ - INFO - Showing login dialog
+2026-02-20 13:22:43 - ui.login_dialog - INFO - Login successful
+2026-02-20 13:22:43 - __main__ - INFO - Login dialog result: 1
+2026-02-20 13:22:43 - __main__ - INFO - Login successful
+2026-02-20 13:22:44 - __main__ - INFO - Creating main window
+2026-02-20 13:22:44 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-20 13:22:44 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:22:44 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-20 13:22:44 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-20 13:22:44 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-20 13:22:44 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-20 13:22:44 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-20 13:22:44 - utils.icon_helper - WARNING - Icon not found: lock.png
+2026-02-20 13:22:44 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:22:44 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:22:44 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:22:44 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:22:44 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:22:44 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:22:44 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 13:22:44 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 13:22:44 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:22:44 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:22:44 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:22:44 - ui.main_window - DEBUG - Theme applied to file_view: dark
+2026-02-20 13:22:44 - __main__ - INFO - Starting event loop
+2026-02-20 13:22:44 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:22:44 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:22:44 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001ADBFDBF600>(('/',), {'get_info': True})
+2026-02-20 13:22:44 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:22:45 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:22:45 - core.client - INFO - Received 16 items from /
+2026-02-20 13:22:45 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:22:45 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:22:45 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:22:45 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001ADBFDBF600>(('/',), {'get_info': True})
+2026-02-20 13:22:45 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:22:45 - core.client - INFO - Received 16 items from /
+2026-02-20 13:22:46 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:22:46 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:22:46 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:22:46 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:22:46 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:22:46 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:22:46 - ui.accounts_dialog - INFO - Loaded 3 accounts
+2026-02-20 13:23:56 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:23:57 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 328
+2026-02-20 13:25:03 - core.config - INFO - Saving 2 accounts
+2026-02-20 13:25:03 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:25:03 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:25:03 - core.config - INFO - Converted to dict with 2 items
+2026-02-20 13:25:03 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:25:03 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:25:14 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:14 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:14 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:17 - core.config - INFO - Saving 0 accounts
+2026-02-20 13:25:17 - core.config - INFO - Converted to dict with 0 items
+2026-02-20 13:25:17 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:25:17 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:25:28 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:28 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:28 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:31 - core.config - INFO - Saving 0 accounts
+2026-02-20 13:25:31 - core.config - INFO - Converted to dict with 0 items
+2026-02-20 13:25:31 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:25:31 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:25:39 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:39 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:39 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:42 - core.config - INFO - Saving 0 accounts
+2026-02-20 13:25:42 - core.config - INFO - Converted to dict with 0 items
+2026-02-20 13:25:42 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:25:42 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:25:50 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:50 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:50 - ui.accounts_dialog - WARNING - Failed to import account: 'password'
+2026-02-20 13:25:53 - core.config - INFO - Saving 0 accounts
+2026-02-20 13:25:53 - core.config - INFO - Converted to dict with 0 items
+2026-02-20 13:25:53 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:25:53 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:27:34 - core.client - INFO - All operations cancelled
+2026-02-20 13:27:35 - __main__ - INFO - Application exited with code 0
+2026-02-20 13:27:35 - __main__ - INFO - ============================================================
+2026-02-20 13:29:24 - __main__ - INFO - Logging initialized. Log file: C:\Users\grayg\PycharmProjects\webdav_man_ref\logs\webdav_manager.log
+2026-02-20 13:29:24 - __main__ - INFO - ============================================================
+2026-02-20 13:29:24 - __main__ - INFO - Starting WebDAV Manager
+2026-02-20 13:29:24 - __main__ - INFO - ============================================================
+2026-02-20 13:29:24 - __main__ - INFO - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:29:24 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:29:24 - core.config - DEBUG - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:29:24 - core.config - DEBUG - Config file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:29:24 - core.config - DEBUG - Accounts file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:29:24 - core.config - DEBUG - Loaded config from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:29:24 - core.config - DEBUG - Accounts file exists: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json (size: 100 bytes)
+2026-02-20 13:29:24 - core.config - INFO - Successfully loaded 0 accounts
+2026-02-20 13:29:24 - core.config - DEBUG - No accounts loaded
+2026-02-20 13:29:24 - core.config - DEBUG - ConfigManager initialized with config dir: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:29:24 - __main__ - INFO - Applied global theme: dark
+2026-02-20 13:29:24 - __main__ - INFO - Master key configured: True
+2026-02-20 13:29:24 - __main__ - INFO - Showing login dialog
+2026-02-20 13:29:33 - ui.login_dialog - INFO - Login successful
+2026-02-20 13:29:33 - __main__ - INFO - Login dialog result: 1
+2026-02-20 13:29:33 - __main__ - INFO - Login successful
+2026-02-20 13:29:33 - __main__ - INFO - Creating main window
+2026-02-20 13:29:33 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-20 13:29:33 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:29:33 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-20 13:29:33 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-20 13:29:33 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-20 13:29:33 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-20 13:29:33 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-20 13:29:33 - utils.icon_helper - WARNING - Icon not found: lock.png
+2026-02-20 13:29:33 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:29:33 - core.config - DEBUG - Accounts is dict with 0 items
+2026-02-20 13:29:33 - core.config - DEBUG - Converted to list with 0 items
+2026-02-20 13:29:33 - ui.main_window - DEBUG - Theme applied to file_view: dark
+2026-02-20 13:29:33 - __main__ - INFO - Starting event loop
+2026-02-20 13:29:36 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:29:36 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:29:36 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:29:36 - core.config - DEBUG - Accounts is dict with 0 items
+2026-02-20 13:29:36 - core.config - DEBUG - Converted to list with 0 items
+2026-02-20 13:29:36 - ui.accounts_dialog - INFO - Loaded 0 accounts
+2026-02-20 13:29:43 - ui.accounts_dialog - INFO - Importing 3 accounts from C:/Users/grayg/PycharmProjects/webdav_man_ref/accounts_backup.json
+2026-02-20 13:29:45 - ui.accounts_dialog - WARNING - Failed to import account 1: Отсутствуют поля: password
+2026-02-20 13:29:45 - ui.accounts_dialog - WARNING - Failed to import account 2: Отсутствуют поля: password
+2026-02-20 13:29:45 - ui.accounts_dialog - WARNING - Failed to import account 3: Отсутствуют поля: password
+2026-02-20 13:31:53 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:31:53 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:31:53 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:31:53 - core.config - DEBUG - Accounts is dict with 0 items
+2026-02-20 13:31:53 - core.config - DEBUG - Converted to list with 0 items
+2026-02-20 13:31:53 - ui.accounts_dialog - INFO - Loaded 0 accounts
+2026-02-20 13:31:57 - core.client - INFO - All operations cancelled
+2026-02-20 13:31:59 - __main__ - INFO - Application exited with code 0
+2026-02-20 13:31:59 - __main__ - INFO - ============================================================
+2026-02-20 13:32:02 - __main__ - INFO - Logging initialized. Log file: C:\Users\grayg\PycharmProjects\webdav_man_ref\logs\webdav_manager.log
+2026-02-20 13:32:02 - __main__ - INFO - ============================================================
+2026-02-20 13:32:02 - __main__ - INFO - Starting WebDAV Manager
+2026-02-20 13:32:02 - __main__ - INFO - ============================================================
+2026-02-20 13:32:02 - __main__ - INFO - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:32:02 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:32:02 - core.config - DEBUG - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:32:02 - core.config - DEBUG - Config file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:32:02 - core.config - DEBUG - Accounts file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:32:02 - core.config - DEBUG - Loaded config from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:32:02 - core.config - DEBUG - Accounts file exists: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json (size: 1784 bytes)
+2026-02-20 13:32:02 - core.config - INFO - Successfully loaded 3 accounts
+2026-02-20 13:32:02 - core.config - INFO - Loaded 3 accounts
+2026-02-20 13:32:02 - core.config - DEBUG - Account names: ['Рабочий', 'Резервный', 'Яндекс рабочий']
+2026-02-20 13:32:02 - core.config - DEBUG - ConfigManager initialized with config dir: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:32:02 - __main__ - INFO - Applied global theme: dark
+2026-02-20 13:32:02 - __main__ - INFO - Master key configured: True
+2026-02-20 13:32:02 - __main__ - INFO - Showing login dialog
+2026-02-20 13:32:09 - ui.login_dialog - INFO - Login successful
+2026-02-20 13:32:09 - __main__ - INFO - Login dialog result: 1
+2026-02-20 13:32:09 - __main__ - INFO - Login successful
+2026-02-20 13:32:09 - __main__ - INFO - Creating main window
+2026-02-20 13:32:09 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-20 13:32:09 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:32:09 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-20 13:32:09 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-20 13:32:09 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-20 13:32:09 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-20 13:32:09 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-20 13:32:09 - utils.icon_helper - WARNING - Icon not found: lock.png
+2026-02-20 13:32:09 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:32:09 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:32:09 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:32:09 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:32:09 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:32:09 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:32:09 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 13:32:09 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 13:32:09 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:32:09 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:32:09 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:32:09 - ui.main_window - DEBUG - Theme applied to file_view: dark
+2026-02-20 13:32:09 - __main__ - INFO - Starting event loop
+2026-02-20 13:32:09 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:32:09 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:32:09 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001EFA902F600>(('/',), {'get_info': True})
+2026-02-20 13:32:09 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:32:10 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:32:10 - core.client - INFO - Received 16 items from /
+2026-02-20 13:32:10 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:32:10 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:32:10 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:32:10 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001EFA902F600>(('/',), {'get_info': True})
+2026-02-20 13:32:10 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:32:10 - core.client - INFO - Received 16 items from /
+2026-02-20 13:32:10 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:32:12 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:32:12 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:32:12 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:32:12 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:32:12 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:32:12 - ui.accounts_dialog - INFO - Loaded 3 accounts
+2026-02-20 13:32:21 - ui.accounts_dialog - INFO - Exported 3 accounts to C:/Users/grayg/PycharmProjects/webdav_man_ref/accounts_backup.json
+2026-02-20 13:34:29 - core.config - INFO - Saving 2 accounts
+2026-02-20 13:34:29 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:34:29 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:34:29 - core.config - INFO - Converted to dict with 2 items
+2026-02-20 13:34:29 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:34:29 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:34:31 - ui.accounts_dialog - INFO - Importing 3 accounts from C:/Users/grayg/PycharmProjects/webdav_man_ref/accounts_backup.json
+2026-02-20 13:34:39 - ui.accounts_dialog - DEBUG - Imported account: Рабочий (was: a8b89566-83d5-403f-a5a3-3e76e2536d61, now: 2574fe66-eff6-4d2c-a6ca-90abc0cae56a)
+2026-02-20 13:34:39 - ui.accounts_dialog - DEBUG - Imported account: Резервный (was: 475dd4a7-1c6f-42ef-831d-cd6298e26568, now: 172057d5-8013-4cd8-bc8a-da36afa255a8)
+2026-02-20 13:34:39 - ui.accounts_dialog - DEBUG - Imported account: Яндекс рабочий (was: 76ae147d-65c0-4759-a92e-627feb680807, now: 6575d5c1-4f3c-4975-a8b8-0c3b858e89d8)
+2026-02-20 13:34:41 - ui.accounts_dialog - INFO - Import completed: 3 success, 0 failed
+2026-02-20 13:34:42 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:34:42 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:34:42 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:34:42 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:34:42 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:34:42 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:34:42 - core.config - INFO - Converted to dict with 3 items
+2026-02-20 13:34:42 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:34:42 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:34:56 - core.config - INFO - Saving 4 accounts
+2026-02-20 13:34:56 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:34:56 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:34:56 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:34:56 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:34:56 - core.config - INFO - Converted to dict with 3 items
+2026-02-20 13:34:56 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:34:56 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:34:59 - core.config - INFO - Saving 3 accounts
+2026-02-20 13:34:59 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:34:59 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:34:59 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:34:59 - core.config - INFO - Converted to dict with 3 items
+2026-02-20 13:34:59 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:34:59 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:34:59 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:34:59 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:34:59 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:34:59 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:34:59 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:34:59 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 13:34:59 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 13:34:59 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:34:59 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:34:59 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:35:00 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:35:00 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:35:00 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001EFA902F600>(('/',), {'get_info': True})
+2026-02-20 13:35:00 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:35:00 - core.config - INFO - Saving 3 accounts
+2026-02-20 13:35:00 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:35:00 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:35:00 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:35:00 - core.config - INFO - Converted to dict with 3 items
+2026-02-20 13:35:00 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:35:00 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:35:00 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:35:00 - core.client - INFO - Received 16 items from /
+2026-02-20 13:35:00 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:35:00 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:35:00 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001EFA902F600>(('/',), {'get_info': True})
+2026-02-20 13:35:00 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:35:00 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:35:00 - core.client - INFO - Received 16 items from /
+2026-02-20 13:35:00 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:35:01 - core.client - INFO - All operations cancelled
+2026-02-20 13:35:03 - __main__ - INFO - Application exited with code 0
+2026-02-20 13:35:03 - __main__ - INFO - ============================================================
+2026-02-20 13:35:05 - __main__ - INFO - Logging initialized. Log file: C:\Users\grayg\PycharmProjects\webdav_man_ref\logs\webdav_manager.log
+2026-02-20 13:35:05 - __main__ - INFO - ============================================================
+2026-02-20 13:35:05 - __main__ - INFO - Starting WebDAV Manager
+2026-02-20 13:35:05 - __main__ - INFO - ============================================================
+2026-02-20 13:35:05 - __main__ - INFO - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:35:05 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:35:05 - core.config - DEBUG - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:35:05 - core.config - DEBUG - Config file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:35:05 - core.config - DEBUG - Accounts file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:35:05 - core.config - DEBUG - Loaded config from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:35:05 - core.config - DEBUG - Accounts file exists: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json (size: 1548 bytes)
+2026-02-20 13:35:05 - core.config - INFO - Successfully loaded 3 accounts
+2026-02-20 13:35:05 - core.config - INFO - Loaded 3 accounts
+2026-02-20 13:35:05 - core.config - DEBUG - Account names: ['Рабочий', 'Резервный', 'Яндекс рабочий']
+2026-02-20 13:35:05 - core.config - DEBUG - ConfigManager initialized with config dir: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:35:05 - __main__ - INFO - Applied global theme: dark
+2026-02-20 13:35:05 - __main__ - INFO - Master key configured: True
+2026-02-20 13:35:05 - __main__ - INFO - Showing login dialog
+2026-02-20 13:35:12 - ui.login_dialog - INFO - Login successful
+2026-02-20 13:35:12 - __main__ - INFO - Login dialog result: 1
+2026-02-20 13:35:12 - __main__ - INFO - Login successful
+2026-02-20 13:35:12 - __main__ - INFO - Creating main window
+2026-02-20 13:35:12 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-20 13:35:12 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:35:12 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-20 13:35:12 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-20 13:35:12 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-20 13:35:12 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-20 13:35:12 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-20 13:35:12 - utils.icon_helper - WARNING - Icon not found: lock.png
+2026-02-20 13:35:12 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:35:12 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:35:12 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:35:12 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:35:12 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:35:12 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:35:13 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 13:35:13 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 13:35:13 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:35:13 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:35:13 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:35:13 - ui.main_window - DEBUG - Theme applied to file_view: dark
+2026-02-20 13:35:13 - __main__ - INFO - Starting event loop
+2026-02-20 13:35:13 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:35:13 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:35:13 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:35:13 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:35:14 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:35:14 - core.client - INFO - Received 16 items from /
+2026-02-20 13:35:14 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:35:14 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:35:14 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:35:14 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:35:14 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:35:14 - core.client - INFO - Received 16 items from /
+2026-02-20 13:35:14 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:35:15 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:35:15 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:35:15 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:35:15 - core.config - DEBUG - Accounts is dict with 3 items
+2026-02-20 13:35:15 - core.config - DEBUG - Converted to list with 3 items
+2026-02-20 13:35:15 - ui.accounts_dialog - INFO - Loaded 3 accounts
+2026-02-20 13:35:34 - core.config - INFO - Saving 4 accounts
+2026-02-20 13:35:34 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:35:34 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:35:34 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:35:34 - core.config - DEBUG - Added account: Яндекс рабочий (копия)
+2026-02-20 13:35:34 - core.config - INFO - Converted to dict with 4 items
+2026-02-20 13:35:34 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:35:34 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:36:51 - core.config - INFO - Saving 4 accounts
+2026-02-20 13:36:51 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:36:51 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:36:51 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:36:51 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:36:51 - core.config - INFO - Converted to dict with 4 items
+2026-02-20 13:36:51 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:36:51 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:36:52 - core.config - INFO - Saving 4 accounts
+2026-02-20 13:36:52 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:36:52 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:36:52 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:36:52 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:36:52 - core.config - INFO - Converted to dict with 4 items
+2026-02-20 13:36:52 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:36:52 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:36:52 - core.config - DEBUG - Accounts is dict with 4 items
+2026-02-20 13:36:52 - core.config - DEBUG - Converted to list with 4 items
+2026-02-20 13:36:52 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:36:52 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:36:52 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:36:52 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:36:52 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:36:52 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:36:52 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:36:53 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:36:53 - core.client - INFO - Received 16 items from /
+2026-02-20 13:36:53 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:36:54 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:36:54 - core.client - INFO - Account set: Яндекс резервный with timeout=30s
+2026-02-20 13:36:54 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.yandex.ru:443
+2026-02-20 13:36:55 - urllib3.connectionpool - DEBUG - https://webdav.yandex.ru:443 "PROPFIND / HTTP/1.1" 207 316
+2026-02-20 13:36:55 - services.cloud_info - INFO - Quota: used=5122545680, available=246163440, total=5368709120
+2026-02-20 13:36:55 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:36:55 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:36:55 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:36:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.yandex.ru:443
+2026-02-20 13:36:56 - urllib3.connectionpool - DEBUG - https://webdav.yandex.ru:443 "PROPFIND / HTTP/1.1" 207 None
+2026-02-20 13:36:56 - core.client - INFO - Received 40 items from /
+2026-02-20 13:36:56 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:37:26 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:37:26 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:37:26 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:37:26 - core.config - DEBUG - Accounts is dict with 4 items
+2026-02-20 13:37:26 - core.config - DEBUG - Converted to list with 4 items
+2026-02-20 13:37:26 - ui.accounts_dialog - INFO - Loaded 4 accounts
+2026-02-20 13:38:15 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:38:15 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:38:15 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:38:15 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:38:15 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:38:15 - core.config - DEBUG - Added account: Резервный (копия)
+2026-02-20 13:38:15 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:38:15 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:38:15 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:39:01 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Базовый
+2026-02-20 13:39:01 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:39:01 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:39:01 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:39:01 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:39:01 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:39:01 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:39:01 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:39:01 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:39:01 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:39:01 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:39:01 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:39:01 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:39:01 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:39:01 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:39:01 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:39:01 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:39:01 - core.config - DEBUG - Added account: Базовый
+2026-02-20 13:39:01 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:39:01 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:39:01 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:39:01 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:39:01 - core.client - INFO - Received 16 items from /
+2026-02-20 13:39:01 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:39:01 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:39:01 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:39:01 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:39:02 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:39:02 - core.client - INFO - Received 16 items from /
+2026-02-20 13:39:02 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:39:04 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:39:04 - core.client - INFO - Account set: Базовый with timeout=30s
+2026-02-20 13:39:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:39:05 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:39:05 - services.cloud_info - WARNING - Unexpected response code: 403
+2026-02-20 13:39:05 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:39:05 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:39:05 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:39:05 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:39:05 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:39:05 - core.client - WARNING - list attempt 1 failed: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:05 - core.client - INFO - Waiting 2s before retry...
+2026-02-20 13:39:07 - core.client - INFO - Executing list (attempt 2/3)
+2026-02-20 13:39:07 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:39:07 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:39:07 - core.client - WARNING - list attempt 2 failed: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:07 - core.client - INFO - Waiting 4s before retry...
+2026-02-20 13:39:11 - core.client - INFO - Executing list (attempt 3/3)
+2026-02-20 13:39:11 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:39:12 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:39:12 - core.client - WARNING - list attempt 3 failed: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:12 - core.client - ERROR - All list attempts failed
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 95, in _execute_with_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\.venv\Lib\site-packages\webdav3\client.py", line 78, in _wrapper
+    res = fn(self, *args, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\.venv\Lib\site-packages\webdav3\client.py", line 299, in list
+    response = self.execute_request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\.venv\Lib\site-packages\webdav3\client.py", line 257, in execute_request
+    raise ResponseErrorCode(
+webdav3.exceptions.ResponseErrorCode: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:12 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 33, in load_path
+    files = self.client.list_files_no_cache(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 147, in list_files_no_cache
+    return self.list_files(path, use_cache=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 127, in list_files
+    files = self._execute_with_retry(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 108, in _execute_with_retry
+    raise WebDavException(
+webdav3.exceptions.WebDavException: Ошибка list после 3 попыток: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:12 - ui.file_browser - ERROR - Error loading /: Ошибка list после 3 попыток: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:12 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:39:12 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:39:12 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:39:12 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:39:12 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:39:12 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:39:12 - core.client - WARNING - list attempt 1 failed: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:12 - core.client - INFO - Waiting 2s before retry...
+2026-02-20 13:39:12 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:39:12 - services.cloud_info - WARNING - Unexpected response code: 403
+2026-02-20 13:39:14 - core.client - INFO - Executing list (attempt 2/3)
+2026-02-20 13:39:14 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:39:14 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:39:14 - core.client - WARNING - list attempt 2 failed: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:14 - core.client - INFO - Waiting 4s before retry...
+2026-02-20 13:39:18 - core.client - INFO - Executing list (attempt 3/3)
+2026-02-20 13:39:18 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:39:18 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:39:18 - core.client - WARNING - list attempt 3 failed: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:18 - core.client - ERROR - All list attempts failed
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 95, in _execute_with_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\.venv\Lib\site-packages\webdav3\client.py", line 78, in _wrapper
+    res = fn(self, *args, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\.venv\Lib\site-packages\webdav3\client.py", line 299, in list
+    response = self.execute_request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\.venv\Lib\site-packages\webdav3\client.py", line 257, in execute_request
+    raise ResponseErrorCode(
+webdav3.exceptions.ResponseErrorCode: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:18 - ui.file_browser - ERROR - Error loading /
+Traceback (most recent call last):
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\ui\file_browser.py", line 33, in load_path
+    files = self.client.list_files_no_cache(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 147, in list_files_no_cache
+    return self.list_files(path, use_cache=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 127, in list_files
+    files = self._execute_with_retry(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grayg\PycharmProjects\webdav_man_ref\core\client.py", line 108, in _execute_with_retry
+    raise WebDavException(
+webdav3.exceptions.WebDavException: Ошибка list после 3 попыток: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:18 - ui.file_browser - ERROR - Error loading /: Ошибка list после 3 попыток: Request to https://webdav.cloud.mail.ru/ failed with code 403 and message: b'Wrong credentials'
+2026-02-20 13:39:18 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:39:22 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:39:22 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:39:22 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:39:22 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:39:22 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:39:22 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 13:39:27 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:39:27 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:40:00 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:40:00 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 403 17
+2026-02-20 13:40:00 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:40:00 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:40:00 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:40:00 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:40:00 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:40:00 - core.config - DEBUG - Added account: Базовый
+2026-02-20 13:40:00 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:40:00 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:40:00 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:40:34 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:40:35 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 328
+2026-02-20 13:40:35 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:40:35 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:40:35 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:40:35 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:40:35 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:40:35 - core.config - DEBUG - Added account: Базовый
+2026-02-20 13:40:35 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:40:35 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:40:35 - ui.accounts_dialog - DEBUG - Auto-saved accounts
+2026-02-20 13:40:40 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:40:40 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:40:40 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:40:40 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:40:40 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:40:40 - core.config - DEBUG - Added account: Базовый
+2026-02-20 13:40:40 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:40:40 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:40:40 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:40:40 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:40:40 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:40:40 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:40:40 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:40:40 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:40:40 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 13:40:40 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 13:40:40 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:40:40 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:40:40 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:40:40 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:40:40 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:40:40 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:40:40 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:40:41 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:40:41 - core.client - INFO - Received 16 items from /
+2026-02-20 13:40:41 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:40:41 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:40:41 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:40:41 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:40:41 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:40:41 - core.client - INFO - Received 16 items from /
+2026-02-20 13:40:41 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:40:43 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:40:43 - core.client - INFO - Account set: Базовый with timeout=30s
+2026-02-20 13:40:43 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:40:44 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 354
+2026-02-20 13:40:44 - services.cloud_info - INFO - Quota: used=13081320, available=8576853272, total=8589934592
+2026-02-20 13:40:44 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:40:44 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:40:44 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000001B20D46F600>(('/',), {'get_info': True})
+2026-02-20 13:40:44 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:40:45 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 2475
+2026-02-20 13:40:45 - core.client - INFO - Received 4 items from /
+2026-02-20 13:40:45 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:40:55 - core.client - INFO - All operations cancelled
+2026-02-20 13:40:56 - __main__ - INFO - Application exited with code 0
+2026-02-20 13:40:56 - __main__ - INFO - ============================================================
+2026-02-20 13:46:59 - __main__ - INFO - Logging initialized. Log file: C:\Users\grayg\PycharmProjects\webdav_man_ref\logs\webdav_manager.log
+2026-02-20 13:46:59 - __main__ - INFO - ============================================================
+2026-02-20 13:46:59 - __main__ - INFO - Starting WebDAV Manager
+2026-02-20 13:46:59 - __main__ - INFO - ============================================================
+2026-02-20 13:46:59 - __main__ - INFO - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:46:59 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:46:59 - core.config - DEBUG - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:46:59 - core.config - DEBUG - Config file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:46:59 - core.config - DEBUG - Accounts file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:46:59 - core.config - DEBUG - Loaded config from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:46:59 - core.config - DEBUG - Accounts file exists: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json (size: 2532 bytes)
+2026-02-20 13:46:59 - core.config - INFO - Successfully loaded 5 accounts
+2026-02-20 13:46:59 - core.config - INFO - Loaded 5 accounts
+2026-02-20 13:46:59 - core.config - DEBUG - Account names: ['Рабочий', 'Резервный', 'Яндекс рабочий', 'Яндекс резервный', 'Базовый']
+2026-02-20 13:46:59 - core.config - DEBUG - ConfigManager initialized with config dir: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:46:59 - __main__ - INFO - Applied global theme: dark
+2026-02-20 13:46:59 - __main__ - INFO - Master key configured: True
+2026-02-20 13:46:59 - __main__ - INFO - Showing login dialog
+2026-02-20 13:47:08 - core.master_key - WARNING - Password verification failed: 
+2026-02-20 13:47:17 - ui.login_dialog - INFO - Login successful
+2026-02-20 13:47:17 - __main__ - INFO - Login dialog result: 1
+2026-02-20 13:47:17 - __main__ - INFO - Login successful
+2026-02-20 13:47:17 - __main__ - INFO - Creating main window
+2026-02-20 13:47:17 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-20 13:47:17 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:47:17 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-20 13:47:17 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-20 13:47:17 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-20 13:47:17 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-20 13:47:17 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-20 13:47:17 - utils.icon_helper - WARNING - Icon not found: lock.png
+2026-02-20 13:47:17 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:47:17 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:47:17 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:47:17 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:47:17 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:47:17 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:47:18 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 13:47:18 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 13:47:18 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:47:18 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:47:18 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:47:18 - ui.main_window - DEBUG - Theme applied to file_view: dark
+2026-02-20 13:47:18 - __main__ - INFO - Starting event loop
+2026-02-20 13:47:18 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:47:18 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:47:18 - webdav3.client - DEBUG - Requesting <function Client.list at 0x00000221B7B2F600>(('/',), {'get_info': True})
+2026-02-20 13:47:18 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:47:19 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:47:19 - core.client - INFO - Received 16 items from /
+2026-02-20 13:47:19 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:47:19 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:47:19 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:47:19 - webdav3.client - DEBUG - Requesting <function Client.list at 0x00000221B7B2F600>(('/',), {'get_info': True})
+2026-02-20 13:47:19 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:47:19 - core.client - INFO - Received 16 items from /
+2026-02-20 13:47:19 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:47:20 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:47:20 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:47:20 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:47:20 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:47:20 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:47:20 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 13:47:48 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:47:48 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:47:48 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:47:48 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:47:48 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:47:48 - core.config - DEBUG - Added account: Базовый
+2026-02-20 13:47:48 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:47:48 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:47:48 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:47:48 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:47:48 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:47:48 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:47:48 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:47:48 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:47:48 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:47:48 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:47:48 - webdav3.client - DEBUG - Requesting <function Client.list at 0x00000221B7B2F600>(('/',), {'get_info': True})
+2026-02-20 13:47:48 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:47:48 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:47:48 - core.client - INFO - Received 16 items from /
+2026-02-20 13:47:48 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:52:22 - core.client - INFO - All operations cancelled
+2026-02-20 13:52:24 - __main__ - INFO - Application exited with code 0
+2026-02-20 13:52:24 - __main__ - INFO - ============================================================
+2026-02-20 13:53:12 - __main__ - INFO - Logging initialized. Log file: C:\Users\grayg\PycharmProjects\webdav_man_ref\logs\webdav_manager.log
+2026-02-20 13:53:12 - __main__ - INFO - ============================================================
+2026-02-20 13:53:12 - __main__ - INFO - Starting WebDAV Manager
+2026-02-20 13:53:12 - __main__ - INFO - ============================================================
+2026-02-20 13:53:12 - __main__ - INFO - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:53:12 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:53:12 - core.config - DEBUG - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:53:12 - core.config - DEBUG - Config file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:53:12 - core.config - DEBUG - Accounts file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:53:12 - core.config - DEBUG - Loaded config from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:53:12 - core.config - DEBUG - Accounts file exists: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json (size: 2532 bytes)
+2026-02-20 13:53:12 - core.config - INFO - Successfully loaded 5 accounts
+2026-02-20 13:53:12 - core.config - INFO - Loaded 5 accounts
+2026-02-20 13:53:12 - core.config - DEBUG - Account names: ['Рабочий', 'Резервный', 'Яндекс рабочий', 'Яндекс резервный', 'Базовый']
+2026-02-20 13:53:12 - core.config - DEBUG - ConfigManager initialized with config dir: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:53:12 - __main__ - INFO - Applied global theme: dark
+2026-02-20 13:53:12 - __main__ - INFO - Master key configured: True
+2026-02-20 13:53:12 - __main__ - INFO - Showing login dialog
+2026-02-20 13:53:21 - ui.login_dialog - INFO - Login successful
+2026-02-20 13:53:21 - __main__ - INFO - Login dialog result: 1
+2026-02-20 13:53:21 - __main__ - INFO - Login successful
+2026-02-20 13:53:21 - __main__ - INFO - Creating main window
+2026-02-20 13:53:21 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-20 13:53:21 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:53:21 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-20 13:53:21 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-20 13:53:21 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-20 13:53:21 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-20 13:53:21 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-20 13:53:21 - utils.icon_helper - WARNING - Icon not found: lock.png
+2026-02-20 13:53:21 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:53:21 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:53:21 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:53:21 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:53:21 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:53:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:53:22 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 13:53:22 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 13:53:22 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:53:22 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:53:22 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:53:22 - ui.main_window - DEBUG - Theme applied to file_view: dark
+2026-02-20 13:53:22 - __main__ - INFO - Starting event loop
+2026-02-20 13:53:22 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:53:22 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:53:22 - webdav3.client - DEBUG - Requesting <function Client.list at 0x00000247737FF600>(('/',), {'get_info': True})
+2026-02-20 13:53:22 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:53:23 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:53:23 - core.client - INFO - Received 16 items from /
+2026-02-20 13:53:23 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:53:23 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:53:23 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:53:23 - webdav3.client - DEBUG - Requesting <function Client.list at 0x00000247737FF600>(('/',), {'get_info': True})
+2026-02-20 13:53:23 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:53:23 - core.client - INFO - Received 16 items from /
+2026-02-20 13:53:23 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:53:24 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:53:24 - ui.accounts_dialog - WARNING - Failed to save column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 13:53:24 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:53:24 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:53:24 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:53:24 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:53:24 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 13:53:24 - ui.accounts_dialog - WARNING - Failed to load column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 13:56:10 - __main__ - INFO - Logging initialized. Log file: C:\Users\grayg\PycharmProjects\webdav_man_ref\logs\webdav_manager.log
+2026-02-20 13:56:10 - __main__ - INFO - ============================================================
+2026-02-20 13:56:10 - __main__ - INFO - Starting WebDAV Manager
+2026-02-20 13:56:10 - __main__ - INFO - ============================================================
+2026-02-20 13:56:10 - __main__ - INFO - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:56:10 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:56:10 - core.config - DEBUG - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:56:10 - core.config - DEBUG - Config file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:56:10 - core.config - DEBUG - Accounts file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:56:10 - core.config - DEBUG - Loaded config from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 13:56:10 - core.config - DEBUG - Accounts file exists: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json (size: 2532 bytes)
+2026-02-20 13:56:10 - core.config - INFO - Successfully loaded 5 accounts
+2026-02-20 13:56:10 - core.config - INFO - Loaded 5 accounts
+2026-02-20 13:56:10 - core.config - DEBUG - Account names: ['Рабочий', 'Резервный', 'Яндекс рабочий', 'Яндекс резервный', 'Базовый']
+2026-02-20 13:56:10 - core.config - DEBUG - ConfigManager initialized with config dir: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 13:56:10 - __main__ - INFO - Applied global theme: dark
+2026-02-20 13:56:10 - __main__ - INFO - Master key configured: True
+2026-02-20 13:56:10 - __main__ - INFO - Showing login dialog
+2026-02-20 13:56:16 - ui.login_dialog - INFO - Login successful
+2026-02-20 13:56:16 - __main__ - INFO - Login dialog result: 1
+2026-02-20 13:56:16 - __main__ - INFO - Login successful
+2026-02-20 13:56:16 - __main__ - INFO - Creating main window
+2026-02-20 13:56:16 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-20 13:56:16 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 13:56:16 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-20 13:56:16 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-20 13:56:16 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-20 13:56:16 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-20 13:56:16 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-20 13:56:16 - utils.icon_helper - WARNING - Icon not found: lock.png
+2026-02-20 13:56:16 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:56:16 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:56:16 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:56:16 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:56:16 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:56:16 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:56:17 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 13:56:17 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 13:56:17 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:56:17 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:56:17 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:56:17 - ui.main_window - DEBUG - Theme applied to file_view: dark
+2026-02-20 13:56:17 - __main__ - INFO - Starting event loop
+2026-02-20 13:56:17 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:56:17 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:56:17 - webdav3.client - DEBUG - Requesting <function Client.list at 0x0000029C6D00F600>(('/',), {'get_info': True})
+2026-02-20 13:56:17 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:56:18 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:56:18 - core.client - INFO - Received 16 items from /
+2026-02-20 13:56:18 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:56:18 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:56:18 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:56:18 - webdav3.client - DEBUG - Requesting <function Client.list at 0x0000029C6D00F600>(('/',), {'get_info': True})
+2026-02-20 13:56:18 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:56:18 - core.client - INFO - Received 16 items from /
+2026-02-20 13:56:18 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:56:20 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:56:20 - ui.accounts_dialog - WARNING - Failed to save column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 13:56:20 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:56:20 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:56:20 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:56:20 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:56:20 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 13:56:20 - ui.accounts_dialog - WARNING - Failed to load column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 13:56:29 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:56:29 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:56:29 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:56:29 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:56:29 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:56:29 - core.config - DEBUG - Added account: Базовый
+2026-02-20 13:56:29 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:56:29 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:56:29 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:56:29 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:56:29 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:56:29 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:56:29 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:56:29 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:56:29 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:56:29 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:56:29 - webdav3.client - DEBUG - Requesting <function Client.list at 0x0000029C6D00F600>(('/',), {'get_info': True})
+2026-02-20 13:56:29 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:56:29 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:56:29 - core.client - INFO - Received 16 items from /
+2026-02-20 13:56:29 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:57:21 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:57:21 - ui.accounts_dialog - WARNING - Failed to save column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 13:57:21 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:57:21 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:57:21 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:57:21 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:57:21 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 13:57:21 - ui.accounts_dialog - WARNING - Failed to load column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 13:57:27 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:57:27 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:57:27 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:57:27 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:57:27 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:57:27 - core.config - DEBUG - Added account: Базовый
+2026-02-20 13:57:27 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:57:27 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:57:27 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:57:27 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:57:27 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:57:27 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:57:27 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:57:27 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:57:28 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:57:28 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:57:28 - webdav3.client - DEBUG - Requesting <function Client.list at 0x0000029C6D00F600>(('/',), {'get_info': True})
+2026-02-20 13:57:28 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:57:28 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:57:28 - core.client - INFO - Received 16 items from /
+2026-02-20 13:57:28 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:57:29 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 13:57:29 - ui.accounts_dialog - WARNING - Failed to save column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 13:57:29 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 13:57:29 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:57:29 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:57:29 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:57:29 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 13:57:29 - ui.accounts_dialog - WARNING - Failed to load column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 13:57:33 - core.config - INFO - Saving 5 accounts
+2026-02-20 13:57:33 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 13:57:33 - core.config - DEBUG - Added account: Резервный
+2026-02-20 13:57:33 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 13:57:33 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 13:57:33 - core.config - DEBUG - Added account: Базовый
+2026-02-20 13:57:33 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 13:57:33 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 13:57:33 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 13:57:33 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 13:57:33 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 13:57:33 - core.cache - DEBUG - Cache cleared
+2026-02-20 13:57:33 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 13:57:33 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 13:57:33 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 13:57:33 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 13:57:33 - webdav3.client - DEBUG - Requesting <function Client.list at 0x0000029C6D00F600>(('/',), {'get_info': True})
+2026-02-20 13:57:33 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 13:57:34 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 13:57:34 - core.client - INFO - Received 16 items from /
+2026-02-20 13:57:34 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 13:57:38 - core.client - INFO - All operations cancelled
+2026-02-20 13:57:39 - __main__ - INFO - Application exited with code 0
+2026-02-20 13:57:39 - __main__ - INFO - ============================================================
+2026-02-20 14:03:12 - __main__ - INFO - Logging initialized. Log file: C:\Users\grayg\PycharmProjects\webdav_man_ref\logs\webdav_manager.log
+2026-02-20 14:03:12 - __main__ - INFO - ============================================================
+2026-02-20 14:03:12 - __main__ - INFO - Starting WebDAV Manager
+2026-02-20 14:03:12 - __main__ - INFO - ============================================================
+2026-02-20 14:03:12 - __main__ - INFO - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 14:03:12 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 14:03:12 - core.config - DEBUG - Config directory: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 14:03:12 - core.config - DEBUG - Config file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 14:03:12 - core.config - DEBUG - Accounts file: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 14:03:12 - core.config - DEBUG - Loaded config from C:\Users\grayg\PycharmProjects\webdav_man_ref\config\settings.json
+2026-02-20 14:03:12 - core.config - DEBUG - Accounts file exists: C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json (size: 2532 bytes)
+2026-02-20 14:03:12 - core.config - INFO - Successfully loaded 5 accounts
+2026-02-20 14:03:12 - core.config - INFO - Loaded 5 accounts
+2026-02-20 14:03:12 - core.config - DEBUG - Account names: ['Рабочий', 'Резервный', 'Яндекс рабочий', 'Яндекс резервный', 'Базовый']
+2026-02-20 14:03:12 - core.config - DEBUG - ConfigManager initialized with config dir: C:\Users\grayg\PycharmProjects\webdav_man_ref\config
+2026-02-20 14:03:12 - __main__ - INFO - Applied global theme: dark
+2026-02-20 14:03:12 - __main__ - INFO - Master key configured: True
+2026-02-20 14:03:12 - __main__ - INFO - Showing login dialog
+2026-02-20 14:03:19 - ui.login_dialog - INFO - Login successful
+2026-02-20 14:03:19 - __main__ - INFO - Login dialog result: 1
+2026-02-20 14:03:19 - __main__ - INFO - Login successful
+2026-02-20 14:03:20 - __main__ - INFO - Creating main window
+2026-02-20 14:03:20 - core.client - INFO - WebDAVClient initialized with cache_ttl=300, cache_size=100
+2026-02-20 14:03:20 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\app.ico
+2026-02-20 14:03:20 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\back.png
+2026-02-20 14:03:20 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\forward.png
+2026-02-20 14:03:20 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\up.png
+2026-02-20 14:03:20 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\home.png
+2026-02-20 14:03:20 - utils.icon_helper - DEBUG - Icon found: C:\Users\grayg\PycharmProjects\webdav_man_ref\icons\refresh.png
+2026-02-20 14:03:20 - utils.icon_helper - WARNING - Icon not found: lock.png
+2026-02-20 14:03:20 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 14:03:20 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 14:03:20 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 14:03:20 - core.cache - DEBUG - Cache cleared
+2026-02-20 14:03:20 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 14:03:20 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 14:03:20 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 356
+2026-02-20 14:03:20 - services.cloud_info - INFO - Quota: used=4105295627, available=4484638965, total=8589934592
+2026-02-20 14:03:20 - core.cache - DEBUG - Cache cleared
+2026-02-20 14:03:20 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 14:03:20 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 14:03:20 - ui.main_window - DEBUG - Theme applied to file_view: dark
+2026-02-20 14:03:20 - __main__ - INFO - Starting event loop
+2026-02-20 14:03:20 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 14:03:20 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 14:03:20 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000002D560E9F600>(('/',), {'get_info': True})
+2026-02-20 14:03:20 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 14:03:21 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 14:03:21 - core.client - INFO - Received 16 items from /
+2026-02-20 14:03:21 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 14:03:21 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 14:03:21 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 14:03:21 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000002D560E9F600>(('/',), {'get_info': True})
+2026-02-20 14:03:21 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 14:03:21 - core.client - INFO - Received 16 items from /
+2026-02-20 14:03:22 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 14:03:23 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 14:03:23 - ui.accounts_dialog - WARNING - Failed to save column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 14:03:23 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 14:03:23 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 14:03:23 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 14:03:23 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 14:03:23 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 14:03:23 - ui.accounts_dialog - WARNING - Failed to load column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 14:04:20 - ui.accounts_dialog - INFO - Exported 5 accounts to C:/Users/grayg/PycharmProjects/webdav_man_ref/accounts_backup.json
+2026-02-20 14:04:24 - core.config - INFO - Saving 5 accounts
+2026-02-20 14:04:24 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 14:04:24 - core.config - DEBUG - Added account: Резервный
+2026-02-20 14:04:24 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 14:04:24 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 14:04:24 - core.config - DEBUG - Added account: Базовый
+2026-02-20 14:04:24 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 14:04:24 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 14:04:24 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 14:04:24 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 14:04:24 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 14:04:24 - core.cache - DEBUG - Cache cleared
+2026-02-20 14:04:24 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 14:04:24 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 14:04:24 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 14:04:24 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 14:04:24 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000002D560E9F600>(('/',), {'get_info': True})
+2026-02-20 14:04:24 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 14:04:24 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 14:04:24 - core.client - INFO - Received 16 items from /
+2026-02-20 14:04:24 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 14:05:56 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 14:05:56 - ui.accounts_dialog - WARNING - Failed to save column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 14:05:56 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 14:05:56 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 14:05:56 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 14:05:56 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 14:05:56 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 14:05:56 - ui.accounts_dialog - WARNING - Failed to load column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 14:07:33 - core.config - INFO - Saving 5 accounts
+2026-02-20 14:07:33 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 14:07:33 - core.config - DEBUG - Added account: Резервный
+2026-02-20 14:07:33 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 14:07:33 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 14:07:33 - core.config - DEBUG - Added account: Базовый
+2026-02-20 14:07:33 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 14:07:33 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 14:07:33 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 14:07:33 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 14:07:33 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 14:07:33 - core.cache - DEBUG - Cache cleared
+2026-02-20 14:07:33 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 14:07:33 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 14:07:33 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 14:07:33 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 14:07:33 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000002D560E9F600>(('/',), {'get_info': True})
+2026-02-20 14:07:33 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 14:07:34 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 14:07:34 - core.client - INFO - Received 16 items from /
+2026-02-20 14:07:34 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 14:07:36 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 14:07:36 - ui.accounts_dialog - WARNING - Failed to save column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 14:07:36 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 14:07:36 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 14:07:36 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 14:07:36 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 14:07:36 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 14:07:36 - ui.accounts_dialog - WARNING - Failed to load column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 14:07:41 - ui.main_window - INFO - Opening accounts dialog
+2026-02-20 14:07:41 - ui.accounts_dialog - WARNING - Failed to save column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 14:07:41 - ui.accounts_dialog - INFO - Loading accounts...
+2026-02-20 14:07:41 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 14:07:41 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 14:07:41 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 14:07:41 - ui.accounts_dialog - INFO - Loaded 5 accounts
+2026-02-20 14:07:41 - ui.accounts_dialog - WARNING - Failed to load column widths: 'ConfigManager' object has no attribute 'get_settings'
+2026-02-20 14:07:44 - core.config - INFO - Saving 5 accounts
+2026-02-20 14:07:44 - core.config - DEBUG - Added account: Рабочий
+2026-02-20 14:07:44 - core.config - DEBUG - Added account: Резервный
+2026-02-20 14:07:44 - core.config - DEBUG - Added account: Яндекс рабочий
+2026-02-20 14:07:44 - core.config - DEBUG - Added account: Яндекс резервный
+2026-02-20 14:07:44 - core.config - DEBUG - Added account: Базовый
+2026-02-20 14:07:44 - core.config - INFO - Converted to dict with 5 items
+2026-02-20 14:07:44 - core.config - DEBUG - Accounts saved to C:\Users\grayg\PycharmProjects\webdav_man_ref\config\accounts.json
+2026-02-20 14:07:44 - core.config - DEBUG - Loading accounts, current type: <class 'dict'>
+2026-02-20 14:07:44 - core.config - DEBUG - Accounts is dict with 5 items
+2026-02-20 14:07:44 - core.config - DEBUG - Converted to list with 5 items
+2026-02-20 14:07:44 - core.cache - DEBUG - Cache cleared
+2026-02-20 14:07:44 - core.client - INFO - Account set: Рабочий with timeout=30s
+2026-02-20 14:07:44 - services.cloud_info - DEBUG - Using cached quota
+2026-02-20 14:07:44 - ui.file_browser - INFO - Loading directory: / (force=True)
+2026-02-20 14:07:44 - core.client - INFO - Executing list (attempt 1/3)
+2026-02-20 14:07:44 - webdav3.client - DEBUG - Requesting <function Client.list at 0x000002D560E9F600>(('/',), {'get_info': True})
+2026-02-20 14:07:44 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): webdav.cloud.mail.ru:443
+2026-02-20 14:07:44 - urllib3.connectionpool - DEBUG - https://webdav.cloud.mail.ru:443 "PROPFIND / HTTP/1.1" 207 6406
+2026-02-20 14:07:44 - core.client - INFO - Received 16 items from /
+2026-02-20 14:07:44 - ui.main_window - INFO - Directory loaded: /
+2026-02-20 14:07:52 - ui.main_window - INFO - Opening settings dialog
+2026-02-20 14:08:43 - core.client - INFO - All operations cancelled
+2026-02-20 14:08:44 - __main__ - INFO - Application exited with code 0
+2026-02-20 14:08:44 - __main__ - INFO - ============================================================
