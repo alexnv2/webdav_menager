@@ -861,7 +861,8 @@ class MainWindow(QMainWindow):
 
         reply = QMessageBox.question(
             self, "Расшифровка",
-            f"Найдено {len(encrypted_files)} зашифрованных файлов. Расшифровать их?",
+            f"Найдено {len(encrypted_files)} зашифрованных файлов. "
+            f"Расшифровать их?",
             QMessageBox.Yes | QMessageBox.No
         )
 
