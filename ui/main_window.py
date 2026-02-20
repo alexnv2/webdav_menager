@@ -1590,18 +1590,7 @@ class MainWindow(QMainWindow):
     # -------------------------------------------------------------------------
 
     def closeEvent(self, event):
-        """Handle window close."""
-        # Clean up encryption
-        if self.secure_transfer:
-            self.secure_transfer.cleanup()
-
-        # Clean up file model
-        self.file_model.shutdown()
-
-        # Cancel all operations
-        self.client.cancel_all_operations()
-
-        # Confirm exit if enabled
+        # Сначала спрашиваем подтверждение
         if self.config.get_setting("confirm_on_exit", True):
             reply = QMessageBox.question(
                 self, "Подтверждение", "Закрыть приложение?",
@@ -1610,5 +1599,12 @@ class MainWindow(QMainWindow):
             if reply != QMessageBox.Yes:
                 event.ignore()
                 return
+
+        # Только после подтверждения выполняем очистку
+        if self.secure_transfer:
+            self.secure_transfer.cleanup()
+
+        self.file_model.shutdown()
+        self.client.cancel_all_operations()
 
         event.accept()
